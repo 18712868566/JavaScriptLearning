@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        *{margin: 0;padding: 0;}
+        body{height: 3000px;}
+        .btn{display: block;padding: 5px 15p;text-align: center;font-size: 16px;color: red;background: #ccc;width: 120px;height: 30px;line-height: 30px;margin: 20px;}
+        .tc{width: 500px;height: 500px;background: #000;text-align: center;color: #fff;line-height: 500px;position: absolute;}
+        div{display: block;}
+
+    </style>
+</head>
+<body>
+    <a href="javascript:;" class="btn alertMsg"> tips </a>
+</body>
+
+<script src="jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		var div1 = '<div class="tc">我是一个弹窗</div>'
+		$("body").append(div1);
+		
+		var w = $(".tc").outerWidth();
+		var h = $(".tc").outerHeight();
+		
+		var ml = $(window).width().;
+		var mt = $(window).height();
+	});
+</script>
+</html>
+
+<!--
+	
+	 $(function(){
+
+        jQuery('.alertMsg').on('click',function(){
+
+            var div1 = '<div class="tc">我是一个弹窗</div>'
+
+            jQuery('body').append(div1);
+
+            var w = jQuery('.tc').outerWidth(true);
+            var h = jQuery('.tc').outerHeight(true);
+            var ml = w/2;
+            var mt = h/2;
+            jQuery('.tc').css({
+                'margin-left': -(w/2),
+                'margin-top': -(h/2),
+                'position':'absolute',
+                'left':'50%',
+                'top':'50%'
+            });
+
+        });
+
+        $(window).on("resize scroll",function(){
+
+        });
+
+
+    })
+-->

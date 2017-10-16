@@ -1,0 +1,8 @@
+/*
+link和@import的区别:
+http://www.cnblogs.com/zbo/archive/2010/11/17/1879590.html
+ */
+@import url(layout.css);
+@import url(color.css);
+@import url(typography.css);
+

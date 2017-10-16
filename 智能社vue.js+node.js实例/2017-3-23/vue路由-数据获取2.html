@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.js"></script>
+    <script src="bower_components/vue-resource/dist/vue-resource.js"></script>
+    <style>
+        .box{
+            position: absolute;
+            left:0;
+            top:100px;
+            width:320px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <router-link to="/home">主页</router-link>
+            <router-link to="/user">我的</router-link>
+            <router-link to="/news">新闻</router-link>
+        </div>
+        <div>
+            <transition :enter-active-class="enterClass" :leave-active-class="leaveClass">
+                <router-view></router-view>
+            </transition>
+        </div>
+    </div>
+    <script>
+        const Home={
+            template:`
+                <div class="animated box">
+                    <h3>主页</h3>
+                </div>
+            `
+        };
+        const User={
+            template:`
+                <div class="animated box">
+                    <h3>用户 {{$route.params.info}}</h3>
+                </div>
+            `
+        };
+        const News={
+            data(){
+                return {
+                    arr:[1,2,3]
+                }
+            },
+            template:`
+                <div class="animated box">
+                    <h3 ref="h3">新闻 {{$route.params.info}}</h3>
+                    <ul>
+                        <li v-for="(val,index) in arr">{{val}}</li>
+                    </ul>
+                </div>
+            `,
+            created(){
+                this.$http.get('data.data').then(res=>{
+                    console.log(res);
+                },err=>{
+                    console.log(err);
+                })
+            }
+        };
+
+        const routes=[
+            {path:'/home', component:Home},
+            {path:'/user', component:User},
+            {path:'/news', component:News},
+        ];
+
+        const router=new VueRouter({
+            //mode:'history',
+            routes
+        });
+
+        new Vue({
+            el:'#app',
+            data:{
+                enterClass:'slideInLeft',
+                leaveClass:'slideOutRight'
+            },
+            watch:{
+                '$route':function(to,from){
+                    if(to.path=='/user'){
+                        this.enterClass='zoomInLeft';
+                        this.leaveClass='zoomOutRight';
+                    }
+                    if(to.path=='/home'){
+                        this.enterClass='slideInLeft';
+                        this.leaveClass='slideOutRight';
+                    }
+                    if(to.path=='/news'){
+                        this.enterClass='rotateIn';
+                        this.leaveClass='rotateOut';
+                    }
+                }
+            },
+            router,
+            mounted(){
+                //router.push({path:'/home'})
+                router.replace({path:'/home'});
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

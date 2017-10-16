@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<b>6.12寄生式继承</b>
+		<dl>
+			<dd>将twoD对象克隆进一个叫做that的对象,这一步可以使用我们之前所讨论过的任何方法, 这里使用object() 函数或者记性全属性拷贝</dd>
+			<dd>扩展that对象,添加更多属性</dd>
+			<dd>返回that对象</dd>
+		</dl>
+	</body>
+	<script type="text/javascript">
+		
+		function object(o){
+			var n;
+			function F() {};
+			F.prototype =o;
+			n = new F();
+			n.uber = o;
+			return n;
+		}
+		var twoD = {
+			name: '2D shape',
+			dimensions: 2
+		};
+		
+		function triangle(s,h){
+			var that = object(twoD);
+			that.name = 'Triangle';
+			that.getArea = function (){return this.side * this.height/2;};
+			that.side = s;
+			that.height = h;
+			return that;
+		}
+		
+		var t = triangle(5,10);
+		
+		t.dimensions
+		//2
+		var t2=new triangle(5,5)
+		t2.getArea();
+		//12.5
+		
+		//注意这里的that只是一个名字,并不存在与this用法类似的特殊含义
+	</script>
+</html>

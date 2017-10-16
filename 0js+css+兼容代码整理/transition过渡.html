@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{font-size: 14px;color: #000;font-family: "微软雅黑",arial;}
+			pre h1{font-size: 22px;color: red;}
+		</style>
+	</head>
+	<body>
+		
+		<pre>
+			<h1>transition 有四个过渡属性：</h1><br />
+
+			transition-property：规定设置过渡效果的 CSS 属性的名称。<br />
+			transition-duration：规定完成过渡效果需要多少秒。<br />
+			transition-timing-function：规定速度效果的速度曲线。<br />
+			transition-delay：定义过渡效果何时开始。<br />
+			
+			简写语法：transition: property duration timing-function delay;<br />
+			
+			
+			<h1>transition-timing-function</h1><br />
+			
+			描述：规定速度效果的速度曲线。<br />
+			
+			* linear:      规定均速的过渡效果。<br />
+			* ease:        规定先慢后快再慢的过渡效果。<br />
+			* ease-in:     规定先慢后快的过渡效果。<br />
+			* ease-out:    规定以先快后慢过渡效果。<br />
+			* ease-in-out: 规定先慢后快再慢的过渡效果，中间比ease的中间慢。<br />
+			* cubic-bezier(n,n,n,n):   在 cubic-bezier函数中定义自己的值。<br />
+			（实际用到的很少，可以到工具网站中设置值[http://cubic-bezier.com/](http://cubic-bezier.com/)）<br />
+			
+			
+			<h1>多个过渡动画</h1>
+			
+			可以为同一元素的多个属性定义过渡效果，语法：<br />
+			
+			1. 简写模式：<br />
+			transition: width .3s ease-in .2s , height .4s ease-out .3s<br />
+			
+			2. 拆分方式：<br />
+			transition-property:width, height;<br />
+			transition-duration:.3s, .4s;<br />
+			transition-timing-function:ease-in,ease-out;<br />
+			transition-delay:.2s, .3s;<br />
+			
+			一般我们为一个元素设置多个过渡时，可以设置后面的过渡效果延迟于前面的过渡效果几秒后触发。
+			
+			
+			
+			<h1>transition所支持的属 性 </h1>
+				
+			*并不是所有的CSS属性都支持transition，transition需要明确知道，开始状态和结束状态的具体数值，<br />
+			才能计算出中间状态。比如，如果开始或结束的设置是height: auto，页面的自适应宽度，当浏览器改变宽度时，那么就不会产生动画效果。<br />
+			
+			<h1>实际运用需要注意的</h1>
+			
+			* transition不会在页面加载时自动执行动画。它需要事件去触发。我们可以使用CSS的伪元素，比如：hover,也可以使用JS触发事件去执行动画。<br />
+			
+			* transition已经可以很安全地不加浏览器前缀,各大浏览器（包括IE 10）都已经支持无前缀的transition。<br />
+			
+			* 解决webkit浏览器下，transtion造成的闪动问题:  <br />
+			
+			 -webkit-backface-visibility: hidden;（设置进行转换的元素的背面在面对用户时是否可见：隐藏）<br />
+    		-webkit-transform-style: preserve-3d; （设置内嵌的元素在 3D 空间如何呈现：保留 3D ）<br />
+    		* 开启硬件加速,可以使transition运行更加流畅:<br />
+    		body {-webkit-transform:translate3d(0,0,0);}<br />
+		</pre>
+	</body>
+</html>

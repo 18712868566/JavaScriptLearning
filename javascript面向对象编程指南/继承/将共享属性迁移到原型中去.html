@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Shape(){
+			// augment prototype
+			Shape.prototype.name = 'shape';
+			Shape.prototype.toString = function (){ return this.name };
+		}
+		
+		
+		function TwoDShape(){
+			TwoDShape.prototype = new Shape();
+			TwoDShape.prototype.constructor = TwoDShape;
+			
+			TwoDShape.prototype.name = '2D shape';
+		}
+		
+		function Triangle(side,height){
+			this.side = side;
+			this.height = height;
+		}
+		
+		Triangle.prototype = new TwoDShape();
+		Triangle.prototype.constructor = Triangle;
+		
+		Triangle.prototype.name = 'Triangle';
+		Triangle.prototype.getArea = function (){ return this.side*this.height/2 };
+		
+		var my = new Triangle(5,10);
+		console.log(my.getArea());
+		console.log(my.toString());
+		//console.log(my.constructor);
+		//console.log(my.hasOwnProperty('side'));
+	</script>
+</html>

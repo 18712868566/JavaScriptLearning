@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var a = function (){
+			function someSetup(){
+				var setup = 'done';
+				//alert('a');
+			}
+			
+			function actualWork(){
+				alert("Worky-worky");
+			}
+			
+			someSetup();
+			return actualWork;
+		}();
+		//a();
+	</script>
+</html>

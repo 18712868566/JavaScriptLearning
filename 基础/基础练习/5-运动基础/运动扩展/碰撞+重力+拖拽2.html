@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #div1{width: 100px;height: 100px;background: red;position: absolute;cursor: pointer;}
+        div{width: 2px;height: 2px;background: #000;position: absolute;}
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+
+<script type="text/javascript">
+    window.onload = function(){
+
+        var oDiv = document.getElementById('div1');
+
+        oDiv.onmousedown = function(ev){
+
+            var oEvent = ev || window.event;
+            // 鼠标坐标
+            var disX = oEvent.clientX - oDiv.offsetLeft;
+            var disY = oEvent.clientY - oDiv.offsetTop;
+
+
+            document.documentElement.onmousemove = function(ev){
+
+                var oEvent = ev || window.event;
+
+                var l = oEvent.clientX - disX;
+                var t = oEvent.clientY - disY;
+
+                oDiv.style.left = l +'px';
+                oDiv.style.top = t +'px';
+
+                var oDiv2 = document.createElement('div');
+                document.documentElement.appendChild(oDiv2);
+                console.log(oDiv2)
+
+                oDiv2.style.left = l +'px';
+                oDiv2.style.top = t +'px';
+
+                // console.log( oDiv.style.left +'|'+oDiv.style.top)
+                document.title = t+'|'+l;
+            }
+
+            document.documentElement.onmouseup = function(){
+                document.documentElement.onmousemove = null;
+                document.documentElement.onmouseup = null;
+
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        #div1{width: 100px;height: 100px;background: blue;position: absolute;}
+    </style>
+</head>
+<body style="height: 2000px;">
+    <div id="div1"></div>
+</body>
+<script type="text/javascript">
+    // onmousemove : 鼠标移动事件
+    document.onmousemove = function(ev){
+        var oEvent = ev || window.event;
+        var oDiv = document.getElementById('div1');
+        var oScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var oScrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+        var iWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var iHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+        var l = oEvent.clientX + oScrollLeft;
+        var h = oEvent.clientY+oScrollTop;
+
+        // 右边界
+        if (l> iWidth - oDiv.offsetWidth) {
+            // alert('a')
+            return false;
+            // document.onmousemove = null;
+        }
+        // 下边界
+        if (h> iHeight - oDiv.offsetHeight) {
+            return false;
+            // document.onmousemove = null;
+        }
+
+        oDiv.style.left = l + 'px';
+        oDiv.style.top = h + 'px';
+    }
+</script>
+</html>

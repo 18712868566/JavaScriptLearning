@@ -1,0 +1,111 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style type="text/css">
+            #div{width: 200px;height: 200px;background: red;position: absolute;}
+        </style>
+    </head>
+    <body>
+        <div id="div" ></div>
+    </body>
+    <script type="text/javascript">
+
+        function setCookie(name, value, iDay) {
+            var oDate = new Date();
+
+            oDate.setDate(oDate.getDate()+iDay);
+
+            document.cookie = name+'='+value+';expires='+oDate;
+        }
+
+        function getCookie(name) {
+            // arr ==> ['name'='value','passworld'='123456',...]
+            var arr = document.cookie.split('; ');
+            for (var i = 0; i < arr.length; i++) {
+                // arr2 ==> ['name','value']
+                var arr2 = arr[i].split('=');
+
+                if (arr2[0] == name) {
+                    return arr2[1];
+                }
+            }
+            // 没有对应的cookie 时
+            return '';
+        }
+
+        function removeCookie(name) {
+            // 指定前一天就已经过期了, 删除 cookie
+            setCookie(name, '1', -1);
+        }
+
+        window.onload = function(){
+
+            var oDiv = document.getElementById('div');
+            var disX = 0;
+            var disY = 0;
+            // 可视区的宽
+            var iWidth = document.documentElement.clientWidth || document.body.clientWidth;
+            // 可视区的高
+            var iHeight = document.documentElement.clientHeight || document.body.clientHeight;
+            var X = getCookie('x');
+            var Y = getCookie('y')
+            if (X) {
+                oDiv.style.left = X +'px';
+                oDiv.style.top = Y +'px';
+            }
+
+
+
+            oDiv.onmousedown = function(ev){
+                var oEvent = ev || window.event;
+                // 当鼠标按下时, 当前的鼠标坐标 在所在div 中的位置
+                disX = oEvent.clientX - oDiv.offsetLeft;
+                disY = oEvent.clientY - oDiv.offsetTop;
+
+                document.onmousemove = function(ev){
+                    var oEvent = ev || window.event;
+                    var l = oEvent.clientX - disX;
+                    var t = oEvent.clientY - disY;
+
+                    if (l < 0) { l = 0; }
+                    if (l > iWidth - oDiv.offsetWidth) { l = iWidth - oDiv.offsetWidth; }
+                    if (t < 0) { t = 0; }
+                    if (t > iHeight - oDiv.offsetHeight ) { t = iHeight - oDiv.offsetHeight; }
+                    oDiv.style.left = l +'px';
+                    oDiv.style.top = t +'px';
+                };
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+
+                    // 当鼠标抬起的时候记录 div的位置 存入 cookie
+                    setCookie('x', oDiv.offsetLeft, 5);
+                    setCookie('y', oDiv.offsetTop, 5);
+                }
+
+                return false;
+            };
+        }
+
+        /*
+            当鼠标快速移动时,鼠标出去了?
+
+                -->把oDiv 换成 document
+
+            在ff 3.6.19 版本中, 当div是空的时候,第二次拖拽 鼠标指针变化
+
+                --> FF 的默认行为 ---> return false;
+
+            限制div在可视区域内
+
+                --> 判断 上下左右的位置 ,做出限制
+                    上 : 0
+                    左 : 0
+                    右 : 可视区的宽度 - 元素的宽度 = 元素能到右边的最大值 然后 赋值给 变量 l
+                    下 : 同右原理一样宽度 变成 高度
+        */
+    </script>
+    </html>

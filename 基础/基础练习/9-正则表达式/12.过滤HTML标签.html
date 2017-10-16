@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    替换前<br />
+    <textarea>
+        </textarea><br /> 替换后
+    <br />
+    <textarea>
+        </textarea><br />
+    <input type="button" value="确定" id="input1" />
+</body>
+<script>
+    window.onload = function () {
+
+        var aT = document.getElementsByTagName('textarea');
+        var oBtn = document.getElementsByTagName('input')[0];
+
+        // var re = /<\w+>/;        //        html标签过滤</h2>
+        var re = /<[^>]+>/g;  // 匹配从 < 符号开始 中间结束部分不包含 > 的字符多个位置,最有在匹配 >
+        
+        oBtn.onclick = function(){
+            aT[1].value = aT[0].value.replace(re, '');
+        }
+
+    }
+
+</script>
+
+</html>

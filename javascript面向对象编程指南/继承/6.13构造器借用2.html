@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		6.13构造器借用
+		
+		call() 和 apply()
+	</body>
+	<script type="text/javascript">
+		function Shape(id){
+			this.id = id;
+		}
+		
+		Shape.prototype.name = 'shape';
+		Shape.prototype.toString = function (){return this.name;};
+		
+		function Triangle (){
+			Shape.apply(this,arguments);
+		}
+		
+		Triangle.prototype = new Shape();
+		Triangle.prototype.name = 'Triangle';
+		
+		var t = new Triangle(101);
+		t.name
+		//"Triangle"
+		t.id
+		//101
+		t.toString();
+		//"Triangle"
+	</script>	
+</html>

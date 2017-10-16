@@ -1,0 +1,66 @@
+果壳:
+	组件划分
+		功能
+	数据交互
+		vue-resource
+vue init webpack-simple 本地名称
+
+在vue里面引入css:
+	a). 在index.html里面直接link
+	b). 在main.js里面 import 引入
+		需要loader:
+			style-loader  css-loader
+		1). cnpm install css-loader style-loader -D
+		2). 给webpack.config.js,添加配置
+			{
+			      test: /\.css$/,
+			      loader: ['style-loader', 'css-loader']
+			    }
+		3). 重新运行  npm run dev
+
+测试数据:
+	聚合+ bridJson
+
+	http://v.juhe.cn/toutiao/index?type=&key=d54a7ae78f4852d38a3474e87e743a1a
+
+	https://bird.ioliu.cn/v1?url=http://v.juhe.cn/toutiao/index?type=&key=d54a7ae78f4852d38a3474e87e743a1a&callback=abc	不行
+
+	https://bird.ioliu.cn/joke/rand?type=text&callback=show
+
+vue-resource:
+	cnpm install vue-resource -D
+
+UI组件:
+
+	Mint-ui
+	使用:
+	1. npm install mint-ui -S
+	2. import Mint from 'mint-ui';
+	    Vue.use(Mint);
+----------------------------------------
+最后打包:
+	npm run build
+		打包
+			index.html
+			dist/
+				....
+		遇见问题:
+			在index.html里面路径挂， 固定链接
+
+	在开发阶段——统一用模块化开发
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+

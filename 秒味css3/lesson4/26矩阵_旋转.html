@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				margin: 100px auto;
+				background: red;
+				-webkit-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+			}
+			.box:hover{
+				-webkit-transform: matrix(2,0,0,2,0,0);
+				-ms-transform: matrix(2,0,0,2,0,0);
+				-o-transform: matrix(2,0,0,2,0,0);
+				transform: matrix(2,0,0,2,0,0);
+			}
+
+			/*
+			矩阵 和ie下 矩阵  
+				matrix(1,0,0,1,0,0)
+				matrix(a,b,c,d,e,f);
+				progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , M22=1,SizingMethod='auto expand');
+				Matrix( M11= a, M12= c, M21= b , M22=d,SizingMethod='auto expand');
+				
+				ie 不支持 位移 matrix 的 5 6 个参数
+
+				位移:
+				x:e+disX
+				y:f+disY
+				
+				缩放:
+				x轴缩放 a=x*a   c=x*c;
+			    y轴缩放 b=y*b   d=y*d;
+
+			    x轴倾斜: c=Math.tan(xDeg/180*Math.PI)
+				y轴倾斜: b=Math.tan(yDeg/180*Math.PI)
+
+				旋转:
+				a=Math.cos(deg/180*Math.PI); 
+				b=Math.sin(deg/180*Math.PI);
+				c=-Math.sin(deg/180*Math.PI);
+				d=Math.cos(deg/180*Math.PI);
+			*/
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			缩放
+			ie 不支持位移
+		</div>
+	</body>
+	<script>
+		var oBox = document.getElementById('box');
+		oBox.onclick = function () {
+			//alert(Math.tan(30/180*Math.PI))
+			oBox.style.WebkitTransform="matrix(0.87,0.5,-0.5,0.87,0,0)";
+			oBox.style.MozTransform="matrix(0.87,0.5,-0.5,0.87,0,0)";
+			oBox.style.transform="matrix(0.87,0.5,-0.5,0.87,0,0)";
+			oBox.style.filter="progid:DXImageTransform.Microsoft.Matrix( M11= 0.87, M12= -0.5, M21= 0.5 , M22=0.87,SizingMethod='auto expand')";
+			
+			alert(this.offsetWidth);
+		}
+	</script>
+</html>

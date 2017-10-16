@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="example-2">
+			<p v-if="greeting">hello</p>
+		</div>	
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			
+			new Vue({
+				el: '#example-2',
+				data: {
+					greeting: false    //true显示/fale 消失
+				}
+			})
+			
+		};
+	</script>
+</html>

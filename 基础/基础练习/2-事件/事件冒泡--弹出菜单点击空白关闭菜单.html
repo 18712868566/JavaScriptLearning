@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input id="btn1" type="button" name="" value="按钮">
+    <div id="div1" style="width: 100px;height: 150px;background: red;display: none;"></div>
+</body>
+<script type="text/javascript">
+
+    window.onload = function(){
+
+        var oBtn = document.getElementById('btn1');
+        var oDiv = document.getElementById('div1');
+
+        oBtn.onclick = function(ev){
+            var oEvent = ev || window.event;
+            oDiv.style.display = 'block';
+            alert('按钮被点击了!');
+            // 阻止事件冒泡 (向上传递)
+            oEvent.cancelBubble = true;
+            //stopPropagation和cancelBubble的区别
+            // oEvent.stopPropagation();
+
+        }
+
+        // 点击空白关闭
+        document.onclick = function(){
+            oDiv.style.display = 'none';
+            alert('页面被点击了!')
+        }
+    }
+</script>
+</html>

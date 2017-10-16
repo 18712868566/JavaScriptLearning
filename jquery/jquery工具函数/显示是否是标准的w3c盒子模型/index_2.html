@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒模型检测</title>
+		<style type="text/css">
+			body{font-size: 13px;}
+			div{margin: 5px;padding: 10px;border: 1px solid #666;background-color: #EEEEEE;width: 300px;}
+		</style>
+		<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var strTmp = "您打开的页面是:";
+				if ($.support.boxModel) {  //w3c盒子模型
+					strTmp += "w3c盒子模型";
+				} else{   //是IE盒子模型
+					strTmp +="IE盒子模型";
+				}
+				$("#divTip").html(strTmp);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="divTip"></div>
+	</body>
+</html>

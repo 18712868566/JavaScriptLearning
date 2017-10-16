@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<title>李玉刚新专辑《莲花》品鉴邀请函 </title>
+<link rel="stylesheet" href="idangerous.swiper.css" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/css/idangerous.swiper.css">
+<style>
+* {
+	font-family: "microsoft yahei", Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	background: transparent;
+	text-shadow: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-webkit-text-size-adjust: none;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	font-size: 18px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.swiper-container {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	-webkit-perspective: 1200px;
+	-moz-perspective: 1200px;
+	-ms-perspective: 1200px;
+	perspective: 1200px;
+}
+.swiper-wrapper, .swiper-slide {
+	width: 100% !important;
+	height: 100% !important;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+.swiper-slide {
+	position: relative;
+}
+.gray1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("1.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/1.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.gray2 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("2.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/2.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.gray3 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("3.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/3.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.gray4 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("4.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/4.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.gray5 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("5.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/5.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.gray6 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url("7.jpg")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/7.jpg*/;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.setImg {
+	position: absolute;
+	width: 100%;
+	height: auto !important;
+	opacity: 0;
+	top: 0;
+}
+.fadeInLeft{
+	-webkit-animation: fadeInLeft  1s both ;
+}
+@-webkit-keyframes fadeInLeft {
+	0%{-webkit-transform:translateX(-200px); opacity:0;}
+	100%{-webkit-transform:translateX(0px);opacity:1;}
+}
+.fadeInRight{
+	-webkit-animation: fadeInRight 1s  both;
+}
+@-webkit-keyframes fadeInRight {
+	0%{-webkit-transform:translateX(200px); opacity:0;}
+	100%{-webkit-transform:translateX(0px);opacity:1;}
+}
+.fadeInUp{
+	-webkit-animation: fadeInUp 1s both;
+}
+@-webkit-keyframes fadeInUp {
+	0%{-webkit-transform:translateY(200px); opacity:0;}
+	100%{-webkit-transform:translateY(0px);opacity:1;}
+}
+.fadeInDown{
+	-webkit-animation: fadeInDown 1s both;
+}
+@-webkit-keyframes fadeInDown {
+	0%{-webkit-transform:translateY(-200px); opacity:0;}
+	100%{-webkit-transform:translateY(0px);opacity:1;}
+}
+.fadeIn{
+	-webkit-animation: fadeIn 3s both;
+}
+@-webkit-keyframes fadeIn {
+	0%{-webkit-transform:translateY(0px); opacity:0;}
+	100%{-webkit-transform:translateY(0px);opacity:1;}
+}
+.inRot{
+	-webkit-animation: inRot 1.5s infinite;
+}
+@-webkit-keyframes inRot {
+	0%{-webkit-transform:rotate(0deg); opacity:1;}
+	100%{-webkit-transform:rotate(360deg);opacity:1;}
+}
+.inScale{
+	-webkit-animation: inScale 1s infinite;
+	-webkit-transform-origin:52% 74%;
+}
+@-webkit-keyframes inScale {
+	0%{-webkit-transform:scale(1); opacity:1;}
+	100%{-webkit-transform:scale(2);opacity:0;}
+}
+.upBg {
+	position: fixed;
+	left: 50%;
+	margin-left: -0.4em;
+	bottom: 20px;
+	z-index: 3;
+}
+.arrUp {
+	width: 1em !important;
+	z-index: 1;
+	-webkit-animation: arrUp infinite 1.5s ease-in-out;
+}
+ @-webkit-keyframes arrUp {
+ 0%, 30% {
+ -webkit-transform:translateY(5px);
+ opacity: 0;
+}
+ 60% {
+ -webkit-transform:translateY(0px);
+ opacity: 1;
+}
+ 100% {
+ -webkit-transform:translateY(-5px);
+ opacity: 0;
+}
+}
+.player-button {
+	display: block;
+	float: left;
+	width: 25px;
+	height: 25px;
+	background: url("player-button.png")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/player-button.png*/ top center no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+.player-tip {
+	float: left;
+	color:#c6a872;
+	font-size: 11px;
+	line-height: 24px;
+	margin-right: 5px;
+}
+.audio {
+	position: fixed;
+	z-index: 5;
+	right: 10px;
+	opacity: 1;
+	bottom:10px;
+}
+.animation {
+	-webkit-animation: roate 1s linear infinite;
+}
+.playst {
+	background: url("play-start.png")/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/play-start.png*/ top center no-repeat;
+	background-size: auto 100%;
+}
+.rotate {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 75%;
+	bottom: 25%;
+	-webkit-animation: animRotate 1s linear infinite;
+}
+@-webkit-keyframes roate {
+ 0% {
+-webkit-transform: rotate(0deg);
+opacity:1;
+}
+ 100% {
+-webkit-transform: rotate(360deg);
+opacity:1;
+}
+}
+</style>
+</head>
+<body>
+<div id="westarsloading">
+  <link type="text/css" rel="stylesheet" href="loading.css" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/css/loading.css" />
+  <div id="mainld">
+    <div class="spinner">
+      <div class="spinner-container container1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container2">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+      <div class="spinner-container container3">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!--///////////////////////////主体邀请函//////////////////--> 
+  
+</div>
+<div class="swiper-container" id="swiper-container">
+  <div class="swiper-wrapper" id="scene">
+    <div class="swiper-slide">
+      <div class="gray gray1">
+        <img class="setImg" src="1-1.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/1-1.png"><img class="setImg" src="1-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/1-2.png"><img class="setImg" src="1-3.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/1-3.png"><img class="setImg" src="1-4.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/1-4.png">
+      </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="gray gray2"> <img class="setImg" src="2-1.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/2-1.png"><img class="setImg" src="2-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/2-2.png" style="-webkit-transform-origin:48.3% 55.6%;"><img class="setImg" src="2-3.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/2-3.png"><img class="setImg" src="2-4.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/2-4.png"> </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="gray gray3"> <img class="setImg" src="3-1.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/3-1.png"><img class="setImg" src="3-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/3-2.png"> </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="gray gray4"> <img class="setImg" src="4-1.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/4-1.png"> <img class="setImg" src="4-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/4-2.png" style="-webkit-transform-origin:66.8% 89.1%;"> </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="gray gray5"> <img class="setImg" src="5-1.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/5-1.png"><img class="setImg" src="5-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/5-2.png"><img class="setImg" src="6-2.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/6-2.png" style="margin-left:20%;"><img class="setImg" src="6-3.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/6-3.png" style="margin-left:20%;"><img class="setImg" src="6-3.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/6-3.png" style="margin-left:20%;" onclick="javascript:location.href='http://mp.weixin.qq.com/s?__biz=MTM4MDQ2MDYwMQ==&mid=202558551&idx=1&sn=0b198ef4338720fcd5343617dfb229d7#rd'"> </div>
+    </div>
+    <div class="swiper-slide">
+      <div class="gray gray6"> </div>
+    </div>
+  </div>
+</div>
+<div class="upBg"> <img class="arrUp" src="up.png" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/images/up.png"/> </div>
+<div class = "audio" onclick="playOrPaused()">
+  <audio id="audioPlay" loop autoplay="autoplay" style = "display:none;z-index:0;width:1px;height:1px;left:0px;bottom:0px">
+    <source src="weizhan.mp3" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/weizhan.mp3" type="audio/mpeg">
+    Your browser does not support the audio element. </audio>
+  <div class="play-div"> <span class="player-tip">暂停</span>
+    <div class="player-button animation"></div>
+  </div>
+</div>
+<script src="jquery-2.1.1.min.js" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/plugin/jquery-2.1.1.min.js"></script> 
+<script src="idangerous.swiper.min.js" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/js/idangerous.swiper.min.js"></script> 
+<script src="idangerous.swiper.progress.min.js" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/js/idangerous.swiper.progress.min.js"></script> 
+<script src="index.js" tppabs="http://stars.westars.cn/Html/invitationLiyugang2/js/index.js"></script> 
+<script>
+function playOrPaused(){
+    var audio = document.getElementById("audioPlay");
+    if(audio.paused){
+        audio.play();
+    $(".player-button").addClass("animation");
+    $('.player-tip').text('暂停');
+        return;
+    }
+    audio.pause();
+    $(".player-button").removeClass("animation");
+    $('.player-tip').text('播放');
+}
+
+
+function onBridgeReady() { 
+var mainTitle="李玉刚新专辑《莲花》品鉴邀请函", 
+SNSTitle="李玉刚新专辑《莲花》品鉴邀请函，感受李玉刚老师全新音乐境界，且听莲花开。", 
+mainDesc="感受李玉刚老师全新音乐境界，且听莲花开。", 
+mainURL=window.location.href, 
+mainImgUrl= "share.jpg"/*tpa=http://stars.westars.cn/Html/invitationLiyugang2/images/share.jpg*/; 
+
+//转发朋友圈 
+WeixinJSBridge.on("menu:share:timeline", function(e) { 
+var data = { 
+img_url:mainImgUrl, 
+img_width: "120", 
+img_height: "120", 
+link: mainURL, 
+//desc这个属性要加上，虽然不会显示，但是不加暂时会导致无法转发至朋友圈， 
+desc: mainDesc, 
+title: SNSTitle 
+}; 
+WeixinJSBridge.invoke("shareTimeline", data, function(res) { 
+validateShare(res);
+WeixinJSBridge.log(res.err_msg);
+}); 
+}); 
+//同步到微博 
+WeixinJSBridge.on("menu:share:weibo", function() { 
+WeixinJSBridge.invoke("shareWeibo", { 
+"content": mainDesc, 
+"url": mainURL 
+}, function(res) { 
+WeixinJSBridge.log(res.err_msg); 
+}); 
+}); 
+//分享给朋友 
+WeixinJSBridge.on('menu:share:appmessage', function(argv) { 
+WeixinJSBridge.invoke("sendAppMessage", { 
+img_url: mainImgUrl, 
+img_width: "120", 
+img_height: "120", 
+link: mainURL, 
+desc: mainDesc, 
+title: mainTitle 
+}, function(res) { 
+WeixinJSBridge.log(res.err_msg) 
+}); 
+}); 
+}; 
+//执行 
+document.addEventListener('WeixinJSBridgeReady', function() { 
+onBridgeReady(); 
+});
+
+function validateShare(res) { 
+if(res.err_msg != 'send_app_msg:cancel' && res.err_msg != 'share_timeline:cancel') { 
+
+} 
+}
+</script>
+
+<!--统计代码 Start-->
+<script type="text/javascript"> 
+var _paq = _paq || []; 
+_paq.push(['trackPageView']); 
+_paq.push(['enableLinkTracking']); 
+(function() { 
+var u=(("https:" == document.location.protocol) ? "https" : "http") + "://data.westars.cn/"; 
+_paq.push(['setTrackerUrl', u+'piwik.php']); 
+_paq.push(['setSiteId', 1]); 
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; 
+g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s); 
+})(); 
+</script> 
+<noscript><p><img src="piwik.php-idsite=1.gif" tppabs="http://data.westars.cn/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!--统计代码 End-->
+</body>
+</html>

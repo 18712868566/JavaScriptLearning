@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(name, sex){
+        this.name = name;
+        this.sex = sex;
+    }
+
+    Person.prototype.showName = function(){
+        alert(this.name);
+    }
+
+    Person.prototype.showSex = function(){
+        alert(this.sex);
+    }
+
+    function Worker(name, sex, job)
+    {
+        // 继承Person的属性
+        Person.call(this, name, sex);
+
+        this.job = job;
+    }
+
+    // 继承 Person 的方法
+    // 通过原型来继承父级的方法
+    // Worker.prototype=Person.prototype;
+
+    for (var key in Person.prototype) {
+        // 复制原型上的属性和方法 可 for in
+        Worker.prototype[key] = Person.prototype[key];
+    }
+
+    Worker.prototype.showJob = function()
+    {
+        alert(this.job);
+    }
+
+    var w1 = new Person('blue', '男');
+    var w2 = new Worker('leo', '女', '打酱油');
+
+    w1.showName();
+    w1.showSex();
+    // w1.showJob();
+
+    w2.showName();
+    w2.showSex();
+    w2.showJob();
+
+</script>
+</html>

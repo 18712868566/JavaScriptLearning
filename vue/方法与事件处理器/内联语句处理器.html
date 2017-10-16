@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='box'>
+			<button v-on:click='greet'>Greet</button>
+			<button v-on:click='say("hi")'>Say Hi</button>
+			<button v-on:click='say("what")'>Say What</button>
+		</div>
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#box',
+			data: {
+				name: 'Vue.js'
+			},
+			//在 'methpds' 对象中定义方法
+			methods: {
+				greet: function (event){
+					//方法内 this 指向 vm
+					alert('hello ' + this.name + '!')
+					//event 是原生的DOM事件
+					alert(event.target.tagName)
+				},
+				say: function(msg){
+					alert(msg)
+				}
+			}
+		})
+		
+		//vm.greet();
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for='value in todos'>{{ value.text }}</li>
+			</ul>
+		</div>	
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			
+			new Vue({
+				el: '#box',
+				data: {
+					todos: [
+						{text: 'Learn JavaScript'},
+						{text: 'Learn Vue.js'},
+						{text: 'Build Something Awesome'}
+					]
+				}
+			})
+			
+		};
+	</script>
+</html>

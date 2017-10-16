@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Dog () {this.tail = true;}
+		
+		var benji = new Dog();
+		var rusty = new Dog();
+		
+		Dog.prototype.say = function () {
+			return 'Woof!';
+		}
+		
+		console.log(benji.say())
+		
+		console.log(rusty.say())
+		
+		console.log(benji.constructor);
+		
+		console.log(rusty.constructor);
+		
+		console.log(benji.constructor.prototype.constructor)
+		
+		console.log(typeof benji.constructor.prototype.tail)		//undefined
+		
+		Dog.prototype = {paws: 4, hair: true };
+		
+		console.log(typeof benji.paws)								//undefined
+		
+		console.log(benji.say())									//'Woof!'
+		
+		console.log(typeof benji.__proto__.say)						//function
+		
+		console.log(typeof benji.__proto__.paws)					//undefined
+		
+		//page 160 
+		
+		
+	</script>
+</html>
+

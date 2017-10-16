@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>商品评价</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/index.css" / type="text/css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	$(".order_on").on("click",
+	function(){
+		$(".order_on").removeClass("order_off");
+		$(this).addClass("order_off");
+		if($(this).hasClass("qita")){
+			$("#qita").show();
+			$("#wangshang").hide();
+		}
+		else{
+			$("#qita").hide();
+			$("#wangshang").show();
+		}
+	}
+	)
+	$(".pingjia_on").on("click",
+	function(){
+		$(".pingjia_on").removeClass("pingjia_off");
+		$(this).addClass("pingjia_off");
+		if($(this).hasClass("All")){
+			$("#Good").show();
+			$("#Review").show();
+			$("#Bad").show();
+			$("#Photo").show();
+		}
+		if($(this).hasClass("Good")){
+			$("#Good").show();
+			$("#Review").hide();
+			$("#Bad").hide();
+			$("#Photo").hide();
+		}
+		if($(this).hasClass("Review")){
+			$("#Good").hide();
+			$("#Review").show();
+			$("#Bad").hide();
+			$("#Photo").hide();
+		}
+		if($(this).hasClass("Bad")){
+			$("#Good").hide();
+			$("#Review").hide();
+			$("#Bad").show();
+			$("#Photo").hide();
+		}
+		if($(this).hasClass("Photo")){
+			$("#Good").hide();
+			$("#Review").hide();
+			$("#Bad").hide();
+			$("#Photo").show();
+		}
+	})
+})
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<p class="header_title">商品评价</p>
+		</div>
+		<ul id="pingjia-nav">
+			<li style="width:20%;border-left:none ;" class="All pingjia_on  " >
+			<p>全部评价</p>
+			<p >1234</p>
+			</li>
+			<li style="width:20%;" class="Good pingjia_on pingjia_off">
+				<p>好评</p>
+				<p >34</p>
+			</li>
+			<li style="width:20%;" class="Review pingjia_on">
+				<p>中评</p>
+				<p >34</p>
+			</li>
+			<li style="width:20%;" class="Bad pingjia_on ">
+				<p>差评</p>
+				<p >4</p>
+			</li>
+			<li style="width:20%;" class="Photo pingjia_on">
+				<p>有图</p>
+				<p >8</p>	
+				
+			</li>
+		</ul>
+		<div style="display: block;"  id="Good">
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			<div class="PingjiaContest_DP" style="width: 100%;margin-bottom: 3rem;">
+				<div class="pingjia_top">
+					<img style="width: 8%;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+					<div style="position: absolute;top: 0.6rem;left: 2.3rem;" >金***星</div>
+					<div style="position: absolute;top: 0.6rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+				</div>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+					<img style="width: 5%;" src="images/Yshoucang.png" />
+				</div>
+				<ul style="margin-left: 1%;" class="">
+					
+					<li>
+					</li>
+					<li>
+					</li>
+					<li>
+					</li>
+				</ul>
+				<div style="width: 100%; height: 1.4rem; padding: 0.3rem 0.3rem 0.3rem 0.6rem;">
+					<p>购买日期：2015-09-02 13:23:12</p>
+				</div>
+			</div>
+			
+		</div>
+		<div style="display: none;"  id="Review">
+		</div>	
+		<div style="display: none;"  id="Bad">
+		</div>	
+		<div style="display: none;"  id="Photo">
+		</div>	
+		
+</body>
+</html>

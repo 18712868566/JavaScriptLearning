@@ -1,0 +1,63 @@
+//select 浏览器兼容，低版本IE兼容方案
+
+select {
+  /*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+  border: solid 1px #000;
+
+  /*很关键：将默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url(../images/se_down.png) no-repeat  90% center;
+  background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
+
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px;
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+
+在线示例　　http://jsbin.com/yuxame/4/edit
+
+更新： 针对旧版IE的解决方案
+评论中提到 IE8/9并不支持  appearance:none  CSS属性，想要支持的话可能需要非常特殊的方法，参考SF： 我们需要为其添加一个父容器，容器是用来覆盖小箭头的，然后为select添加一个向右的小偏移或者宽度大于父级元素。设置父级的CSS属性为超出部分不可见，即可覆盖即小箭头。然后再为父级容器添加背景图片即可。overflow: hidden并不能隐藏下拉框的显示。
+
+HTML
+
+<div id="parent">
+  <select>
+      <option>what</option>
+      <option>the</option>
+      <option>hell</option>
+  </select>
+</div>
+
+
+CSS
+
+ #parent {
+    background: url('yourimage') no-repeat;
+    width: 100px;
+    height: 30px;
+    overflow: hidden;
+}
+
+#parent select {
+    background: transparent;
+    border: none;
+    padding-left: 10px;
+    width: 120px;
+    height: 100%;
+}
+
+
+演示地址：  http://jsbin.com/yuxame/edit?html,css,output
+
+
+美中不足的是这种方案下拉选项的宽度会比他的父容器宽一点。
+

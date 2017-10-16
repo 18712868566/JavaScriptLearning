@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="Jname"> <br />
+    <input type="text" id="Jiphone"> <br />
+    <input type="text" id="city2"> <br />
+    <a href="javascript:;" id="addJJR"> 提交 </a>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    $(function(){
+        $('#addJJR').click(function(){
+            var re = /^1\d{10}$/;
+            var re2 = /^[\u4e00-\u9fa5a-zA-Z]+$/;
+            
+            if ( $.trim($('#Jname').val())=='' ) {
+                alert('请输入寄件人姓名');
+                return false;
+            }
+
+            if ( !re2.test($.trim($('#Jname').val())) ) {
+                alert('请输入正确的寄件人姓名');
+                return false;
+            }
+
+            if (!re.test($('#Jiphone').val())) {
+                alert('请输入正确的寄件人电话');
+                return false;
+            }
+
+            if ( $.trim($('#city2').val())=='' ) {
+                alert('请选择省/市/区');
+                return false;
+            }
+        });
+    });
+</script>
+</html>

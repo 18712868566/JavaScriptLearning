@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>只继承原型</p>
+	</body>
+	<script type="text/javascript">
+		
+		function Shape (){}
+		Shape.prototype.name = 'shape';
+		Shape.prototype.toString = function (){return this.name;};
+		
+		function TwoDShape (){}
+		TwoDShape.prototype = Shape.prototype;
+		TwoDShape.prototype.constructor = TwoDShape;
+
+		TwoDShape.prototype.name = '2D shape';
+
+		
+		function Triangle (side,height){
+			this.side = side;
+			this.height = height;
+		}
+		Triangle.prototype = TwoDShape.prototype;
+		Triangle.prototype.constructor = Triangle;
+
+		Triangle.prototype.name = 'Triangle';
+		Triangle.prototype.getArea = function (){ return this.side * this.height/2; };
+
+		var my = new Triangle(5,10);
+
+		//console.log(my.getArea());			//25
+		//console.log(my.toString());			//Triangle
+		
+
+
+		var s = new Shape();
+		console.log(s.name)
+		//Triangle 
+		
+		
+	</script>
+</html>

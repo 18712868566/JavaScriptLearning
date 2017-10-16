@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		//每个对象中都会有一个isPrototypeOf方法,这个方法会告诉我们当前对象是否是另一个对象的原型
+		
+		var monkey = {
+			hair : true,
+			feeds : 'bananas',
+			breathes : 'air'
+		}
+		
+		function Human (name){
+			this.name = name;
+		}
+		
+		Human.prototype = monkey;
+		
+		var george = new Human('George');
+		
+		console.log(monkey.isPrototypeOf(george))
+	</script>
+</html>

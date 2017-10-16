@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input id="btn1" type="button" value="提交">
+        <br />
+        <p>过滤前</p>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <br />
+        <p>过滤后</p>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+</body>
+
+<script>
+
+    window.onload = function(){
+        var aText = document.getElementsByTagName('textarea');
+        var oBtn = document.getElementById('btn1')
+        var re = /cnm|草|操|草你大爷|电魂|腾讯|空中网|李学峰|习近平/g;
+
+        oBtn.onclick = function(){
+            
+            aText[1].value = aText[0].value.replace(re,function(str){
+
+                var relute = '';
+                for (var i = 0; i < str.length; i++) {
+                    relute += '*';                    
+                }
+                
+                return relute;
+            })
+
+        }
+    }
+</script>
+</html>

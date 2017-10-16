@@ -1,0 +1,20 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,tr,td {margin:0;padding:0; font-size:12px;} 
+body {margin: 0;padding: 0;font-family:"微软雅黑","宋体", Times, serif, Helvetica, sans-serif;font-size: 12px;font-weight: normal;	position: relative;	_overflow-x: hidden; background: #eee;color: #333; }
+table {border-collapse:collapse;border-spacing:0;} 
+fieldset,img {border:0;margin: 0;padding: 0;} 
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal} 
+caption,th,td{text-align:center} 
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal} 
+* {	margin: 0;	padding: 0;zoom: 1;}
+ul,li,ol {	list-style: none outside; padding: 0;margin: 0;}
+a {	color: #666;outline: none; cursor: pointer;	text-decoration: none;overflow: hidden;}
+a:hover {text-decoration: none;}
+a:focus{outline:none;}
+a,a:link,a img,a:link img{border:none;}
+strong,em,i,b{font-style: normal;}
+*html{ background-image:url(about:blank); background-attachment:fixed; /*解决ie6下 层的闪动*/}
+.disabled { pointer-events: none; }/*点击禁用*/
+.clearfloat:after {clear: both;	content: "";	display: block;	height: 0;	visibility: hidden;}
+.chromeframe{background:#fff9d4;color:#000;padding:10px 0;text-align:center;width:100%;margin:0 auto; min-width:1100px; border-bottom:1px solid #000; font-size:14px;}
+.chromeframe a{ color:red;}
+input{-webkit-appearance: none;}/*ios 下input 默认圆角 初始化*/

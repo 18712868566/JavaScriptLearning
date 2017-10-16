@@ -1,0 +1,103 @@
+<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+
+CDN  目前还是建议下载到本地
+
+BootCDN（国内） : https://cdn.bootcss.com/vue/2.2.2/vue.min.js
+unpkg：https://unpkg.com/vue/dist/vue.js, 会保持和 npm 发布的最新的版本一致。
+cdnjs : https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js
+
+
+
+构造器
+	
+	var vm = new Vue({
+		//选项
+	})
+	
+
+扩展Vue构造器
+	
+	var MyComponent = Vue.extend({
+		//扩展选项
+	})
+	//所有的 'MyComponent' 实例都将以预定义的扩展选项被创建
+
+
+属性和方法
+
+	每个Vue实例都会代理其,data对象里的所有属性:
+	
+		var data = {a: 1}
+		var vm = new Vue({
+			data: data
+		})
+		
+		vm.a === data.a // -> true
+		//设置属性也会影响到原始数据
+		vm.a = 2
+		data.a // -> 2
+		
+		//....反之亦然
+		data.a = 3
+		vm.a // ->3
+		
+	Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的数据属性区分。
+		
+		var data = {a: 1}
+		var vm = new Vue({
+			el: '#example',
+			data: data
+		})
+		
+		vm.$data === data 		// -> true
+		vm.$el === document.getElementById('example')		// -> true
+		//$wathc 是一个实例方法
+		vm.$watch('a',function(newVal,oldVal){
+			//这个回调将在 'vm.a' 改变后调用
+		})
+
+
+实例声明周期
+	
+	Vue 实例在创建时有一系列初始化步骤——例如，它需要建立数据观察，编译模板，创建必要的数据绑定。在此过程中，
+	它也将调用一些生命周期钩子，给自定义逻辑提供运行机会。
+	
+		var vm = new Vue({
+			data: {
+				a: 1
+			},
+			created: function(){
+				// 'this' 指向 vm 实例
+				console.log('a is' + this.a)
+			}
+		})
+		// -> ' a is 1 '
+
+#数据绑定语法
+		插值:	
+			-文本 数据绑定最基础的形式是文本插值，使用 “Mustache” 语法（双大括号）：
+						
+				<span>Message: {{msg}}</span>
+				//单次插入,今后数据变化,就不会在引起插值更新了
+				<span>Message: {{* msg}}</span>
+	
+			-原始的HTML 双 Mustache 标签将数据解析为纯文本而不是 HTML。为了输出真的 HTML 字符串，需要用三 Mustache 标签：
+				
+				<div>{{{ raw_html }}}</div>
+
+			-v-bind 缩写
+				<!-- 完整语法 -->
+				<a v-bind:href="url"></a>
+				<!-- 缩写 -->
+				<a :href="url"></a>
+				<!-- 完整语法 -->
+				<button v-bind:disabled="someDynamicCondition">Button</button>
+				<!-- 缩写 -->
+				<button :disabled="someDynamicCondition">Button</button>
+				
+			-v-on 缩写
+			
+				<!-- 完整语法 -->
+				<a v-on:click="doSomething"></a>
+				<!-- 缩写 -->
+				<a @click="doSomething"></a>

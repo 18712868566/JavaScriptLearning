@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript图片库</title>
+</head>
+<body>
+    <h1>Snapshots</h1>
+    <ul>
+        <li><a href="images/yfjl1.png" title="Choose an image.">fireworks</a></li>
+        <li><a href="images/yfjl2.png" title="a 02">coffee</a></li>
+        <li><a href="images/yfjl3.jpg" title="a 03">rose</a></li>
+        <li><a href="images/yfjl4.jpg" title="a 04">big</a></li>
+    </ul>
+
+    <img src="images/yfjl1.png" alt="my image gallery" id="placeholder">
+    <p id="description">Choose an image.</p>
+</body>
+
+<script type="text/javascript">
+    window.onload = function(){
+        var iLink = document.getElementsByTagName('a');
+        var oImg = document.getElementById('placeholder');
+        var description = document.getElementById('description');
+
+        for (var i = 0; i < iLink.length; i++) {
+            iLink[i].onclick = function(){
+                var url = this.getAttribute('href');
+                var tit = this.getAttribute('title');
+                oImg.setAttribute('src',url)
+                description.innerHTML = tit;
+                return false;       //这个链接没有被点击
+            }
+        }
+    }
+
+
+    function addLoadEvent(func){
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        }else{
+            window.onload = function(){
+                oldonload();
+                func();
+            }
+        }
+
+    }
+
+</script>
+
+
+
+<!--
+
+在网页加载完毕之后想让一个函数立即执行
+
+window.onload = function name
+
+// 为什么在 window.onload 之后绑定一个匿名函数
+// 当页面加载完成之后.   立即执行多个函数
+
+window.onload = function(){
+
+}
+
+
+弹性最佳解决方案
+    不管你打算在页面加载完毕是执行多少个函数
+    addLoadEvent
+        他只有一个参数: 打算在页面加载完毕时执行的函数的名字
+
+
+    addLoadEvent
+        1. 把现有的window.onload事件处理函数的值,存入变量 ondonload
+        2. 如果在这个处理函数上还没有绑定任何函数,就像平时那样把新函数,添加给他
+        3. 如果在这个处理函数上已经绑定了一些函数,就把新函数追加到现有的指令末尾
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

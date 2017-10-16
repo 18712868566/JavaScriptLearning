@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script src="new_ajax.js"></script>
+<script type="text/javascript">
+
+window.onload = function(){
+
+
+    ajax('abc.txt',function(str){
+        console.log(str);
+        document.write(str)
+    },function(status){
+        console.log(status)
+    })
+}
+
+</script>
+</html>

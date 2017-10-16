@@ -1,0 +1,237 @@
+style
+	xxx
+localStorage
+	CDN	内容分发网络
+
+vue-router:  前端路由	SPA
+	https://router.vuejs.org/zh-cn/
+1. 链接
+	<router-link to="/home"></router-link>
+2. 展示
+	<router-view></router-view>
+3. 配置路由
+	const routes=[
+		{path:, component:},
+		{}
+	];
+4. 配置添加到路由
+	const router=new VueRouter({
+		routes
+	})
+5. 路由在vue里面生效
+	new Vue({
+		router
+	})
+---------------------------------
+动态路由:
+	{path:'user/:id'}
+模板里面:
+	{{$route}
+嵌套路由(子路由):
+	{
+		path:'/home',
+		component:Home,
+		children:[
+			{path:'/home/a', component:A}
+		]
+	}
+重定向:
+	{path:'/', redirect:'/home'}
+---------------------------------
+router实例身上方法:
+	router.push({path:'/aaa'})		生成历史记录, 确保在history模式
+	router.replace({path:'/aaa'})		不会
+---------------------------------
+命名视图:
+	<router-view></router-view>		default
+	<router-view name="a"></router-view>
+
+	配置:
+	components:{
+                default:Home,
+                a:User,
+                header:Header
+            }
+---------------------------------
+History 模式:
+	默认 hash 模式
+	路径里面 ‘#’ 去掉，必须使用 History
+
+	必须有服务器支持(localhost)
+
+	mode:'history'
+-----------------------------------------
+路由切换钩子函数:
+	配置给router实例:
+	router.beforeEach((to, from, next) => {  //路由切换之前
+	  // ...
+	})
+
+	router.afterEach(route => {  //路由切换之后
+	  // ...
+	})
+
+	配置具体路由:
+	{
+		path:'/home',
+		component:Home,
+		beforeRouteEnter(to,from,next){ //路由进入
+
+		},
+		beforeRouteUpdate(to,from,next){  //路由更新, 子组件切换
+
+		},
+		beforeRouteLeave(to,from,next){  //路由离开
+
+		} 
+	}
+过渡切换:
+	a). 给每个组件添加进入和离开状态
+		结合animate.css
+	b). 通过js
+		watch:{
+			'$route':{
+				动画形式
+			}
+		}
+-----------------------------------
+路由数据交互:
+	切换路由何时做数据交互:
+		a). 直接数据交互，当前组件里面
+			created()
+		b).放到 mounted里面
+
+	生命周期:
+		created	比mounted早，数据可拿到
+				没法获取页面元素
+		mounted	任何东西都可以使用
+	获取元素
+		<p ref="名字">
+
+		this.$refs.名字
+
+
+	jquery
+	zepto
+	vue-resource
+	axios
+
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=show
+----------------------------------------------------
+组件数据通信:
+	a). props
+	b). this.$emit()
+	     on
+	c). 单一事件
+---------------------------------------
+vuex	管理状态， 解决大项目里面组件数据之间通信
+	http://vuex.vuejs.org/
+const state={
+
+};
+
+const mutations={
+
+};
+
+const actions={
+
+};
+
+const store=new Vuex.Store({
+	state,
+	mutations,
+	actions
+})
+
+new Vue({
+	store
+})
+------------------------------------
+vue:
+	基本语法
+	交互
+	路由——vue-router
+	vuex
+------------------------------------
+脚手架——自动帮你创建项目结构，环境配置
+
+vue-cli:
+
+	vue-loader
+
+	http://vue-loader.vuejs.org/
+
+	.css
+	.js
+	.html
+
+	.vue
+使用流程:
+1. 安装vue命令环境
+	npm install vue-cli -g
+
+	验证环境是否ok?
+		vue --version
+2. 生成项目
+	vue init 项目模板 项目名称
+
+	项目模板:
+		webpack		比较全，测试
+		webpack-simple	基本开发	√
+3. 运行项目
+	cd vue-project
+     	npm install
+     	npm run dev	
+------------------------------------
+.vue	文件结尾， 就是一个组件
+	<template>
+		html代码
+	</template>
+	<style>
+		css
+	</style>
+	<script>
+		js
+	</script>
+
+样式只需要让本组件生效?
+	<style scoped>
+------------------------------------
+vue-cli:
+	vue-router
+	vue-resource
+
+	https://bird.ioliu.cn/joke/rand?type=text&callback=aaa
+
+果壳页面:
+	组装组件
+
+
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

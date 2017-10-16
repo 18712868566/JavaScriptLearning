@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{width: 100px;height: 100px;padding: 100px;margin: 100px auto 0;position: relative;border: 10px solid #000;
+			transform-style: preserve-3d;
+			perspective: 100px;
+			}
+			.box{width: 100px;height: 100px;position: absolute;text-align: center;line-height: 100px;font: 100px/100px arial;color: #000;
+			-webkit-transition: 1s;
+			-moz-transition: 1s;
+			-ms-transition: 1s;
+			-o-transition: 1s;
+			transition: 1s;
+			}
+			.box:nth-of-type(1){top: 0;left: 100px;background: red;}
+			.box:nth-of-type(2){top: 100px;left: 0px;background: pink;}
+			.box:nth-of-type(3){top: 100px;left: 100px;background: green;}
+			.box:nth-of-type(4){top: 200px;left: 100px;background: orange;}
+			.box:nth-of-type(5){top: 100px;left: 200px;background: blue;}
+			.box:nth-of-type(6){top: 100px;left: 100px;background: gray;}
+			
+			.wrap:hover .box{
+				-webkit-transform: rotateZ(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotateZ(180deg);
+				-o-transform: rotateZ(180deg);
+				transform: rotateZ(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box">1</div>
+			<div class="box">2</div>
+			<div class="box">3</div>
+			<div class="box">4</div>
+			<div class="box">5</div>
+			<div class="box">6</div>
+		</div>
+	</body>
+</html>

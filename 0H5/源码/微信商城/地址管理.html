@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>地址管理</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/search.css" />
+<link rel="stylesheet" href="css/member.rem.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="js/alertBox.js" ></script>
+<script type="text/javascript">
+	$(function(){
+ $('.cart-del-opt').on('click',function(){
+        AlertBox({
+            type:'doubleBtn',
+            title:'',
+            msg:'确定删除当前收货地址？',
+            cancelText:'取消',
+            confirmText:'确认',
+            cancel: function() {},
+        	confirm: function() {
+        		$(".cart-stores").hide();
+            }//确认操作回调
+        });
+});
+});
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="left">
+			 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+		</div>
+		<p class="header_title">地址列表</p>
+		<div class="right" >
+			<a class="add_address" ></a>
+		</div>
+	</div>
+	<div class="cart-stores mt15 cart-shadow" style="background:none;">
+		<ul class="cart-adrs" id="addressListShow" >
+			<li>
+				<div style="padding: 10px;" class="wbox-flex">
+					<label for="radio1">
+						<div style="width: 85%;" class="of f15">
+							<span class="fl">于军</span>
+							<span class="fr">15100735501</span>
+						</div>
+						<p style="color:#707070 ;width: 85%;" class="gray mt5">北京北京市西城区全境北京市西城区北三环中路甲29号华龙大厦B座605</p>
+					</label>
+				</div>
+				<div class="cart-adrs-btn">
+					<a href="javascript:viod(0);" class="cart-edit-ico cur"></a>
+					<a href="javascript:viod(0);" class="cart-edit-ico cart-del-opt"></a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+		
+</body>
+</html>

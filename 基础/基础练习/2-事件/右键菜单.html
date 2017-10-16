@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .contextmenu{width: 200px;height: 300px;background: red;position: absolute;display: none;}
+    </style>
+</head>
+<body>
+    <div class="contextmenu" id="rmenu">
+        <dl>
+            <dt>菜单</dt>
+            <dd><a href="http://www.baidu.com">菜单0001</a></dd>
+            <dd><a href="http://www.baidu.com">菜单0002</a></dd>
+            <dd><a href="http://www.baidu.com">菜单0003</a></dd>
+            <dd><a href="http://www.baidu.com">菜单0004</a></dd>
+            <dd><a href="http://www.baidu.com">菜单0005</a></dd>
+        </dl>
+    </div>
+</body>
+<script type="text/javascript">
+
+document.oncontextmenu = function(ev){
+    // alert('a');
+    var oEvent = ev || window.event;
+    var oDiv = document.getElementById('rmenu');
+    oDiv.style.display = 'block';
+
+    oDiv.style.left = oEvent.clientX+'px';
+    oDiv.style.top = oEvent.clientY+'px';
+
+    return false;       // 阻止默认事件
+};
+
+document.onclick = function(){
+    var oDiv = document.getElementById('rmenu');
+    oDiv.style.display = 'none';
+}
+</script>
+</html>

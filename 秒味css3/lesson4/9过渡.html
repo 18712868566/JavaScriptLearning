@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				transition: 500ms width;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			
+		</div>
+
+	</body>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+
+			oBox.onclick = function (){
+				this.style.width = this.offsetWidth + 100 +'px';
+				addEnd(oBox,end);
+			}
+			function end(){
+				//alert('end')
+				this.style.width = this.offsetWidth + 100 +'px';
+				removeEnd(this,end);
+			}
+			
+
+			function addEnd(obj,fn){
+				obj.addEventListener('WebkitTransitionEnd',fn,false);
+				obj.addEventListener('transitionend',fn,false);
+			}
+
+			function removeEnd(obj,fn){
+				obj.removeEventListener('WebkitTransitionEnd',fn,false);
+				obj.removeEventListener('transitionend',fn,false);
+			}
+		};
+
+		//注意:
+		//这里addEnd 执行了 两次,  
+		//因为,每个 过渡效果 结束后都会掉用,  addEnd方法
+
+		//所以在 addEnd 中 继续增加 宽度, 会一直增长下去,
+
+		//解决上边说的问题 -- 宽度一直增加问题
+
+		
+
+
+	</script>
+</html>

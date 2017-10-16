@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+        *{ margin:0; padding:0;}
+        #login{ width:300px; height:300px; border:1px #000 solid; position:absolute;}
+        #close{ position:absolute; right:0; top:0;}
+  </style>
+</head>
+
+<body style="height:2000px;">
+    <input type="button" value="点击" id="input1" />
+    <!--<div id="login">
+            <p>用户名:<input type="text" /></p>
+            <p>密码:<input type="text" /></p>
+            <div id="close">X</div>
+        </div>-->
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    $(function(){
+        $('#input1').click(function(){
+            var layer = $('<div id="login"><p>用户名:<input type="text" /></p><p>密码:<input type="text" /></p><div id="close">X</div></div>');
+
+            $('body').append( layer );
+
+            // console.log(layer)
+            var l = parseInt(($(window).width() - layer.outerWidth())/2);
+            var t = parseInt(($(window).height() - layer.outerHeight())/2);
+            layer.css('left', l );
+            layer.css('top', t );
+
+            $(window).on('resize scroll',function(){
+                var l = parseInt(($(window).width() - layer.outerWidth())/2);
+                var t = parseInt(($(window).height() - layer.outerHeight())/2);
+                
+                layer.css('left', l );
+                layer.css('top', t + $(window).scrollTop() );
+            })
+        })
+
+        
+    })
+
+</script>
+</html>

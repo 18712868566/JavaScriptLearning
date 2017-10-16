@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>我的优惠券</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/member.rem.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript">
+	function menu(){
+		$('#sub-title').toggle();
+	};
+	$(function(){
+	$(".order_on").on("click",
+	function(){
+		$(".order_on").removeClass("order_off");
+		$(this).addClass("order_off");
+		if($(this).hasClass("qita")){
+			$("#qita").show();
+			$("#wangshang").hide();
+		}
+		else{
+			$("#qita").hide();
+			$("#wangshang").show();
+		}
+	}
+	)
+	$(".order_2on").on("click",
+	function(){
+		$(".order_2on").removeClass("order_2off");
+		$(this).addClass("order_2off");
+		if($(this).hasClass("KCoupons")){
+			$(".dingdan").hide();
+			$("#KCoupons").show();
+		}
+		if($(this).hasClass("YCoupons")){
+			$(".dingdan").hide();
+			$("#YCoupons").show();
+		}
+		if($(this).hasClass("GCoupons")){
+			$(".dingdan").hide();
+			$("#GCoupons").show();
+		}
+		if($(this).hasClass("navPj")){
+			$(".dingdan").hide();
+			$("#navPj").show();
+		}
+	})
+})
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<p class="header_title">我的优惠券</p>
+			<div class="right" onclick="menu()">
+				<a class="sn-right" ></a>
+				<ul style="display: none; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);" class="nav-more-list" id="sub-title">
+					<li>
+						<a class="nav-more-icon home-icon" href="javascript:void(0)">首页</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cart-icon" href="javascript:void(0)">购物车</a>
+					</li>
+					<li>
+						<a class="nav-more-icon search-icon" href="搜索.html">搜索</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cate-icon" href="商品分类.html">全部分类</a>
+					</li>
+					<li>
+						<a class="nav-more-icon ebuy-icon" href="个人中心.html">个人中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<ul id="order-2nav">
+			<li style="width:33.3% ;" class="KCoupons order_2on order_2off " >可用优惠券</li>
+			<li style="width:33.3% ;" class="YCoupons order_2on">已用优惠券</li>
+			<li style="width:33.3% ;" class="GCoupons order_2on">过期优惠券</li>
+		</ul>
+		<div style="display: block;" class="dingdan" id="KCoupons">
+			<ul class="coupon-bg">
+				<li class="ticket-list">
+					<a href="javascript:clickCoupon(10050023521451)" id="couponDetail" num="10050023521451">
+						<span id="serialNumber" style="display:none">10050023521451</span>
+						<div class="meb-ticket-detailedMsg">
+							<p class="meb-ticket-conditions">
+			
+								<span class="meb-type-merchants"></span> 店铺易券10元
+							</p>
+						</div>
+						<h2 class="meb-price"><span>¥</span>10.00</h2>
+						<p class="meb-ticket-timeLimit sn-txt-muted">使用期限：2015.6.22-2015.9.22</p>
+					</a>
+				</li>
+			
+				<li class="ticket-list">
+					<a href="javascript:clickCoupon(10050023564025)" id="couponDetail" num="10050023564025">
+			
+						<span id="serialNumber" style="display:none">10050023564025</span>
+						<div class="meb-ticket-detailedMsg">
+							<p class="meb-ticket-conditions">
+			
+								<span class="meb-type-merchants"></span> 店铺易券88元
+							</p>
+						</div>
+						<h2 class="meb-price"><span>¥</span>88.00</h2>
+						<p class="meb-ticket-timeLimit sn-txt-muted">使用期限：2015.6.23-2015.7.15</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="dingdan" id="YCoupons">
+			<ul class="coupon-bg">
+				<li class="ticket-list ticket-overdue">
+					<a href="javascript:clickCoupon(10050023440005)" id="couponDetail" num="10050023440005">
+						<span id="serialNumber" style="display:none;">10050023440005</span>
+						<div class="meb-ticket-detailedMsg">
+							<p class="meb-ticket-conditions">
+									<span class="meb-type-myself"></span>
+									限品类易劵（超市满69抵10元烽火台）
+							</p>
+						</div>
+						<h2 class="meb-price"><span>¥</span>10.00</h2>
+						<p class="meb-ticket-timeLimit sn-txt-muted">使用期限：2015.7.4-2015.7.13</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="dingdan" id="GCoupons">
+			<ul class="coupon-bg">
+				<li class="ticket-list ticket-overdue">
+					<a href="javascript:clickCoupon(10050023440005)" id="couponDetail" num="10050023440005">
+						<span id="serialNumber" style="display:none;">10050023440005</span>
+						<div class="meb-ticket-detailedMsg">
+							<p class="meb-ticket-conditions">
+								<span class="meb-type-myself"></span>
+								限品类易劵（超市满69抵10元烽火台）
+							</p>
+						</div>
+						<h2 class="meb-price"><span>¥</span>10.00</h2>
+						<p class="meb-ticket-timeLimit sn-txt-muted">使用期限：2015.7.4-2015.7.13</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+</body>
+</html>

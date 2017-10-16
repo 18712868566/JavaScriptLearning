@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   利用原型添加方法和属性
+</body>
+<script>
+
+    function Gadget(name, color) {
+        this.name = name;
+        this.color = color;
+
+        this.whatAreYou = function () {
+            return 'I am a ' + this.color + '' + this.name;
+        }
+    }
+
+
+</script>
+</html>

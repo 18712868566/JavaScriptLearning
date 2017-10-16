@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping list</title>
+    <style type="text/css">
+        p{color:yellow;font-family: 'arial',sans-serif;font-size: 1.2em;}
+        body{color: white;background: black;}
+    </style>
+</head>
+<body>
+    <h1>What to buy</h1>
+    <p title="a gentle reminder">Don`t forget to buy this stuff.</p>
+    <ul id="purchases">
+        <li>a tin of beans</li>
+        <li class="sale">cheese</li>
+        <li class="sale important">Milk</li>
+    </ul>
+
+    <p>this is just a tet</p>
+</body>
+<script type="text/javascript">
+
+    window.onload = function(){
+
+        // getAttribute
+
+        /*var paras = document.getElementsByTagName('p');
+        for (var i = 0; i < paras.length; i++) {
+            var t = paras[i].getAttribute('title');
+            console.log(t)
+        }*/
+
+        var paras = document.getElementsByTagName('p');
+        for (var i = 0; i < paras.length; i++) {
+             var t = paras[i].getAttribute('title');
+            if (t) {
+                console.log(t)
+            }
+        }
+
+        // setAttribute
+        var shopping = document.getElementById('purchases');
+        console.log(shopping.getAttribute('title'));
+        shopping.setAttribute('title','a list of goods');
+        // 验证是否设置属性成功
+        console.log(shopping.getAttribute('title'));
+
+        // setAttribute() 设置一个已经存在的属性 会 覆盖 之前的
+        for (var i = 0; i < paras.length; i++) {
+             var t = paras[i].getAttribute('title');
+            if (t) {
+                paras[i].setAttribute('title','brand new title text');
+                console.log(paras[i].getAttribute('title'));
+            }
+        }
+
+    }
+</script>
+</html>

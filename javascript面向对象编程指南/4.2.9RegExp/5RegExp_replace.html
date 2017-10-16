@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<h1>RegExp</h1>
+    <p> replace() 方法会返回匹配字符串的索引位置 </p>
+</body>
+<script>
+
+	var s = new String('HelloJavascriptWorld');
+	
+	
+	//s.match(/a/);
+	
+	console.log(s.replace(/[A-Z]/g,'-'))
+	console.log(s.replace(/[A-Z]/,'-'))
+	//replace 取代，代替；替换，更换；归还，偿还；把…放原处
+	//elloavascriptorld			--  全局匹配
+	//-elloJavascriptWorld		--  关闭全局匹配
+	
+	console.log(s.replace(/[A-Z]/g,'_$&'))
+	//_Hello_Javascript_World	如果我们想让相关的替换字符串中包含匹配的文本,可以使用$&修饰符.
+	
+	console.log(s.replace(/([A-Z])/g,'+$1'))
+	//
+	
+</script>
+</html>

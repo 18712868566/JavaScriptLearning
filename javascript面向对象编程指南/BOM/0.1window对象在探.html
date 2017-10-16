@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div2">2222</div>
+		<iframe name="myframe" src="frames.html" width="" height="">
+
+		</iframe>
+		<div class="cont"></div>
+	</body>
+</html>
+
+<script type="text/javascript">
+
+	// BOM
+	/*window.navigator
+	window.navigator.userAgent
+
+	navigator
+	console.dir(navigator)
+
+	window.location
+
+	window.history
+	window.history.length
+	window.history[0]
+
+	window.history.forward();
+	window.history.back();
+
+	window.history.go(-1);
+	window.history.go(0);
+
+	window.frames === window
+	//true
+	frames.length
+
+	//访问iframe 元素的 window对象
+	window.frames[0]
+	window.frames[0].window
+	frames[0].window
+	frames[0]
+
+	window.screen
+	window.screen.colorDepth	//24
+	//分辨率
+	screen.width
+	screen.availWidth
+	screen.height
+	screen.availHeight
+
+	//不建议使用
+	window.open();
+	window.close();
+	window.moveTo();
+	window.resizeTo();
+
+	window.alert('');
+	window.prompt();//输入框
+	window.confirm();//自带确定取消
+
+	window.setTimeout();
+	function boo(){alert('Boo!')};
+	var id = setTimeout(boo,2000);
+
+	clearTimeout(id);
+
+	window.setInterval();
+	function boo(){console.log('Boo!')};
+	var id = setInterval(boo,2000);
+
+	clearInterval(id);
+
+	window.document
+	*/
+
+
+	//DOM
+
+	//遍历DOM
+	function walkDOM(n){
+		do{
+			console.log(n);
+			if (n.hasChildNodes()) {
+				walkDOM(n.firstChild)
+			}
+		}while(n = n.nextSibling)
+	}
+
+	walkDOM(document.body);
+
+
+
+
+
+
+
+</script>

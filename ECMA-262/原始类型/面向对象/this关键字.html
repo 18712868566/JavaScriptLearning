@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			ul,li{
+				list-style-type: none;
+			}
+			#content{width:960px;margin:0 auto;}
+			i{color:red;}
+		</style>
+	</head>
+	<body>
+	<div id="content">
+		<h1>htis关键字</h1>
+		<b>this 的功能</b>
+		<p>
+		在 ECMAScript 中，要掌握的最重要的概念之一是关键字 this 的用法，它用在对象的方法中。关键字 this 总是指向调用该方法的对象，例如：
+		</p>
+	<div>
+	</body>
+	<script>
+		var oCar = new Object;
+		oCar.color = "red";   //全局
+		oCar.showColor = function(){
+			//oCar.color = "green";   局部
+			alert(this.color);
+		}
+		
+		oCar.showColor();
+	</script>
+</html>

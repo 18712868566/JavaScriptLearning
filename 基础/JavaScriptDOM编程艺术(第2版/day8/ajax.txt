@@ -1,0 +1,42 @@
+-- XMLHttpRequest 对象
+
+this is loaded asynchronously!
+
+ie : 创建新的对象 版本不同 XMLHTTP 对象也不完全相同
+-- var request = new ActiveXObject('Msxml2.XMLHTTP.3.0');
+
+其他浏览器 :
+-- var request = new XMLHttpRequest();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

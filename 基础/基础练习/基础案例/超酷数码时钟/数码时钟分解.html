@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数码时钟</title>
+</head>
+<body style="color: #ffff00;background: #990099;font-size: 50px;">
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    点
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    分
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    秒
+</body>
+<script type="text/javascript">
+
+    window.onload = function(){
+
+        var oBtn = document.getElementById('btn1');
+        var aImg = document.getElementsByTagName('img');
+
+
+
+        function doDouble(num) {
+            if (num < 10) {
+                return '0' + num;
+            }
+            else{
+                return '' + num;
+            }
+        };
+        function updateTime(){
+            var oDate = new Date();
+            var str = '' + doDouble(oDate.getHours()) + doDouble(oDate.getMinutes()) + doDouble(oDate.getSeconds());
+            console.log(str);
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].src = 'images/'+ str.charAt(i) +'.png';
+            }
+        };
+
+        var timerMove = setInterval(updateTime,1000);
+        updateTime();
+
+}
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>搜索</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/search.css" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="js/alertBox.js" ></script>
+<script>
+	$(function(){
+
+ $('#clearBtn').on('click',function(){
+        AlertBox({
+            type:'doubleBtn',
+            title:'温馨提示',
+            msg:'是否清空历史？',
+            cancelText:'否',
+            confirmText:'是',
+            cancel:function(){},//取消操作回调
+            confirm:function(){
+            	$("#history").hide();
+            	$("#historyClean").hide();
+            	$("#historyCleanSuccess").show();
+            	//delHistory();
+            }//确认操作回调
+        });
+});
+});
+
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1));" ></a>
+			</div>
+			<div class="sn-nav-inp wbox">
+				<a href="javascript:;" class="search-switch" data-rel="0" id="searchType" >商品</a>
+				<div style="display:inline-block;" class="wbox-flex">
+					<form action="">
+						<input class="search" type="search" placeholder="搜索商品或店铺" />
+					</form>
+				</div>
+				<div class="clo-se-input"></div>
+			</div>
+		</div>
+<div class="search-wrap">
+	<!-- 热门搜索 -->
+	<dl class="search-keywords" id="hotwords">
+		<dt>热门搜索</dt>
+		<dd class="keywords-list" id="hotwordsBox">
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('iphone6');">苹果6</a>
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('ipad');">ipad</a>
+			<a name="wapsssry_none_rsc_rsc5" href="javascript:searchHistoryOrHotword('洗衣机');">洗衣机</a>
+			<a name="wapsssry_none_rsc_rsc6" href="javascript:searchHistoryOrHotword('洗衣液');">洗衣液</a>
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('尼康');">尼康</a>
+			<a name="wapsssry_none_rsc_rsc7" href="http://m.suning.com/v3/channel_P1067_0.html">啤酒音乐节</a>
+			<a name="wapsssry_none_rsc_rsc8" href="javascript:searchHistoryOrHotword('科龙空调');">科龙空调</a>
+			<a name="wapsssry_none_rsc_rsc9" href="javascript:searchHistoryOrHotword('电饭煲');">电饭煲</a>
+			<a name="wapsssry_none_rsc_rsc10" href="javascript:searchHistoryOrHotword('一段奶粉');">一段奶粉</a>
+			<a name="wapsssry_none_rsc_rsc11" href="javascript:searchHistoryOrHotword('面膜');">面膜</a>
+			<a name="wapsssry_none_rsc_rsc12" href="javascript:searchHistoryOrHotword('lagogo');">lagogo</a>
+		</dd>
+		<dd class="keywords-err hide">网络异常，您可以尝试<a href="javascript:queryHotWrods();">重新加载</a></dd>
+	</dl>
+
+	<!-- 历史记录 -->
+	<dl  class="search-keywords">
+		<dt>历史记录</dt>
+		<dd id="history" class="keywords-list" id="hotwordsBox">
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('iphone6');">苹果6</a>
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('ipad');">ipad</a>
+			<a name="wapsssry_none_rsc_rsc5" href="javascript:searchHistoryOrHotword('洗衣机');">洗衣机</a>
+			<a name="wapsssry_none_rsc_rsc6" href="javascript:searchHistoryOrHotword('洗衣液');">洗衣液</a>
+			<a name="wapsssry_none_rsc_rsc4" href="javascript:searchHistoryOrHotword('尼康');">尼康</a>
+			<a name="wapsssry_none_rsc_rsc7" href="http://m.suning.com/v3/channel_P1067_0.html">啤酒音乐节</a>
+			<a name="wapsssry_none_rsc_rsc8" href="javascript:searchHistoryOrHotword('科龙空调');">科龙空调</a>
+			<a name="wapsssry_none_rsc_rsc9" href="javascript:searchHistoryOrHotword('电饭煲');">电饭煲</a>
+			<a name="wapsssry_none_rsc_rsc10" href="javascript:searchHistoryOrHotword('一段奶粉');">一段奶粉</a>
+			<a name="wapsssry_none_rsc_rsc11" href="javascript:searchHistoryOrHotword('面膜');">面膜</a>
+			<a name="wapsssry_none_rsc_rsc12" href="javascript:searchHistoryOrHotword('lagogo');">lagogo</a>
+		</dd>
+		<dd class="keywords-tip hide" id="historyEmpty">搜索历史为空</dd>
+		<dd class="keywords-tip hide" id="historyCleanSuccess">历史记录清除成功</dd>
+		<dd class="clear-btn" id="historyClean">
+			<a href="javascript:;" class="sn-btn-outline" id="clearBtn" >清空历史</a>
+		</dd>
+		
+	</dl>
+</div>
+</body>
+</html>

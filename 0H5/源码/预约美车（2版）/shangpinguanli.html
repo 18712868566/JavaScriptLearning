@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width,inital-scale=1.0,maximum-scale=0.422,initial-scale=1.0,user-scalable=no;">
+<meta name="format-detection" content="telephone=no" />
+<title>商品管理</title>
+</head>
+<link type="text/css" rel="stylesheet" href="css/public.css">
+<link href="css/center.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/shangpin_style.css"type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+a{ color:#bfbfbf;}
+/*菜单class*/
+.lib_Menubox ul{
+	margin: 0px;
+	padding: 10px 0px;
+	list-style: none;
+	margin-left: 0px;
+	width: 100%;
+	height: 120px;
+	background-color:#FFF;
+	border-bottom:2px solid #231815;
+	position:fixed;
+	top:0px;
+	left:0px;
+	
+	}
+.lib_Menubox li{ margin-top:30px;float:left;display:block;cursor:pointer;width:49.85%;color:#a3a3a3;text-align:center;border-left:2px solid #231815; }
+.lib_Menubox li.hover{border-bottom:0px solid #1fcccc;width:49.85%;color:#231815;font-weight:700;}
+</style>
+<script>
+
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+  menu.className=i==cursel?"hover":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+}
+function quxiao(){
+	$(".queren").css("display","block");
+	$(".quxiao").css("display","none");
+	$(".dingdanxiangqing").css("display","block");
+	}
+function tuidan(){
+	$(".queren").css("display","none");
+	$(".quxiao").css("display","block");
+		}
+function td(){
+	$(".ke").css("display","none");
+	$(".quxiao").css("display","none");
+		}
+		
+</script> 
+
+<body style="background-color:#ebebf0;">
+    <div class="lib_Menubox">
+        <ul style="font-size:42px;">
+           <li style="border-left:none;" id="one1" onclick="setTab('one',1,4)" class="hover">未付款</li>
+           <li id="one2" onclick="setTab('one',2,4)" >已付款</li>
+        </ul>
+    </div>
+    <div id="con_one_1" >
+        <div style="border-top:1px solid #231815;border-bottom:1px solid #231815; height:620px; margin-top:160px; " class="ke">
+           <!--  <a href="lineitem.html">
+               <div style="clear:both; width:100%;" class="taocan">
+                    <div style="margin-right:10px;" class="icon"></div>
+                    <div class="icon"></div>
+                    <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                    <p>水晶车衣</p>
+                    <p style=" clear:both;float:left;">新车漆面打蜡/一次</p>
+                    <p style="float:right; margin:0px 10px 0px 0px;">订单号：51231233341</p>
+                </div>   
+              </a>
+              <img style=" float:right; margin:40px;" src="images/you.png">
+             <p style="color:#F00;margin-right:1px; font-size:38px; float:right"><strong>点击查看订单详情！</strong></p>
+             
+-->          
+			        <div style="margin-top:0px; background-color:#EBEBF0; height:auto; overflow:auto;" class="SP">
+            <div style="width:100%; height:120px; background-color:#D0E7FA;">
+         		<p style="width:40%;" class="SP_tou">商品名称</p>
+                <p class="SP_tou">价格</p>
+                <p class="SP_tou">数量</p>
+            </div>
+            <p class="SP_content" style="width:40%;">水晶车衣套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+            <hr style="background-color:#FFF; border:none; height:4px;">
+            
+            <p class="SP_content" style="width:40%;">绿色星球套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+            <hr style="background-color:#FFF; border:none; height:4px;">
+            
+            <p class="SP_content" style="width:40%;">水晶车衣套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+        </div>
+
+                     <div style="width:190px;height:70px; background-color:#90B0DB;border-radius:15px; margin:32px 30px 0px 0px; clear:both; float:right;">
+                        <p style="margin:10px; font-size:36px;color:#FFF; text-align:center;"><strong>付款</strong></p>
+                     </div>
+                     <div onClick="tuidan()" style="width:190px;height:70px; background-color:#90B0DB;border-radius:15px; margin:32px 30px 0px 0px;float:right;">
+                        <p style="margin:10px; font-size:36px;color:#FFF; text-align:center;"><strong>取消订单</strong></p>
+                     </div>
+
+      	</div>
+	</div>
+   <div id="con_one_2" style="display:none"> 
+        <div class="container">
+            <ul>
+                <li class="dropdown">
+                <a href="#" data-toggle="dropdown">本地网点 <div class="shuzi"><p>1</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a>
+                    </div>
+                    <a href="4sdizhi.html">
+                        <div class="button">
+                            <p>马上预约</p>
+                        </div>
+                    </a>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" data-toggle="dropdown">4s网点 <div class="shuzi"><p>3</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a></div>
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a></div>
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a></div>
+                    <div class="button">
+                        <p>马上预约</p>
+                    </div>
+                </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">地上车位 <div class="shuzi"><p>1</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a></div>
+                    <div class="button">
+                        <p>马上预约</p>
+                    </div>
+                </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">任意车位 <div class="shuzi"><p>1</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                    <div style="border-top:1px solid #231815;border-bottom:1px solid #231815;" class="ke">
+                    <a href="lineitem.html">
+                        <div style=" width:100%;" class="taocan">
+                            <div style="margin-right:10px;" class="icon"></div>
+                            <div class="icon"></div>
+                            <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            <p>水晶车衣</p>
+                            <p>新车漆面打蜡/一次</p>
+                        </div>
+                    </a></div>
+                    <div class="button">
+                        <p>马上预约</p>
+                    </div>
+                </ul>
+                </li>
+            </ul>
+        </div>
+   </div>
+    <div class="quxiao" style=" position:absolute; top:0px; background-color:#CCC; width:100%; height:100%;display:none;">
+        <div  style=" margin:45% auto; background-color:#FFF; border-radius:15px; width:700px; height:300px;">
+            <p style="font-size:36px;  margin:0px auto;width:100%; line-height:160px;text-align:center;"><strong>确认取消订单？</strong></p>
+            <p style=" font-size:36px; margin:-50px auto; width:100%;text-align:center;">取消之后将无法恢复</p>
+            <hr style="margin:80px 0px; width:100%;">
+            <hr style="transform:rotate(90deg);-ms-transform:rotate(90deg); 	/* IE 9 */-moz-transform:rotate(90deg); 	/* Firefox */-webkit-transform:rotate(90deg); /* Safari 和 Chrome */-o-transform:rotate(90deg);width:117px; margin:-24px auto ;">
+            <p onClick="quxiao()" style="font-size:36px; margin:0px 0px; float:left; width:350px; height:40px;line-height:40px; text-align:center; color:#258BFD; ">取消</p>
+            <p onClick="td()" value=""  id="orderid"style="font-size:36px; margin:0px 0px 0px 0px; float:right; width:350px; height:40px;line-height:40px; text-align:center; color:#258BFD; ">	
+                <strong>确定</strong>
+            </p>
+        </div>
+    </div>
+
+<script src="js/shangpin.js"></script>
+</body>
+</html>

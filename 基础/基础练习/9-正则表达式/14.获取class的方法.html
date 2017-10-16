@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="box1">111</li>
+        <li>111</li>
+        <li class="box1box2">111</li>
+        <li>111</li>
+        <li class="box1 box2">111</li>
+    </ul>
+</body>
+<script>
+
+window.onload = function(){
+
+    var aLi = getByClass(document,'box1');
+
+    for (var i = 0; i < aLi.length; i++) {
+        var element = aLi[i];
+        element.style.background = 'red';
+    }
+}
+
+function getByClass(oParent,sClassName) {
+    var arr = [];
+    var oEle = document.getElementsByTagName('*');
+
+    // var re = /sClassName/;           // 当正则需要传参的时候,一定要用全称的写法
+    var re = new RegExp('\\b'+sClassName+'\\b');
+
+    for (var i = 0; i < oEle.length; i++) {
+        var element = oEle[i];
+        if ( re.test(element.className) ) {
+            arr.push(element);
+        }
+    }
+
+    return arr;
+}
+</script>
+</html>

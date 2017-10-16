@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<span>message is {{message}}</span>
+			<br />
+			<input type="text" v-model='message' placeholder="edit me"/>
+		</div>
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#box',
+			data:{
+				message:'welcome Vue'
+			}
+		})
+	</script>
+</html>

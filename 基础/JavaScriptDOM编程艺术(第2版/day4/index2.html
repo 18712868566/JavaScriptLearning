@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        body,ul li,ul ol,ul { margin:0;padding: 0;background: #333; }
+        ul li,ul ol{list-style: none;}
+        .tabList {}
+        .tabList ul {position: relative;overflow: hidden;}
+        .tabList ul li {float: left;width: 120px;height: 30px;border:1px solid #ccc;background: #222;text-align: center;color: #fff;line-height: 30px;cursor: pointer;}
+
+        .tabList ul li.curr{background: #ccc;color: #000;}
+
+        .tabBox{position: relative;overflow: hidden;}
+        .tabBox .show{display: none;height: 100%; width: 366px;height: 200px;background: #fff;}
+
+    </style>
+</head>
+<body>
+
+    <div class="tabList" id="tab1">
+        <ul>
+            <li class="curr">选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+    </div>
+
+    <div class="tabBox" id='tabBox'>
+        <div class="show" style="display: block;">00001</div>
+        <div class="show">00002</div>
+        <div class="show">00003</div>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+
+    window.onload = function(){
+        var iList = document.getElementById('tab1').getElementsByTagName('li');
+        var iShow = document.getElementById('tabBox').getElementsByTagName('div');
+
+        for (var i = 0; i < iList.length; i++) {
+
+            //5 . 自定义属性,就是4中所说的编号
+            iList[i].index = i;
+            iList[i].onclick = function(){
+                //1.1 每次点击之后重置状态
+                for (var i = 0; i < iList.length; i++) {
+                    iList[i].className = '';        //2 . 把所有按钮的状态都清空
+                    iShow[i].style.display = 'none';    //3 . 把所有的div 都隐藏
+                }
+
+                this.className = 'curr';            //1. 每次点击的时候,为当前单击的添加类 curr 当前 的状态
+                //4. 每次点击的时候,iShow 和 按钮的编号一一对应 , 然后然对应的显示
+                //6. 根据最初的循环添加的自定义属性 -- 对应显示 第几个div
+                iShow[this.index].style.display = 'block';
+
+            }
+        }
+    };
+
+</script>
+</html>

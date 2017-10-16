@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$(function(){
+			
+			function foo(a,b){return a*b;}
+			
+			//console.log()
+			console.log(foo.length)
+			console.log(foo.constructor)
+			
+			console.log(foo.prototype);
+			
+			foo.prototype = {};
+		});
+	</script>
+</html>

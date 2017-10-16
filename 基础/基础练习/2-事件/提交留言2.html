@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="text1" name="" rows="15" cols="50"></textarea>
+    <br />
+    <input id="text2" type="text" name="" value="" placeholder="">
+    <input id="btn1" type="button" name="" value="提交留言" placeholder="">
+</body>
+
+<script type="text/javascript">
+    window.onload = function(){
+
+        var oText1 = document.getElementById('text1');
+        var oText2 = document.getElementById('text2');
+        var oBtn = document.getElementById('btn1');
+
+        oBtn.onclick = function(){
+            oText1.value += oText2.value+'\n';
+            oText2.value = '';
+        }
+
+        oText2.onkeydown = function(ev){
+            var oEvent = ev || window.envet;
+            // alert(oEvent.keyCode)
+            if (oEvent.keyCode == 13) {
+                if(oText2.value == '') return;
+                oText1.value += oText2.value+'\n';
+                oText2.value = '';
+            }
+        }
+    }
+</script>
+</html>

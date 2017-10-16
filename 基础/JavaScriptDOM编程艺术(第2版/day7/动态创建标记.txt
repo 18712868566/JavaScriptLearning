@@ -1,0 +1,44 @@
+
+
+传统技术
+
+    document.write  innerHTML
+
+
+
+DOM 方式
+
+    createElement
+
+    document.createElement(nodeName)
+
+
+    appendChild方法
+    parent.appentChild(child)
+
+    createTextNode方法
+    document.createTextNode('hello world');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

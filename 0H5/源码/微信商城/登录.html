@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>登录</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript">
+	function menu(){
+		$('#sub-title').toggle();
+	};
+	
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<p class="header_title">登录</p>
+			<div class="right" onclick="menu()">
+				<a class="sn-right" ></a>
+				<ul style="display: none; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);" class="nav-more-list" id="sub-title">
+					<li>
+						<a class="nav-more-icon home-icon" href="javascript:void(0)">首页</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cart-icon" href="javascript:void(0)">购物车</a>
+					</li>
+					<li>
+						<a class="nav-more-icon search-icon" href="搜索.html">搜索</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cate-icon" href="商品分类.html">全部分类</a>
+					</li>
+					<li>
+						<a class="nav-more-icon ebuy-icon" href="个人中心.html">个人中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<form name="Logon" method="post" action="" id="Logon">
+		<div class="sn-block PdL6">
+			<div class="input-a"> 
+				<span class="label">账号</span>
+          	    <input class="inputbox" type="text" id="username" name="username" autocomplete="on" value="" placeholder="手机号/邮箱/用户名">
+				<em class="delete"></em>
+			</div>
+			<div style="border: none;" class="input-a wbox"> 
+				<span>密码</span>
+				<input class="inputbox" type="password" id="password" name="password" maxlength="20" value="" autocomplete="off" placeholder="请输入6-20位信誉密码">
+				<em onclick="" class="delete"></em>
+			</div>
+	</div>
+		<div style="margin: 0.4rem 0.6rem;" >
+			<input type="checkbox" class="sn-checkbox" checked="checked">
+			<span style="margin-bottom: 3px;">两周内免登录</span> 
+		</div>
+		<a id="login" href="javascript:void(0)" class="ClickButton">登录</a>
+		<p class="assisFun">
+			<a id="" href="注册.html" >快速注册</a>
+			<a id="" href="忘记密码.html" style="text-align: right;">忘记密码?</a>
+		</p>
+</form>
+		
+		
+</body>
+</html>

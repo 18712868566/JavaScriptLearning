@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>for in 遍历对象</h2>
+
+</body>
+<script>
+	var o = {p1:1,p2:2};
+
+    for( var i in o){
+        //console.log(o[i]);
+
+        console.log(i+ '=' +o[i]);
+    }
+
+    /*
+		并不是所有的属性都会在for in 循环中显示 
+
+		例如 数组 中的 length 属性 和 constructor 属性 就不会被显示
+
+		通过 hasOwnProperty() 方法来判断 其中 那些可以枚举的属性	
+    */
+</script>
+</html>

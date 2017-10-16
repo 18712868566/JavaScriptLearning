@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>修改输入框的值,查看效果</p>
+		<div id="app">
+			<p>{{ message }}</p>
+			<input type="" name="" id="" value="" v-model="message"/>
+			<input type="" name="" id="" value="" v-model="message"/>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			new Vue({
+				el: "#app",
+				data: {
+					message: 'welcome vue!'
+				}
+			})
+		};
+	</script>
+</html>

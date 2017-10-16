@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function foo(a, b) {
+        return a*b;
+    }
+    foo.length;     //2
+
+    foo.constructor;
+    //Function()
+
+    typeof foo.prototype;
+    //object
+
+    //我们可以赋予这个空对象一些方法和属性,这并不会对foo函数本身造成什么影响,只是不能被用作构造器
+    foo.prototype = {}
+</script>
+</html>

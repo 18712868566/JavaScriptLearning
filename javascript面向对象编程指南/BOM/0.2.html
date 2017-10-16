@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<!-- DOM 的事件监听器 -->
+<p id="closer">final</p>
+</body>
+<script>
+    var mypara = document.getElementById('closer');
+    mypara.addEventListener('click',function(){alert('Boo!')},false);
+    mypara.addEventListener('click',console.log,false);
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单选</title>
+</head>
+<body>
+    <form action="" method="get">
+        您最喜欢水果？<br /><br />
+        <label><input name="Fruit" type="checkbox" value="" />苹果 </label>
+        <label><input name="Fruit" type="checkbox" value="" />桃子 </label>
+        <label><input name="Fruit" type="checkbox" value="" />香蕉 </label>
+        <label><input name="Fruit" type="checkbox" value="" />梨 </label>
+        <label><input name="Fruit" type="checkbox" value="" />其它 </label>
+    </form>
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+        var aInput = document.getElementsByTagName('input');
+        for (var i = 0; i < aInput.length; i++) {
+            aInput[i].onclick = function(){
+                for (var i = 0; i < aInput.length; i++) {
+                    aInput[i].checked = false;
+                }
+                this.checked = true;
+            }
+        }
+    }
+</script>
+</html>

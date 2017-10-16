@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.js"></script>
+    <style>
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <router-view name="header"></router-view>
+        </div>
+        <div>
+            <router-link to="/home">主页</router-link>
+            <router-link to="/user">我的</router-link>
+            <router-link to="/user/lgn">登录</router-link>
+            <router-link to="/user/reg">注册</router-link>
+        </div>
+        <div>
+
+            <router-view></router-view>
+            <router-view name="a"></router-view>
+        </div>
+    </div>
+    <script>
+        const Home={
+            template:'<h3>主页</h3>'
+        };
+        const User={
+            template:'<h3>我的 {{$route.params.info}}</h3>'
+        };
+        const Header={
+            template:'<header>我是头部</header>'
+        };
+
+        const routes=[
+            {path:'/home', components:{
+                default:Home,
+                a:User,
+                header:Header
+            }},
+            {path:'/user', component:User},
+            {path:'/user/:info', component:User},
+        ];
+
+        const router=new VueRouter({
+            mode:'history',
+            routes
+        });
+
+        router.beforeEach((to,from,next)=>{
+            //console.log(to,from);
+            next();
+        });
+
+        router.afterEach(route=>{
+            console.log(route);
+        });
+
+        new Vue({
+            el:'#app',
+            router,
+            mounted(){
+                //router.push({path:'/home'})
+                router.replace({path:'/home'});
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

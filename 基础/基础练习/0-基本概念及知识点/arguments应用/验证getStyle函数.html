@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arguments应用</title>
+    <style type="text/css" media="screen">
+        #div1{width: 100px;height: 100px;background: red;}
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+</body>
+<script type="text/javascript">
+     function getStyle(obj,attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle.style[attr]
+        }else{
+            return getComputedStyle(obj,false)[attr];
+        }
+    }
+    window.onload = function(){
+        var oDiv = document.getElementById('div1');
+        alert(getStyle(oDiv,'width'))
+    }
+
+</script>
+</html>

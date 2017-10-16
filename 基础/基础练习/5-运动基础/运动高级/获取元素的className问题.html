@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="div1">
+    <p class="div">123</p>
+</div>
+
+</body>
+
+<script type="text/javascript">
+    function getByClass(oParent, sClassName) {
+        var aEle = document.getElementsByTagName('*');
+        var aArr = [];
+
+        for (var i = 0; i < aEle.length; i++) {
+            if (aEle[i].className == sClassName) {
+                aArr.push(aEle[i]);
+            }
+        }
+
+        return aArr;
+        // alert(aArr.length)
+    }
+
+
+    window.onload = function(){
+
+        var oDiv = document.getElementById('div1');
+
+        // 这种带elements的默认是数组，必须加下标，才能获取，通过id可以不加
+        // var oP = getByClass(oDiv,'div');         // 获取不到 因为 getByClass() 返回的是 数组
+
+        var oP = getByClass(oDiv,'div')[0];
+
+        oP.innerHTML = '通过class 取得元素并设置 文字';
+
+        console.log(oP)
+
+    }
+</script>
+</html>

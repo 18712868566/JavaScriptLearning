@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<dl>
+			<dt>6.10原型继承和原型拷贝的混合应用</dt>
+			<dd>1.使用原型继承的方式克隆(clone)现存对象</dd>
+			<dd>2.而对其他对象使用属性拷贝(copy)的方式</dd>
+		</dl>
+	</body>
+	<script type="text/javascript">
+		function objectPlus(o,stuff){
+			var n ;
+			function F(){}
+			F.prototype = o;
+			n = new F();
+			n.uber = o;
+			
+			for (var i in stuff) {
+				n[i] = stuff[i];
+			}
+			return n
+		}
+		
+		var shape = {
+			name: 'shape',
+			toString: function (){return this.name}
+		}
+		
+		var twoDee = objectPlus(shape,{
+			name:'2D shape',
+			toString: function () { return this.uber.toString()+', '+this.name }
+		})
+		
+		var triangle = objectPlus(twoDee,{
+			name: 'Triangle',
+			getArea: function (){ return this.side*this.height/2; },
+			side: 0,
+			height: 0
+		})
+		
+		var my = objectPlus(triangle,{side:4,height:4});
+		my.getArea();
+		//8
+		my.toString();
+		//"shape, 2D shape, Triangle, Triangle"
+		
+		var my = objectPlus(triangle,{
+			side:4,height:4,
+			name: 'My 4x4'
+		})
+		
+		my.toString();
+		//"shape, 2D shape, Triangle, My 4x4"
+		
+	</script>
+</html>

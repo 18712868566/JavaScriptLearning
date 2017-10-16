@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript图片库</title>
+    <link rel="stylesheet" type="text/css" href="css/showPic.css">
+</head>
+<body>
+    <h1>Snapshots</h1>
+    <ul>
+        <li><a href="images/yfjl1.png" title="a 01" onclick='showPic(this);return false;'>fireworks</a></li>
+        <li><a href="images/yfjl2.png" title="a 02" onclick='showPic(this);return false;'>coffee</a></li>
+        <li><a href="images/yfjl3.jpg" title="a 03" onclick='showPic(this);return false;'>rose</a></li>
+        <li><a href="images/yfjl4.jpg" title="a 04" onclick='showPic(this);return false;'>big</a></li>
+    </ul>
+
+    <img src="images/yfjl1.png" alt="my image gallery" id="placeholder">
+
+    <p id="description">Choose an image.</p>
+</body>
+
+<script type="text/javascript">
+    //操作dom解决方案
+     function showPic (whichpic){
+        var source = whichpic.getAttribute('href');
+        var text = whichpic.getAttribute('title');
+        var placeholder = document.getElementById('placeholder');
+        var description = document.getElementById('description');
+        placeholder.setAttribute('src',source);
+        description.firstChild.nodeValue = text;
+
+    }
+
+    //
+    function countBodyChildren(){
+        var oBody = document.getElementsByTagName('body')[0];
+        alert(oBody.childNodes.length);
+        for (var i = 0; i < oBody.childNodes.length; i++) {
+            console.log(oBody.childNodes[i].nodeType);
+        }
+    }
+
+    window.onload = function(){
+        //显示body下的所有子元素
+         countBodyChildren();
+
+         var description = document.getElementById('description');
+         console.log(description.nodeValue);    // null
+         console.log(description.childNodes[0].nodeValue);
+    }
+/*
+    非dom方式设置元素的属性
+
+    element.value = 'this new value'
+
+    element.setAttribute('value','this new value')
+
+    dom是一种适用于多种环境和多种程序设计语言的通用性API.
+
+    console.log(description.nodeValue);    // null
+
+    console.log(description.childNodes[0].nodeValue);       // Choose an image.
+
+    nodeValue 属性
+    firstChild 和 lastChild 属性
+
+    node.firstChild  这种写法完全等价于 node.childNodes[0]
+    node.lastChild   代表着childNodes数组的最后一个元素     node.childNodes[node.childNodes.length-1]
+
+
+*/
+</script>
+</html>

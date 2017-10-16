@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		//inArray 主要用于查询数组中是否存在某个特定的值/
+		
+		Array.prototype.inArray = function (needle){
+			
+			for (var i = 0, len = this.length; i<len; i++) {
+				if (this[i] === needle) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+		
+		var  a = ['red','green','blue'];
+		a.inArray('red');
+	
+		alert(a.inArray('red'))	
+		
+		String.prototype.reverse = function (){
+			return Array.prototype.reverse.apply( this.split('')).join('');
+		}
+		
+		console.log('Stoyan'.reverse())
+		
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wrap{width: 100px;height: 100px;margin: 0 auto;border: 1px solid #000;-webkit-perspective:200px;-webkit-transform:scale(2)}
+    .box{width: 100px;height: 100px;margin: 200px auto;transform-style: preserve-3d;-webkit-transform-style: preserve-3d;position: relative;transition: 2s ease;transform-origin: center center -50px;}
+
+    .box div{width: 100px;height: 100px;text-align: center;font-size: 22px;color: #fff;line-height: 100px;position: absolute}
+    .box div:nth-child(1){background: red;top:0;left:0;transform: translateZ(0)}
+    .box div:nth-child(2){background: #07EBEB;top: 0;left: -100px;transform-origin: right;transform: rotateY(90deg)}
+    .box div:nth-child(3){background: #EB078C;top: 100px;left: 0;transform-origin: top;transform: rotateX(90deg)}
+    .box div:nth-child(4){background: #07EB81;top: 0;right: -100px;transform-origin: left;transform: rotateY(-90deg)}
+    .box div:nth-child(5){background: #EEB806;top: -100px;transform-origin: bottom;transform: rotateX(-90deg)}
+    .box div:nth-child(6){background: #0C153A;transform: translateZ(100px)}
+
+    .wrap:hover .box{transform: rotateY(360deg)}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </div>
+</body>
+</html>

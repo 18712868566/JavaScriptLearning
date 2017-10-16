@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <h2>内建对象扩展</h2>
+    <p>查找数组中 , 是否存在某个特定的值</p>
+    <p>对扩展内建对象的思考?</p>
+
+<script>
+    Array.prototype.inArray = function  (needle) {
+        for (var i = 0 ; i < this.length; i++) {
+            if (this[i] === needle) {
+                return true;
+            };
+        };
+        return false;
+    }
+
+
+    var  a = ['red','green','blue'];
+
+    //alert(a.inArray('orange'));
+
+    /*//翻转字符串功能
+    String.prototype.reverse = function(){
+        return Array.prototype.reverse.apply(this.split('')).join('');
+    }
+
+    "Javascript".reverse();*/
+
+    //最佳实践    :   在使用时,先检查是否有现成方法存在
+    if (!String.prototype.reverse) {
+        String.prototype.reverse = function(){
+            return Array.prototype.reverse.apply(this.split('')).join('');
+        }
+    };
+
+</script>
+</html>

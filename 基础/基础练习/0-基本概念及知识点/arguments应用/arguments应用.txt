@@ -1,0 +1,4 @@
+模拟 JQ css() 函数
+
+    $('div1').css('background','green');    -> 设置
+    $('div2').css('backgroundColor');       -> 获取

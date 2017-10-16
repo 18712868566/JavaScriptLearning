@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    var str = 'haj123sdk54hask33dkhalsd879';
+
+    function findNum(str) {
+        
+        var arr = [];
+
+        var tmp = '';
+
+        for (var i = 0; i < str.length; i++) {
+            var element = str[i];
+            if ( str.charAt(i) <= '9' && str.charAt(i) >= '0' ) {
+                // arr.push( str.charAt(i) );
+                tmp += str.charAt(i);
+            }
+            else{
+                if (tmp) {
+                    arr.push(tmp);
+                    tmp = '';
+                }
+            }
+        }
+
+        // 当最后一位是 数字的时候 不会走到 else 所以在循环完之后再 检查一下
+        if (tmp) {
+            arr.push(tmp);
+            tmp = '';
+        }
+
+        return arr;
+    }
+
+    alert(findNum(str));    // 目标格式 [123,54,33,879]
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		
+		var monkey = {
+			hair : true,
+			feeds : 'bananas',
+			breathes : 'air'
+		}
+		
+		function Human (name){
+			this.name = name;
+		}
+		
+		Human.prototype = monkey;
+		
+		var developer = new Human();
+		developer.feeds = 'pizza';
+		developer.hacks = 'JavaScript';
+		
+		console.log(developer.hacks);
+		console.log(developer.feeds);
+		console.log(developer.breathes);
+		
+		developer.constructor = 'junk'
+		console.log(developer.constructor)
+		console.log(typeof developer.constructor.prototype);
+		
+		console.log(developer.breathes);
+		
+		console.log(developer.__proto__);
+		
+		monkey.test = 1;
+		console.log(developer.test);
+		
+		alert(typeof developer.__proto__)
+		alert(typeof developer.prototype)
+		
+		// 千万要记住  __proto__ 只能在学习或调试的环境下使用
+		
+	</script>
+</html>

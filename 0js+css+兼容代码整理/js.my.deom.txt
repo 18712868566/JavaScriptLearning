@@ -1,0 +1,67 @@
+ 在学习javascript的过程中，整理的js封装库文件。以后用时，直接掉用即可。
+ 2016/1/22开始整理
+
+ 1、获取class的函数
+ 1    //封装获取class函数 
+ 2    //oParent;从哪个父级下面去选元素
+ 3    //sClass; 我需要的class，具体是什么
+ 4    function getByClass(oParent,sClass){
+ 5
+ 6    var aResult = [];   //声明一个数组，把找到的元素综合在一起
+ 7    var  aEle = oParent.getElementsByTagName("*");
+ 8
+ 9     for (var i=0;i<aEle.length;i++) {
+ 10
+ 11    if (aEle[i].className == sClass) {
+ 12            　　         aResult.push(aEle[i]);    //复合条件的添加到，aResult数组中
+ 13     　　           }
+ 14     　　       }
+ 15    return aResult;
+ 16        　　    }
+ 17    //end
+
+2、共享onclick事件函数
+ 1    function addLoadEvent(func)
+ 2    {
+ 3    var oldonload = window.onload;
+ 4        if(typeof window.onload != 'function'){
+ 5                     window.onload = func;
+ 6    }
+ 7    else{
+ 8                 window.onload = function(){
+ 9                oldonload();
+10                func();
+11                }
+12            }
+13     }
+3.弹出div相对居中，用于登录弹窗，各种弹出框
+ 1 样式写好直接掉用即可
+ 2             showDiv($(".alertInfo_libao"));
+ 3             showDiv($(".alertInfo_yuanxiao"));
+ 4             showDiv($(".alertInfo_No"));
+ 5             
+ 6             //弹出居中
+ 7             function showDiv(obj) {
+ 8                 $(obj).hide();
+ 9                 center(obj);
+10                 $(window).scroll(function() {
+11                     center(obj);
+12                 });
+13                 $(window).resize(function() {
+14                     center(obj);
+15                 });
+16             }
+17             
+18             function center(obj) {
+19                 var windowWidth = document.documentElement.clientWidth;
+20                 var windowHeight = document.documentElement.clientHeight;
+21                 var popupHeight = $(obj).height();
+22                 var popupWidth = $(obj).width();
+23                 $(obj).css({
+24                     "position": "absolute",
+25                     "top": (windowHeight - popupHeight) / 2 + $(document).scrollTop(),
+26                     "left": (windowWidth - popupWidth) / 2
+27                 });
+28             }
+
+

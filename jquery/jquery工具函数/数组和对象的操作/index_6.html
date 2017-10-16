@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+
+	</script>
+</html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$.each()函数遍历函数</title>
+		<style type="text/css">
+			body{font-size: 13px;}
+			.wrapper{width: 1200px;margin: 0 auto;}
+
+			#divTip{margin: 5px;padding: 10px;border: 1px solid #666666;background-color: #EEEEEE;}
+			span{font-weight: bold;color: red;padding: 0 5px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h2>$map()数据变更</h2>
+			<hr />
+			<h3><span>语法:</span>$.map(array,callback(elementOfArray,indexInArray))</h3>
+			<div id="divTip"></div>
+		</div>
+	</body>
+	<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var strTmp = "数据变更前:";
+			var arrNum = [2,8,3,7,4,10,9,11,21,1];
+			var arrGet = $.map(arrNum,function(ele,index){
+				// 8在这里是秩序号
+				if ( ele > 5 && index < 8 ) {
+					return ele +1;
+				}
+			});
+			strTmp += arrNum.join("-");
+			strTmp += "<br /><br />筛选后数据:";
+			strTmp += arrGet.join("--");
+			$("#divTip").append(strTmp);	
+		});
+	</script>
+</html>

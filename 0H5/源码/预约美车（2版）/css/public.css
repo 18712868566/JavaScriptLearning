@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div{
+	margin:0px;
+	padding:0px;	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling : touch; 
+	}
+a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+.head{
+	width:100%;
+	height:100px;
+	background-color:#fbfcff;
+/*	border-bottom:2px solid #d6d4d5;
+*/	position:relative;
+	top:0px;
+	left:0px;	
+	}
+.content{
+	margin:0px;
+	padding:0px;
+	clear:both;
+	}
+
+.blue{
+	width:30%;
+	height:50px;
+	background-color:#004DA1;
+	float:left;
+	margin-left:0px;
+	}
+.orange{
+	width:69%;
+	height:50px;
+	background-color:#EC6C00;
+	float:right;
+	margin-right:0px;
+	}
+.left{
+	width:30%;
+	height:1370px;
+	background-color:#FFF;
+	float:left;
+	margin-left:0px;
+	display:block;
+	}
+.right{
+	width:69%;
+	height:1370px;
+	background-color:#FFF;
+	float:right;
+	margin-left:0px;
+	overflow:auto;
+	}
+.chuangti{
+	height:1310px;
+	padding-top:6px;
+	overflow:auto;
+	display:none;
+	}
+.project img{
+	width:100%;	
+	}
+.project1 img{
+	width:100%;	
+	}
+.shangmen img{
+	width:100%;	
+	}
+.shangmen1 img{
+	width:100%;	
+	}
+.index img{
+	width:100%;	
+	}
+.bottom{
+	width:100%;
+	height:120px;
+	background-color:#FFE100;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	z-index:1000;	
+	}
+.ke{
+	width:100%;
+	height:302px;
+	background-color:#FFFFFF;
+	border-top:6px solid #231815;
+	margin-top:6px;
+	margin-bottom:10px;	
+	}
+
+.taocan{
+	float:left;
+	width:75%;
+	height:300px;
+	background-color:#666565;
+	}
+
+.taocan p{
+	margin:0px 40px;
+	color:#FFFFFF;
+	font-size:38px;
+	width:100%;
+	text-align:left;
+	}
+.jia{
+	float:left;
+	margin-left:1%;
+	width:24%;
+	height:145px;
+	text-align:center;
+	background-color:#DCDDDD;
+	}
+.jian{
+	float:left;
+	margin-left:1%;
+	width:24%;
+	height:149px;
+	text-align:center;
+	background-color:#DCDDDD;
+	margin-top:6px;	
+	}
+.jia img{
+	margin:44px auto;
+	width:54px;
+	height:54px;
+	}
+.jian img{
+	margin:44px auto;
+	width:54px;
+	height:54px;
+	}
+.icon{
+	margin:10px 5px;
+	float:right;
+	width:80px;
+	height:80px;
+	background-color:#A4AFD9;
+	border-radius:8px;
+	
+	}
+.gouwuche{
+	display:none; 
+	position:absolute; 
+	z-index:100; 
+	bottom:0px; 
+	left:0px;
+	width:100%; 
+	height:100%;
+	background-color:#000; 
+	opacity:0.7;
+	overflow:hidden;
+	}
+.shangpin{
+	   display:none;
+	   width:100%;
+	   height:40%;
+	   z-index:100;
+	   border-top:5px solid #90B0DB;
+	   position:absolute;
+	   left:0px;
+	   bottom:0px; 
+	   background-color:#FFF;
+	   overflow:auto;
+	   padding-bottom:120px;
+	}	
+.shangpin p{
+	float:left; 
+	text-align:center; 
+	margin-left:20px; 
+	font-size:36px;
+	
+	}		
+.gouwuche_jia,.gouwuche_jian{
+	  width:80px;
+	  text-align:center;
+	  height:60px; 
+	  border:#666 2px solid;
+	  background-color:#FFF;
+	  float:right; 
+	  margin:30px 30px 0px 0px;
+	}
+.gouwuche_jia:hover,.gouwuche_jian:hover{
+	  color:#FFF;
+	  background-color:#CCC;
+	}
+.gouwuche_jia p,.gouwuche_jian p{
+	  text-align:center; 
+	  margin:5px 30px;
+	  	}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{width: 100px;height: 100px;padding: 100px;margin: 100px auto 0;position: relative;border: 10px solid #000;-webkit-perspective: 200px;}
+			.boxs{width: 100px;height: 100px;position: relative;-webkit-transform-style: preserve-3d;-webkit-transition: 2s;}
+			.box{width: 100px;height: 100px;position: absolute;text-align: center;line-height: 100px;font: 100px/100px arial;color: #000;}
+			.box:nth-of-type(1){top: -100px;left: 0px;background: red;
+			transform-origin: bottom;
+			transform: rotateX(90deg);
+			}
+			.box:nth-of-type(2){top: 0px;left: -100px;background: pink;
+			transform-origin: right;
+			transform: rotateY(-90deg);
+			}
+			.box:nth-of-type(3){top: 0px;left: 0px;background: green;}
+			.box:nth-of-type(4){top: 100px;left: 0px;background: orange;
+			transform-origin: top;
+			transform: rotateX(-90deg);
+			}
+			.box:nth-of-type(5){top: 0px;left: 100px;background: blue;
+			transform-origin: left;
+			transform: rotateY(90deg);
+			}
+			.box:nth-of-type(6){top: 0px;left: 0px;background: gray;
+			transform: translateZ(-100px);
+			}
+			
+			.wrap:hover .boxs{
+				transform: rotateX(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="boxs">
+				<div class="box">1</div>
+				<div class="box">2</div>
+				<div class="box">3</div>
+				<div class="box">4</div>
+				<div class="box">5</div>
+				<div class="box">6</div>
+			</div>
+		</div>
+	</body>
+</html>

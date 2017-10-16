@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>for in 遍历对象</h2>
+
+</body>
+<script>
+    /*
+		并不是所有的属性都会在for in 循环中显示 
+
+		例如 数组 中的 length 属性 和 constructor 属性 就不会被显示
+
+		通过 hasOwnProperty() 方法来判断 其中 一个属性 是对象 自身属性还是原型  属性
+    */
+
+    function Gadget (name,color) {
+        this.name = name;
+        this.color = color;
+        this.someMethod = function (){
+            return 1;
+        }
+    }
+
+    Gadget.prototype.price = 100;
+    Gadget.prototype.rating = 3;
+
+    var newtoy = new Gadget('webcam','black');
+
+    for(var prop in newtoy){
+        if(newtoy.hasOwnProperty(prop)){
+             console.log(prop + '=' + newtoy[prop]);
+
+             //打印出对象内建属性
+         }
+    }
+
+
+    //newtoy.hasOwnProperty('name');        //true
+    //newtoy.hasOwnProperty('price');       //false
+</script>
+</html>

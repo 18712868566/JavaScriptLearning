@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<link href="css/login.css"type="text/css" rel="stylesheet" />
+<link href="css/center.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="form">
+        <div class="div-phone">
+            <label for="phone"></label><input type="text" id="phone" class="infos" placeholder="请输入手机" />
+            <a href="javascript:;" class="send1" onclick="send();">发送验证码</a>
+        </div>
+                <hr style="width:94%; margin:0% 3%; clear:both;">
+        <div class="div-ranks">
+            <label for="ranks"></label><input type="text" id="ranks" class="infos" placeholder="请输入验证码"  />
+        </div>
+    </div>
+    <a href="personal_center.html">
+        <div class="button">
+            <p>提交</p>
+        </div>
+	</a>
+    <a style="float:right; margin:-20px 10% 0px 0px; color:#009; font-size:36px;">密码登陆</a>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+var time=60;
+			var timer;
+			function send(){
+				if(time==60){
+					timer=setInterval(sss,1000);
+				}
+			}
+			function sss(){
+				$(".send1").text(time+"S后重新发送");
+				time--;
+				if(time==0){
+					clearInterval(timer);
+					time=60
+					$(".send1").text("发送");
+				}
+			}
+</script>
+</body>
+</html>

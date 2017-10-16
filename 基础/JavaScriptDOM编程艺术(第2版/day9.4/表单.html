@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    // 书中的例子 使用 Modernizr 库进行验证
+
+
+    // 检查浏览器视口支持魔种类型的输入控件
+    function inputSupportType(type){
+        if (!document.createElement) return false;
+        var input = document.createElement('input');
+        input.setAttribute('type',type);
+        if (input.type == 'text' && type != 'text') {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+/*
+    使用方式
+    if (!inputSupportType('date')) {
+        // 生成日期选择器的脚本
+    }
+*/
+
+// 检查特定的属性
+function elementSupportsAttribute(elementName,attribute) {
+    if (!document.createElement) return false;
+    var temp = document.createElement(elementName);
+    return ( attribute in test );
+}
+/*
+    使用方式
+    if (!elementSupportsAttribute('inpur','placeholder')) {
+        //生成占位符提示信息脚本
+    }
+*/
+
+// 再不支持placeholder属性的浏览器中实现相同的效果
+
+if ( !elementSupportsAttribute('inpur','placeholder') ) {
+    var input = document.getElementById('first-name');
+    input.onfocus = function(){
+        var text = this.placeholder || this.getAttribute('placeholder');
+        if (this.value == text) {
+            // 获得焦点时,重置输入框的值,已隐藏临时的占位符
+            this.value = '';
+        }
+    };
+
+    input.onblur = function(){
+        if (this.value == '') {
+            // 失去焦点时, 把输入框的值,设置为占位符文本
+            this.value = this.placeholder || this.getAttribute('placeholder');
+        }
+    };
+    // 在onblur处理函数运行时中 填加位符文本
+    input.onblur();
+}
+
+
+</script>
+</html>

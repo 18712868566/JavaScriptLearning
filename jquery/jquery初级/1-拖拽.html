@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .div1{width: 100px;height: 100px;background: red;position: absolute;}
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$(function(){
+    var disX = null;
+    var disY = null;
+
+    $('.div1').mousedown(function(ev){
+        disX = ev.pageX - $(this).offset().left;
+        disY = ev.pageY - $(this).offset().top;
+
+        $(document).mousemove(function(ev){
+            $('.div1').css('left', ev.pageX - disX);
+            $('.div1').css('top', ev.pageY - disY);
+        })
+
+        $(document).mouseup(function(){
+            $(document).off();      // 清空 document 上的事件
+        })
+
+        return false;               // 阻止默认事件, 和阻止冒泡
+    })
+})
+</script>
+</html>

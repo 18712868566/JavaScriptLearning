@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$.each()函数遍历函数</title>
+		<style type="text/css">
+			body{font-size: 13px;}
+			.wrapper{width: 1200px;margin: 0 auto;}
+			#ulTip{
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				width: 260px;
+				border: 1px dashed #ccc;
+				border-bottom: none;
+			}
+			#ulTip li{border-bottom: 1px  dashed #ccc; padding: 8px;}
+			.title{background: #EEEEEE;font-weight: bold;}
+			#divTip{margin: 5px;padding: 10px;border: 1px solid #666666;background-color: #EEEEEE;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h2>$.each()函数遍历函数</h2>
+			<ul></ul>
+			<hr />
+			<div id="divTip"></div>
+		</div>
+	</body>
+	<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var strContent = "<li class='title'>属性:值</li>";
+			$.each($.ajaxSettings, function(Property,Value) {
+				strContent += "<li>" + Property + ":" + Value +"</li>"
+			});
+			$("ul").append(strContent);
+			
+			
+			
+		});
+	</script>
+</html>

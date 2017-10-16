@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explaining the Document Object Model?</title>
+    <style type="text/css">
+        body{font-family: "Helvetice","Arial",sans-serif;font-size: 10pt;}
+        abbr{
+            text-decoration: none;
+            border:0;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="navigation">
+        <li><a href="javascript:;" accesskey="1">Home</a></li>
+        <li><a href="javascript:;" accesskey="4">Search</a></li>
+        <li><a href="javascript:;" accesskey="9">Contact</a></li>
+    </ul>
+
+    <h1>what is the document object model?</h1>
+    <p>The
+        <abbr title="world wide web consortium">W3C</abbr>
+        defines the
+        <abbr title="Document Object Modek">DOM</abbr> as:
+    </p>
+    <blockquote cite="http://www.w3.org/DOM">
+            <p>a platform -and language-neutral interface that will allow programs and scripts tp dyanmically access and update the content,strucr and syule of documents.</p>
+    </blockquote>
+    <p>The
+        <abbr title="sadasdasdre  ffsadf  wefads ">API</abbr>
+        sdfasdfhgrtujtykiuydfasdvasdfsdf
+        <abbr title="HyperText MArkup language">HTML</abbr>
+        and
+        <abbr title="eXtensible Markup Language">XML</abbr>
+    </p>
+</body>
+<script type="text/javascript">
+
+
+window.onload = function(){
+    displayAbbreviations();
+    displayCitations();
+    displayAccesskeys();
+}
+
+function displayCitations() {
+    // 获取参考文献链接插入到页面中
+    var blockquote = document.getElementsByTagName('blockquote');
+    for (var i = 0; i < blockquote.length; i++) {
+        if (!blockquote[i].getAttribute('cite')) return false;
+        var cite = blockquote[i].getAttribute('cite');
+        var aLink = document.createElement('a');
+        aLink.setAttribute('href',cite);
+        var aLink_text = document.createTextNode(cite);
+        aLink.appendChild(aLink_text);
+
+
+        //document.body.appendChild(aLink);
+
+        var quoteChildren = blockquote[i].getElementsByTagName('*');        //这一句是精华
+        console.log(quoteChildren);
+        var ele = quoteChildren[quoteChildren.length - 1];
+        console.log(ele.nodeType)   //元素节点
+        console.log(ele)
+
+        ele.appendChild(aLink);
+
+        var c = blockquote[i].firstChild;
+        //c.appendChild(aLink)
+        console.log(c.nodeType) //文本节点
+        //c.appendChild(aLink)  //没有空格时应用
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayAbbreviations() {
+
+    var abbr = document.getElementsByTagName('abbr');
+    var arr = [];
+    for (var i = 0; i < abbr.length; i++) {
+        if (abbr[i].childNodes.length < 1 ) continue;
+        // 获取每个元素的title属性
+        var title = abbr[i].getAttribute('title');
+        // 获取每个元素中的文本内容
+        var key = abbr[i].lastChild.nodeValue;
+        //一个数组的 key 等于 一个标题
+        arr[key] = title;
+    }
+
+    // 创建一个列表
+    var dl = document.createElement('dl');
+    for( ikey in arr ){          // 这个的 key 是一个便利对象的变量和上边的 key 没有直接关系
+        // console.log(arr)
+        // console.log(ikey)
+        // console.log(arr[ikey])
+        var definition = arr[ikey];
+        var dtitle = document.createElement('dt');
+        var dtitle_text = document.createTextNode(ikey);
+        dtitle.appendChild(dtitle_text);
+
+        var ddesc = document.createElement('dd');
+        var ddesc_text = document.createTextNode(definition);
+        ddesc.appendChild(ddesc_text);
+
+        dl.appendChild(dtitle);
+        dl.appendChild(ddesc);
+    }
+
+    if (dl.childNodes.length < 1) return false;
+
+    var header = document.createElement('h2');
+    var header_text = document.createTextNode('Abbreviations');
+    header.appendChild(header_text);
+
+    document.body.appendChild(header);
+    document.getElementsByTagName('body')[0].appendChild(dl);
+
+
+}
+
+
+// 把快捷键清单 添加到文档里
+
+function displayAccesskeys() {
+    // body...
+    // 验证
+    if (!document.getElementsByTagName || !document.createElement || !document.createTextNode) return false;
+    // 取得文档中的所有链接
+    var links = document.getElementsByTagName('a');
+    // 创建一个数组,保存访问键
+    var akeys = new Array();
+    //遍历链接
+    for (var i = 0; i < links.length; i++) {
+        var current_link = links[i];
+        // 如果没有accesskey属性,跳出本次,继续循环
+        if ( !current_link.getAttribute('accesskey') ) continue;        // continue 当条件复合是,跳出本次循环,下次继续执行
+        // 取得accesskey的值
+        var key = current_link.getAttribute('accesskey');
+        // 取得链接文本
+        var text = current_link.lastChild.nodeValue;
+        // 添加到数组
+        akeys[key] = text;
+    }
+    // 创建列表
+    var list = document.createElement('ul');
+    // 遍历访问键
+    for( key in akeys ){
+        var text = akeys[key];
+        // 创建放到列表项中的字符串
+        var str = key + ':' + text;
+        // 创建列表项
+        var item = document.createElement('li');
+        var item_text = document.createTextNode(str);
+        item.appendChild(item_text);
+        list.append(item);
+    }
+
+    var header = document.createElement('h3');
+    var header_text = document.createTextNode('accesskey');
+    header.appendChild(header_text);
+
+    document.body.appendChild(header);
+    document.body.appendChild(list);
+}
+
+
+
+</script>
+</html>

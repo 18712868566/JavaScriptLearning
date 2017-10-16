@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		Date() 对象
+		<div class="time" id="time"></div>
+		
+		<div class="clock" id="clock"></div>
+	</body>
+	<script type="text/javascript">
+		
+		window.onload = function (){
+			var time = null,
+				year = null,
+				month = null,
+				date = null,
+				hour = null,
+				minute = null,
+				second = null,
+				str = '',
+				lxf = null;
+				
+			function setDate(){
+				
+				time = new Date();
+				document.getElementById("time").innerHTML = time;
+				
+				year = time.getFullYear();	//年
+				month = time.getMonth()+1;	//月
+				date = time.getDate();
+				hour = time.getHours();
+				minute = time.getMinutes();
+				second = time.getSeconds();
+				
+				str = ""+year+'年'+month+'月'+date+'日'+hour+'时'+minute+'分'+second+'秒';
+				document.getElementById("clock").innerHTML = str;
+				
+				console.log(str)
+			}
+			setDate();
+			setInterval(setDate,1000)
+
+		};
+	</script>
+</html>

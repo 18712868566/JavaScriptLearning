@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+
+        div{text-align: center;line-height: 200px;width: 200px;height: 200px;background: red;margin-bottom: 10px;border: 1px solid #000;font-size: 14px;filter: alpha(opacity:50);opacity: 0.5;}
+    </style>
+</head>
+<body>
+    <div>李学峰0</div>
+    <div>李学峰1</div>
+    <div>李学峰2</div>
+    <div>李学峰3</div>
+    <div>李学峰4</div>
+
+    <input id="text1" type="text" name="" value="">
+</body>
+
+<script type="text/javascript">
+
+    window.onload = function(){
+        // var oDiv = document.getElementById('div1');
+        var aDiv = document.getElementsByTagName('div');
+
+        /*oDiv.onmouseover = function(){
+            startMove(oDiv, 'opacity', 100);
+        }
+
+        oDiv.onmouseout = function(){
+            startMove(oDiv, 'opacity', 30);
+        }*/
+
+        for (var i = 0; i < aDiv.length; i++) {
+            aDiv[i].onmouseover = function(){
+                startMove(this, 'opacity', 100);
+            }
+
+            aDiv[i].onmouseout = function(){
+                startMove(this, 'opacity', 30);
+            }
+        }
+
+
+    }
+
+    function getStyle(obj, attr) {
+        if (obj.currentStyle) {
+            return obj.currentStyle[attr];
+        }else{
+            return getComputedStyle(obj, false)[attr];
+        }
+    }
+    // 多个物体同时运动时,所有的东西都不能共用, 这里把公用的定时器, 以一个 属性的方式 赋值给每个 div 见for 循环中
+    // var timer = null;
+
+    function startMove(obj, attr, iTarget) {
+        // obj = document.getElementsByTagName('div');
+        clearInterval(obj.timer);
+        //alert(oDiv.offsetWidth)
+        obj.timer = setInterval(function(){
+            var iCur = 0;
+
+            if (attr == 'opacity') {
+                // 透明度
+                // parseInt js 中的小数问题
+                // 银行 10.58 元 == 1058 分
+                // ie8 下测试 闪动
+                iCur = parseFloat(getStyle(obj, attr)*100);
+            }else{
+                iCur = parseInt(getStyle(obj, attr));
+            }
+
+            // var iCur = parseInt(getStyle(obj, attr));
+            // console.log(iCur)
+            var iSpeed = (iTarget - iCur)/8;
+            iSpeed = iSpeed>0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+            // console.log(iSpeed)
+
+            if (iCur == iTarget) {
+                clearInterval(obj.timer);
+            }
+            else{
+                // obj.style[attr] = iCur + iSpeed + 'px';
+                // 打印当前正在执行的 定时器
+                // console.log(obj.index)
+
+                if (attr == 'opacity') {
+                    obj.style.filter = 'alpha(opacity:'+ (iCur + iSpeed) +')';
+                    obj.style.opacity = (iCur + iSpeed) / 100;
+
+                    document.getElementById('text1').value = (iCur + iSpeed);
+                }else{
+                    obj.style[attr] = iCur + iSpeed + 'px';
+                }
+            }
+        },30)
+    }
+</script>
+</html>

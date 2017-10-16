@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding:0;}
+        li{list-style: none;padding:  5px 10px 0;border-bottom: 1px dashed black;overflow: hidden;filter: alpha(opacity:0);opacity: 0;}
+
+        #div{width: 300px;height: 500px;border: 1px solid black;margin: 0 auto;overflow: hidden;}
+    </style>
+</head>
+<body>
+
+<textarea name="" id="text1" rows="10" cols="40"></textarea>
+<br />
+
+<input id="btn" type="button" name="" value="发布">
+
+
+<div id="div">
+    <ul>
+        <!-- <li></li> -->
+    </ul>
+</div>
+</body>
+<script src="startMove3.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+
+        var oText = document.getElementById('text1');
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div');
+
+        var oUl = oDiv.getElementsByTagName('ul')[0];
+        var aLi = oDiv.getElementsByTagName('li');
+
+
+        oBtn.onclick = function(){
+
+            var oLi = document.createElement('li');
+
+            oLi.innerHTML += oText.value;
+            oText.value = '';
+            if (aLi.length) {
+                oUl.insertBefore(oLi,aLi[0]);
+            }else{
+                oUl.appendChild(oLi);
+            }
+            // oDiv.appendChild(oLi);
+            var iHeight = oLi.offsetHeight;
+            oLi.style.height = '0';
+            startMove(oLi,{height:iHeight},function(){
+                startMove(oLi,{opacity:'100'});
+            });
+        }
+    }
+</script>
+</html>

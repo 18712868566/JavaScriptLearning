@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style id="css">
+    #wrap{width: 200px;height: 200px;border: 2px solid #000000;margin: 100px auto;border-radius: 50%;position: relative;}
+    #wrap ul{margin: 0;padding: 0;height: 200px;position: relative;list-style: none;}
+    #wrap ul li{width: 2px;height: 6px;background: #000;position: absolute;left: 99px;top: 0;transform-origin: center 100px;}
+    /* #wrap ul li:nth-of-type(1){ -webkit-transform:rotate(0);}
+    #wrap ul li:nth-of-type(2){ -webkit-transform:rotate(6deg);}
+    #wrap ul li:nth-of-type(3){ -webkit-transform:rotate(12deg);}
+    #wrap ul li:nth-of-type(4){ -webkit-transform:rotate(18deg);}
+    #wrap ul li:nth-of-type(5){ -webkit-transform:rotate(24deg);}
+    #wrap ul li:nth-of-type(6){ -webkit-transform:rotate(30deg);}
+    #wrap ul li:nth-of-type(7){ -webkit-transform:rotate(36deg);}
+    #wrap ul li:nth-of-type(8){ -webkit-transform:rotate(42deg);} */
+    #wrap ul li:nth-of-type(5n+1){ height:12px;}
+    #hour{width: 6px;height: 45px;background: #000;position: absolute;left: 97px;top: 55px;transform-origin: bottom;}
+    #min{width: 4px;height: 65px;background: #999;position: absolute;left: 98px;top: 35px;transform-origin: bottom;}
+    #sec{width: 2px;height: 80px;background: #ff0000;position: absolute;left: 99px;top: 20px;transform-origin: bottom;}
+    .ico{width: 20px;height: 20px;border-radius: 50%;position: absolute;left: 90px;top:90px;background: #000;}
+    #thisTime{text-align: center;font-size: 18px;color: green;font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul id="list">
+            
+        </ul>
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
+        <div class="ico"></div>
+
+        <p id="thisTime"></p>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var oList = document.getElementById('list');
+        var oHour = document.getElementById('hour');
+        var oMin = document.getElementById('min');
+        var oSec = document.getElementById('sec');
+
+        toDial(oList);
+        showTime(oHour, oMin, oSec);
+        var timer = setInterval(function(){
+            showTime(oHour, oMin, oSec);
+        },1000)
+    }
+
+    function toDial(obj){
+        var aLi = '';
+        for(var i=0;i<60;i++){
+            aLi += '<li style="-webkit-transform:rotate('+i*6+'deg)"></li>';
+        }
+        obj.innerHTML = aLi;
+
+    }
+
+    function showTime(oHour, oMin, oSec){
+        var oDate = new Date();
+        var iS = oDate.getSeconds();
+        var iM = oDate.getMinutes()+iS/60;
+        var iH = oDate.getHours()+iM/60;
+        var oTime = document.getElementById('thisTime');
+        // alert(iH+':'+iM+':'+iS)
+        oHour.style.transform = 'rotate('+ (360/12)*iH +'deg)';
+        oMin.style.transform = 'rotate('+ 6*iM +'deg)';
+        oSec.style.transform = 'rotate('+ 6*iS +'deg)';
+
+        oTime.innerHTML = parseInt(iH)+':'+parseInt(iM)+':'+iS
+    }
+</script>
+</html>

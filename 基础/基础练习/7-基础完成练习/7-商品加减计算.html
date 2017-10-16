@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul>
+	<li>
+		<img src="img/2.png" width="50" height="50" />
+		<input type="button" value="-" />
+		<span>0</span>
+		<input type="button" value="+" />
+		单价：<em>12元</em>
+		小计：<strong>0元</strong>
+	</li>
+	<li>
+		<img src="img/3.png" width="50" height="50" />
+		<input type="button" value="-" />
+		<span>0</span>
+		<input type="button" value="+" />
+		单价：<em>24元</em>
+		小计：<strong>0元</strong>
+	</li>
+	<li>
+		<img src="img/4.png" width="50" height="50" />
+		<input type="button" value="-" />
+		<span>0</span>
+		<input type="button" value="+" />
+		单价：<em>10.5元</em>
+		小计：<strong>0元</strong>
+	</li>
+	<li>
+		<img src="img/5.png" width="50" height="50" />
+		<input type="button" value="-" />
+		<span>0</span>
+		<input type="button" value="+" />
+		单价：<em>98元</em>
+		小计：<strong>0元</strong>
+	</li>
+</ul>
+
+<p>以上商品总个数：0个，合计：0元，其中单价最贵的商品单价：0元</p>
+
+<script>
+    window.onload = function(){
+        var aLi = document.getElementsByTagName('li');
+        var oP = document.getElementsByTagName('p')[0];
+        var aSpan = document.getElementsByTagName('span');
+        var aStrong = document.getElementsByTagName('strong');
+        var aEm = document.getElementsByTagName('em');
+        var aImg = document.getElementsByTagName('img');
+        var arr = [];
+        var url = '';
+
+        for (var i = 0; i < aLi.length; i++) {
+            arr.push(0);
+            fnCount( aLi[i] );
+        }
+
+        // alert(arr)
+        
+        function fnCount(li) {
+            var aBtn = li.getElementsByTagName('input');
+            var oSpan = li.getElementsByTagName('span')[0];
+            var oEm = li.getElementsByTagName('em')[0];
+            var oStrong = li.getElementsByTagName('strong')[0];
+            var num = Number(oSpan.innerHTML);
+            var price =  parseFloat(oEm.innerHTML);
+
+            aBtn[0].onclick = function(){
+                if(num>0){
+                    num--;
+                }
+                oSpan.innerHTML = num;
+                oStrong.innerHTML = num * price +'元';
+
+                fnAdd();
+            }
+
+            aBtn[1].onclick = function(){
+                num++;
+                oSpan.innerHTML = num;
+                oStrong.innerHTML = num * price +'元';
+
+                fnAdd();
+                
+            }
+        };
+
+        function fnAdd(){
+            // alert('a')
+            var num = 0;
+            var prive = 0;
+
+            for(var i = 0;i<aSpan.length;i++){
+                // 根据数量 判断当前的最高价格 添加到数组
+                if( aSpan[i].innerHTML > 0){
+                    arr[i] = parseFloat(aEm[i].innerHTML);
+                    // url =  aImg[i].getAttribute('src');
+                }else{
+                    arr[i] = 0;
+                }
+                num += Number(aSpan[i].innerHTML);
+                prive += parseFloat(aStrong[i].innerHTML);
+            }
+            
+            // 假设最大值 是数组的第一个 依次和剩余的项比较
+            var iMax = arr[0];
+            for(var i=1;i<arr.length;i++){
+                if(iMax < arr[i]){
+                    iMax = arr[i];
+                }
+            }
+
+            // var sImg = '<img src="'+ url +'" width="50" height="50" />'
+            
+                 
+            
+            oP.innerHTML = '以上商品总个数：'+ num +'个，合计：'+ prive +'元，其中单价最贵的商品单价：'+ iMax +'元';
+
+        };
+    }
+    
+</script>
+
+</body>
+</html>

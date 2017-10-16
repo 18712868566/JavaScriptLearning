@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@-webkit-keyframes ani{
+				0%{top: 0;left: 0;}
+				100%{top: 0;left: -550px;}
+			}
+			@keyframes ani{
+				0%{top: 0;left: 0;}
+				100%{top: 0;left: -550px;}
+			}
+			body,ul,li{margin: 0;padding: 0;}
+			li{list-style: none;}
+			.wrap:hover .box{animation-play-state: paused;}
+			
+			.wrap{width: 500px;height: 100px;border: 5px solid #000;margin: 100px auto 0;position: relative;overflow: hidden;}
+			.box{width: 300%;position:absolute;animation: 5s ani linear infinite;}
+			.box li{width: 98px;height: 98px;border: 1px solid #FF0000;margin: 0 5px;float: left;font: 50px/98px arial;text-align: center;background: #000;color: #fff;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="ani box">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

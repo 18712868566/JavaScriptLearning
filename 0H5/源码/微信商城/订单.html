@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>订单管理</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript">
+	function menu(){
+		$('#sub-title').toggle();
+	};
+$(function(){
+	$(".order_on").on("click",
+	function(){
+		$(".order_on").removeClass("order_off");
+		$(this).addClass("order_off");
+		if($(this).hasClass("qita")){
+			$("#qita").show();
+			$("#wangshang").hide();
+		}
+		else{
+			$("#qita").hide();
+			$("#wangshang").show();
+		}
+	}
+	)
+	$(".order_2on").on("click",
+	function(){
+		$(".order_2on").removeClass("order_2off");
+		$(this).addClass("order_2off");
+		if($(this).hasClass("navDd")){
+			$(".dingdan").hide();
+			$("#navDd").show();
+		}
+		if($(this).hasClass("navZf")){
+			$(".dingdan").hide();
+			$("#navZf").show();
+		}
+		if($(this).hasClass("navSh")){
+			$(".dingdan").hide();
+			$("#navSh").show();
+		}
+		if($(this).hasClass("navPj")){
+			$(".dingdan").hide();
+			$("#navPj").show();
+		}
+	}
+	)
+	$(".order_3on").on("click",
+	function(){
+		$(".order_3on").removeClass("order_3off");
+		$(this).addClass("order_3off");
+		if($(this).hasClass("nav2Dd")){
+			$(".dingdan1").hide();
+			$("#nav2Dd").show();
+		}
+		if($(this).hasClass("nav2Pj")){
+			$(".dingdan1").hide();
+			$("#nav2Pj").show();
+		}
+	})
+	
+})
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<div style="width: 100%;">
+				<ul id="order-nav">
+					<li class="order_on order_off" >网上订单</li>
+					<li style="border-radius: 0px 5px 5px 0px;" class="order_on qita">门店订单</li>
+				</ul>
+			</div>
+			<div class="right" onclick="menu()">
+				<a class="sn-right" ></a>
+				<ul style="display: none; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);" class="nav-more-list" id="sub-title">
+					<li>
+						<a class="nav-more-icon home-icon" href="javascript:void(0)">首页</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cart-icon" href="javascript:void(0)">购物车</a>
+					</li>
+					<li>
+						<a class="nav-more-icon search-icon" href="搜索.html">搜索</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cate-icon" href="商品分类.html">全部分类</a>
+					</li>
+					<li>
+						<a class="nav-more-icon ebuy-icon" href="个人中心.html">个人中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+			<div id="wangshang" style="display: block;">
+				<ul id="order-2nav">
+					<li class="navDd order_2on order_2off " >全部订单</li>
+					<li class="navZf order_2on">待支付</li>
+					<li class="navSh order_2on">待收货</li>
+					<li class="navPj order_2on">待评价</li>
+				</ul>
+				<div style="display: block;" class="dingdan" id="navDd">
+					全部订单
+				</div>
+				<div class="dingdan" id="navZf">
+					<ul class="order_top">
+						<li id="5017413289_">
+							<div class="nav_top">
+								<div class="nav_topLeft">订单号：214554415</div>
+								<div class="nav_topRight">
+									<span style="color:#909090;">应付款：</span>¥79.90
+								</div>
+							</div>
+							<div class="nav_content">
+								<div class="nav_contentLeft">
+									<div class="cart-sn-ico"></div>
+									<div class="sn-txt-positive">苏宁自营</div>
+								</div>
+							</div>
+							<a class="pro-list" href="">
+								<div style="border-bottom:1px solid #DCDCDC;" class="wbox">
+									<div class="pro-img">
+										<img src="http://image2.suning.cn/b2c/catentries/000000000124363429_1_100x100.jpg" alt="" onerror="this.src='http://script.suning.cn/images/ShoppingArea/Common/blankbg.gif'">
+									</div>
+									<div class="pro-info">
+										<div class="pro-name">御泥坊人参矿物蚕丝面膜21片</div>
+										<div class="pro_cost">¥79.90</div>
+										<div class="pro_count">数量：1</div>
+									</div>
+								</div>
+							</a>
+							<div class="nav_bottom"> 
+								<a href="javascript:void(0);" class="sn-btn" onclick="javascript:goPay('5017413289','0','11613','79.90');">去支付</a> 
+							</div>
+						</li>
+					</ul>			
+				</div>
+				<div class="dingdan" id="navSh">
+					<div style="margin-top:4rem;" class="no-uncomment tc" id="noMore"> 
+						<div class="mt20">您目前没有待支付订单！ </div> 
+					</div>
+				</div>
+				<div class="dingdan" id="navPj">
+					待评价
+				</div>
+			</div>
+			<div id="qita" style="display: none;">
+				<ul id="order-2nav">
+					<li style="width: 50%;" class="nav2Dd order_3on order_3off" >全部订单</li>
+					<li style="width: 50%;" class="nav2Pj order_3on">待评价</li>
+				</ul>
+				<div style="display: block;" class="dingdan1" id="nav2Dd">
+					全部订单
+				</div>
+				<div class="dingdan1" id="nav2Pj">
+					待评价
+				</div>
+			</div>
+			
+</body>
+</html>

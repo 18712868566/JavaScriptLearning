@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,li{
+				list-style-type: none;
+			}
+			#content{width:960px;margin:0 auto;}
+			i{color:red;}
+		</style>
+	</head>
+	<body>
+	<div id="content">
+		<h1>工厂方法</h1>
+		<p>
+			因为对象的属性可以在对象创建后动态定义，所有许多开发者都在 JavaScript 最初引入时编写类似下面的代码：
+		</p>
+	</div>
+	</body>
+	<script>
+		//原始的方法
+		/*它的颜色是红色，有四个门，每加仑油可以跑 25 英里。
+		var oCar = new Object;
+		oCar.color = "red";
+		oCar.doors = 4;
+		oCar.mpg = 25;
+		oCar.showColor = function(){
+			alert(this.color);
+		}
+		
+		//工厂方法
+		function createCar(){
+			var oTempCar = new Object;
+			oTempCar.color = "blue";
+			oTempCar.doors = 4;
+			oTempCar.mpg = 25;
+			oTempCar.showColor = function(){
+				alert(this.color);
+			}
+			return oTempCar;
+		}
+		 
+		 var oCar1 = createCar();
+		 var oCar2 = createCar();
+		 
+ 		 alert(oCar1.color);
+		 alert(oCar2.color);
+		 
+		 
+		 //为函数传递参数
+		 //给 createCar() 函数加上参数，即可为要创建的 car 对象的 color、doors 和 mpg 属性赋值。这使两个对象具有相同的属性，却有不同的属性值。
+		 function createCar(sColor,iDoors,iMpg){
+			var oTempCar = new Object;
+			oTempCar.color = sColor;
+			oTempCar.doors = iDoors;
+			oTempCar.mpg = iMpg;
+			oTempCar.showColor = function(){
+				alert(this.color);
+			}
+			return oTempCar;
+		 }
+		 var oCar1 = createCar("red",4,20);
+		 var oCar2 = createCar("black",6,25);
+		 
+		 oCar1.showColor();    //输出red
+		 oCar2.showColor();    //输出blue
+		 
+		 */
+		 
+		 
+		 //构造函数模式
+		 //创建构造函数就像创建工厂函数一样容易。第一步选择类名，即构造函数的名字。根据惯例，这个名字的首字母大写，以使它与首字母通常是小写的变量名分开。除了这点不同，构造函数看起来很像工厂函数。请考虑下面的例子：
+		 
+		 function Car(sColor,iDoors,iMpg){    //构造函数名首字母大写
+			this.color = sColor;
+			this.doors = iDoors;
+			this.mpg = iMpg;
+			this.showColor = function(){
+				alert(this.color);
+			};
+		 }
+		 
+		 var oCar1 = new Car("red",4,23);
+		 var oCar2 = new Car("blue",6,25);
+		 
+		 alert(oCar1.mpg);
+		 alert(oCar2.mpg);
+	</script>
+</html>

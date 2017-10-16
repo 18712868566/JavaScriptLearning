@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>在jquery的叫新版本中,继承关系的实现通常都会采用深拷贝</div>
+	</body>
+	<script type="text/javascript">
+		
+		function extend(Child,Parent){
+			var F = function(){};
+			F.prototype = Parent.prototype;
+			Child.prototype = new F();
+			Child.prototype.constructor = Child;
+			Child.uber = Parent.prototype;
+		}
+		//继承
+		function extend2(Child,Parent){
+			var p = Parent.prototype;
+			var c = Child.prototype;
+			for (var i in p) {
+				c[i] = p[i];
+			}
+			c.uber = p;
+		}
+		
+		var o ={};
+		//浅拷贝
+		function extendCopy (p){
+			var c = {};
+			for (var i in p) {
+				c[i] = p[i];
+			}
+			c.uber = p;
+			return c;
+		}
+		
+		//深拷贝
+		function deepCopy (p,c){
+			var c = c || {};
+			for (var i in p) {
+				if (typeof p[i] === 'object') {
+					c[i] = (p[i].constructor === Array) ? [] : {};
+					deepCopy(p[i],c[i]);
+				}else{
+					c[i] = p[i];
+				}
+			}
+			return c;
+		}
+		
+		var parent = {
+			numbers: [1,2,3],
+			letters: ['a','b','c'],
+			obj:{
+				prop:1
+			},
+			bool:true
+		}
+		
+		var mydeep = deepCopy(parent);
+		var myshallow = extendCopy(parent);
+		
+		/*    深拷贝     */
+		mydeep.numbers;
+		//[1, 2, 3]
+		mydeep.numbers.push(4,5,6);
+		//6
+		mydeep.numbers;
+		//[1, 2, 3, 4, 5, 6]
+		parent.numbers
+		//[1, 2, 3]
+		
+		/*    浅拷贝     */
+		myshallow.numbers.push(10)
+		//4
+		myshallow.numbers
+		//[1, 2, 3, 10]
+		parent.numbers
+		//[1, 2, 3, 10]
+		mydeep.numbers
+		//[1, 2, 3, 4, 5, 6]
+	</script>
+</html>

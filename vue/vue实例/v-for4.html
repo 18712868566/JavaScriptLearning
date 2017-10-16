@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<div class="stores" id="box">
+			<div class="stores_left">
+				<table class="stores_tab">
+					<tr>
+						<th class="s_th1">省份</th>
+						<th class="s_th1">城市</th>
+						<th class="s_th2">餐厅名称</th>
+						<th class="s_th3">餐厅地址</th>
+					</tr>
+				</table>
+				<div class="stores_box">
+					<table class="stores_tab" >
+						<tr v-for='arr in arrs'>
+							<td class="s_th1">{{arr.id}}</td>
+							<td class="s_th1">{{arr.name}}</td>
+							<td class="s_th2">{{arr.phone}}</td>
+							<td class="s_th3">{{arr.ditu}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="stores_right">
+				<div name="province" type="selectbox" class="sb">
+					<div class="opts" v-on:click='show()'>北京</div>
+				</div>
+				<div name="city" type="selectbox" class="sb">
+					<div class="opts"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<!--<script src="../js/vue.data.js" type="text/javascript" charset="utf-8"></script>-->
+	
+	<script type="text/javascript">
+		new Vue({
+			el: '#box',
+			obj: 'welcome vue',
+			data: {
+				arrs: [
+					{'id':'1','name':'北京','phone':'长阳绿地-010 BJ-Chang Yang Lv Di1','ditu':'北京市房山区长阳镇绿地缤纷城1'},
+					{'id':'2','name':'上海','phone':'长阳绿地-010 BJ-Chang Yang Lv Di2','ditu':'北京市房山区长阳镇绿地缤纷城2'},
+					{'id':'3','name':'成都','phone':'长阳绿地-010 BJ-Chang Yang Lv Di3','ditu':'北京市房山区长阳镇绿地缤纷城3'},
+					{'id':'4','name':'河北','phone':'长阳绿地-010 BJ-Chang Yang Lv Di4','ditu':'北京市房山区长阳镇绿地缤纷城4'},
+					{'id':"5",'name':'天津','phone':'长阳绿地-010 BJ-Chang Yang Lv Di5','ditu':'北京市房山区长阳镇绿地缤纷城5'}
+				]
+			},
+			methods:{
+				show:function(){
+					alert('a')
+				}
+			}
+		})
+
+	</script>
+	<!--<script type="text/javascript">
+		var example1 = new Vue({
+			
+			el: '#box',
+			data: {
+				parentMessage: 'Parent',
+				items: [
+					{message: 'Foo'},
+					{message: 'Bar'}
+				],
+				obj: {
+					firstName: 'Hohn',
+					lastName: 'Doe',
+					Age: 30
+				}
+			}
+		})
+	</script>-->
+</html>

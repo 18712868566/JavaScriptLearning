@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			ul,li{
+				list-style-type: none;
+			}
+			#content{width:960px;margin:0 auto;}
+			i{color:red;}
+		</style>
+	</head>
+	<body>
+	<div id="content">
+		<h1>静态作用域</h1>
+			
+	<div>
+	</body>
+	<script>
+		function sayHello(){
+			alert("hello");
+		}
+		sayHello.alertnate = function(){
+			alert("hi");
+		}
+		
+		sayHello();    //输出?   ""
+ 		sayHello.alertnate();  //输出?
+	</script>
+</html>

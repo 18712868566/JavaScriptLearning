@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  
+</body>
+<script>
+
+var str = 'assssjdssskssalsssdkjsssdsehksljdfkjsdflxkmvkjoperijkgs';
+
+var arr = str.split('');
+
+// console.log(arr);
+str = arr.sort().join('');
+
+// console.log(str);
+
+var value = '';
+var index = 0;
+
+var re = /(\w)\1+/g;
+
+str.replace(re,function($0,$1){
+    if (index < $0.length) {
+        index = $0.length;
+        value = $1;
+
+        alert('最多的字符:'+value+',重复的次数:'+index);
+        
+    }    
+})
+
+// alert('最多的字符:'+value+',重复的次数:'+index);
+
+</script>
+</html>

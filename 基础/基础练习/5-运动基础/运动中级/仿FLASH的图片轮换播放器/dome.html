@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>仿FLASH的图片轮换效果</title>
+<link rel="stylesheet" type="text/css" href="miao_style.css">
+<script src="move.js"></script>
+<script>
+
+function getByClass(oParent, sClassName) {
+    var aEle = document.getElementsByTagName('*');
+    var arr = [];
+    for (var i = 0; i < aEle.length; i++) {
+        if (aEle[i].className == sClassName) {
+            arr.push(aEle[i]);
+        }
+    }
+
+    return arr;
+}
+
+window.onload = function(){
+
+    var oDiv = document.getElementById('playimages');
+    var oPrev = getByClass(oDiv,'prev')[0];
+    var oNext = getByClass(oDiv,'next')[0];
+    var oMarkLeft = getByClass(oDiv,'mark_left')[0];
+    var oMarkRight = getByClass(oDiv,'mark_right')[0];
+
+    var oSmallPicUl = getByClass(oDiv,'small_pic')[0].getElementsByTagName('ul')[0];
+    var aSmallPicLi = oSmallPicUl.getElementsByTagName('li');
+
+    var oBigPic = getByClass(oDiv,'big_pic')[0];
+    var aBigPicLi = oBigPic.getElementsByTagName('li');
+
+    var iNow = 0;   // 当前
+    var iZindex = 2;
+    var i = 0;
+    var timer = null;
+
+    oSmallPicUl.style.width = aSmallPicLi.length * aSmallPicLi[0].offsetWidth + 'px';
+    // alert(aSmallPicLi.length)
+    // alert(aBigPicLi.length)
+    // console.log(oPrev)
+    // 大图左右切换按钮
+    oPrev.onmouseover=oMarkLeft.onmouseover = function(){
+        startMove(oPrev, 'opacity', 100);
+    }
+    oPrev.onmouseout=oMarkLeft.onmouseout = function(){
+        startMove(oPrev, 'opacity', 0);
+    }
+
+    oNext.onmouseover=oMarkRight.onmouseover = function(){
+        startMove(oNext, 'opacity', 100);
+    }
+    oNext.onmouseout=oMarkRight.onmouseout = function(){
+        startMove(oNext, 'opacity', 0);
+    }
+
+
+    for (i = 0; i < aSmallPicLi.length; i++) {
+        aSmallPicLi[i].index = i;
+
+        aSmallPicLi[i].onmouseover = function(){
+            startMove(this, 'opacity', 100);
+        }
+
+        aSmallPicLi[i].onmouseout = function(){
+            // console.log(this.index +'---'+ iNow)
+            if (this.index == iNow) return;
+            startMove(this, 'opacity', 60);
+            /*if(this.index!=iNow)
+            {
+                startMove(this, 'opacity', 60);
+            }*/
+        }
+
+        aSmallPicLi[i].onclick = function(){
+            // 多次点击一个 重复展开
+            if (this.index == iNow) return;
+
+            iNow = this.index;
+            tab();
+        }
+
+        function tab() {
+
+            for (i = 0; i < aSmallPicLi.length; i++) {
+                startMove(aSmallPicLi[i], 'opacity', 60);
+            }
+            startMove(aSmallPicLi[iNow], 'opacity', 100);
+            aBigPicLi[iNow].style.zIndex = iZindex++;
+            aBigPicLi[iNow].style.height = 0;
+            startMove(aBigPicLi[iNow], 'height', oBigPic.offsetHeight);
+
+            /*aBigPicLi[iNow].style.opacity = 0;
+            aBigPicLi[iNow].style.filter = 'alpha(opacity:0])';
+            startMove(aBigPicLi[iNow], 'opacity', 100);*/
+
+            if (iNow == 0) {
+                startMove(oSmallPicUl, 'left', 0);
+            }else if(iNow == aSmallPicLi.length-1){
+                startMove(oSmallPicUl, 'left', -(iNow-2)*aSmallPicLi[0].offsetWidth);
+            }
+            else{
+                // 向左运动
+                startMove(oSmallPicUl, 'left', -(iNow-1)*aSmallPicLi[0].offsetWidth);
+            }
+        }
+
+
+        oPrev.onclick = prvePic;
+        oNext.onclick = nextPic;
+
+        function prvePic(){
+            iNow--;
+            if (iNow == -1) {
+                iNow = aSmallPicLi.length-1;
+            }
+            tab();
+        }
+        function nextPic(){
+            iNow++;
+            // alert(iNow)
+            if (iNow == aSmallPicLi.length) {
+                iNow = 0;
+            }
+            tab();
+        }
+
+
+    }
+}
+</script>
+</head>
+
+<body>
+<div id="playimages" class="play">
+    <ul class="big_pic">
+        <div class="prev"></div>
+        <div class="next"></div>
+
+        <div class="text">加载图片说明……</div>
+        <div class="length">计算图片数量……</div>
+
+        <a class="mark_left" href="javascript:;"></a>
+        <a class="mark_right" href="javascript:;"></a>
+        <div class="bg"></div>
+
+        <li style="z-index:1;"><img src="images/1.jpg" /></li>
+        <li><img src="images/2.jpg" /></li>
+        <li><img src="images/3.jpg" /></li>
+        <li><img src="images/4.jpg" /></li>
+        <li><img src="images/5.jpg" /></li>
+        <li><img src="images/6.jpg" /></li>
+    </ul>
+    <div class="small_pic">
+        <ul style="width:390px;">
+            <li style="filter: 100; opacity: 1;"><img src="images/1.jpg" /></li>
+            <li><img src="images/2.jpg" /></li>
+            <li><img src="images/3.jpg" /></li>
+            <li><img src="images/4.jpg" /></li>
+            <li><img src="images/5.jpg" /></li>
+            <li><img src="images/6.jpg" /></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>动态控制层(显示登录层)</title>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript">
+        window.onresize = myCenter;
+
+        function showLogin() {
+            var div = document.getElementById("alertInfo_yuanxiao");           
+            div.style.display = "block";
+            myCenter();
+        }
+        function closeLogin() {
+            var div = document.getElementById("alertInfo_yuanxiao");
+            div.style.display = "none";
+        }
+        function myCenter() {
+            var odiv = document.getElementById("alertInfo_yuanxiao");
+
+            if (odiv.style.display == "block") {
+                var sTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var cHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                var mid = (cHeight - odiv.offsetHeight) / 2;
+
+                var sLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                var cWidth = document.documentElement.clientWidth || document.body.clientWidth;
+                var mid2 = (cWidth - odiv.offsetWidth) / 2;
+
+                if (navigator.appVersion.indexOf("MSIE 6") > -1) {
+                    odiv.style.top = parseInt(sTop + mid) + "px";
+                }
+                else {
+                    odiv.style.top = mid + "px";
+                }
+
+                if (navigator.appVersion.indexOf("MSIE 6") > -1) {
+                    odiv.style.left = parseInt(sLeft + mid2) + "px";
+                }
+                else {
+                    odiv.style.left = mid2 + "px";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="javascript:showLogin()">登录</a>
+    <div id="alertInfo_yuanxiao" style="position:absolute;top:0px;left:0px;display:none;background-color:Red;border-width:1px;">
+        <img src="../images/close.JPG" onclick="closeLogin()" style="float:right;" /><br />
+        <table>
+            <tr>
+                <td><label for="txtUserName">用户名称:</label></td>
+                <td><input type="text" style="width:120px;" id="txtUserName" /></td>
+            </tr>
+            <tr>
+                <td><label for="txtUserName">密码:</label></td>
+                <td><input type="password" style="width:120px;" id="txtPassword" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

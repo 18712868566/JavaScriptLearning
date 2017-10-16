@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>让元素运动起来</title>
+    <style type="text/css" media="screen">
+        #div1{width: 200px;height: 200px;background: #ccc;position: absolute;left: 0;}
+    </style>
+</head>
+<body>
+
+    <input id="btn1" type="button" name="" value="向右移动">
+    <div id="div1"></div>
+</body>
+<script type="text/javascript">
+
+
+    window.onload = function(){
+
+        var oBtn = document.getElementById('btn1');
+        var oDiv = document.getElementById('div1');
+
+        oBtn.onclick = function(){
+            //alert(oDiv.offsetLeft);
+            oDiv.style.left = oDiv.offsetLeft + 10 +'px';
+        }
+
+    }
+</script>
+</html>

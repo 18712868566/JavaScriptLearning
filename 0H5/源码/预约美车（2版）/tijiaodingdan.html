@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width,inital-scale=1.0,maximum-scale=0.422,initial-scale=1.0,user-scalable=no;">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+$(function(){
+		    	var date = new Date();
+		    	
+		    	//系统日期参数
+		    	var year = date.getFullYear();
+		    	var month = date.getMonth()+1;
+		    	var day = date.getDate();
+		    	var hour = date.getHours();
+		    	/*
+		    	//测试日期参数
+		    	var year = 2000;
+		    	var month = 2;
+		    	var day = 25;
+		    	var hour =14;*/
+		    	//alert(year+"=="+month+"=="+day);
+		    	var dates = ts(year,month,day);
+		    	if(hour>12){
+		    		dates.shift();
+				}
+	   			for(var i=0;i<dates.length;i++){
+	   				console.info(dates[i])
+	   			$(".shijian")[0][i]=new Option(dates[i],"")
+				
+	   			}
+	   			
+	   		})
+	   		function ts(year,month,day){
+	   			var endMonth = getEndMonth(year,month);
+	   			//console.info("最后一天为"+endMonth)
+	   			var dates=[];
+	   			for(var i=0;i<15;i++){
+	   				if(day>endMonth){
+	   					month+=1;
+	   					day=1;
+	   					if(month>12){
+	   						year+=1;
+	   						month=1;
+	   					}
+	   					endMonth=getEndMonth(year,month);
+	   				}
+
+	   				dates[i*2]=year+"年"+month+"月"+day+"日上午"
+	   				dates[i*2+1]=year+"年"+month+"月"+day+"日下午"
+	   				day++;
+	   			}
+	   			return dates;
+	   		}
+	   		//获取当月的天数
+	   		function getEndMonth(year,month){
+	   			var endMonth ;
+	   			switch (month) {
+					case 1:
+				    case 3:
+				    case 5:
+				    case 7:
+				    case 8:
+				    case 10:
+				    case 12:
+						endMonth = 31;
+						break;
+					case 4:
+				    case 6:
+				    case 9:
+				    case 11:
+						endMonth = 30;
+						break;
+				    case 2:
+				    	if (isLeapYear(year)) {
+				    	 	//闰年
+				            endMonth = 29;
+				        } else if (!isLeapYear(year)) {
+				            //不是闰年
+				            endMonth = 28;
+				        }
+						break;
+				}
+				return endMonth;
+	   		}
+	   		//判断时候为闰年
+	   		function isLeapYear(year){
+		    	//var year=window.myForm.theYear.value;
+			    if(!isNaN(parseInt(year))){
+				    if((year%4==0 && year%100!=0)||(year%100==0 && year%400==0)){
+				    	//window.alert(year+"是闰年！");
+				    	return true;
+				    }else{
+				        // window.alert(year+"不是闰年！");
+				        return false;
+				    }
+			    }else{
+			    	window.alert("请输入正确年份！");
+			    }
+	        }
+</script>
+<title>提交订单</title>
+</head>
+<link type="text/css" rel="stylesheet" href="css/center.css">
+<body>
+    <div style="height:1080px;" class="xinxikuang">
+        <img style="margin:30px 40px;" src="images/gerenxinxi_touxiang.png">
+        <input style="margin:10px 1%;" class="input"placeholder="请输入您的车位置"onfocus="if (value =='请输入您的车位置'){value =''}"onblur="if (value ==''){value='请输入您的车位置'}" />    
+        <hr >
+        <img  src="images/gerenxinxi_shouji.png">
+        <input class="input" type="tel|xxxx"placeholder="请输入您的车牌号"onfocus="if (value =='请输入您的车牌号'){value =''}"onblur="if (value ==''){value='请输入您的车牌号'}" />
+        <hr >
+        <img src="images/gerenxinxi_chepai.png">
+        <select  class="shijian input" NAME="dates" SIZE=1 >
+        </select>
+        <hr style="clear:both;" >
+        <img src="images/gerenxinxi_chepai.png">
+        <input class="input"placeholder="请输入您的手机号"onfocus="if (value =='请输入您的手机号'){value =''}"onblur="if (value ==''){value='请输入您的手机号'}"/>
+        <hr >
+        <img src="images/gerenxinxi_dizhi.png">
+        <input class="input"placeholder="请输入您的地址"onfocus="if (value =='请输入您的地址'){value =''}" onblur="if (value ==''){value='请输入您的地址'}"/>    
+        <hr >
+        <textarea style="margin:1% 5%; width:90%; float:left;" class="beizhukuang" onfocus="if (value =='请输入您的其他需求'){value =''}" onblur="if (value ==''){value='请输入您的其他需求'}" />请输入您的其他需求</textarea>
+    </div>
+    <a href="xinzenggerenxinxi.html">
+        <div class="button">
+            <p >提交</p>
+        </div>
+    </a>    
+</body>
+</html>

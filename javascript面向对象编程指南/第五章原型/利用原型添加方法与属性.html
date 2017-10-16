@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		//构造器函数
+		function Gadget(name,color){
+			this.name = name;
+			this.color = color;
+			this.whatAreYou = function(){
+				return 'I an a'+this.color+''+this.name;
+			}
+		}
+		
+		
+		//通过构造器函数的prototype属性来增加该构造器所能提供的功能
+		Gadget.prototype = {
+			
+			price : 100,
+			rating : 3,
+			getInfo : function(){
+				return 'Rating: ' + this.rating + ', price: ' + this.price;
+			}
+		}
+		
+	</script>
+	
+</html>

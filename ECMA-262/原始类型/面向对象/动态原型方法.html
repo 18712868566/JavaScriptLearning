@@ -1,0 +1,104 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul,li{
+				list-style-type: none;
+			}
+			#content{width:960px;margin:0 auto;}
+			i{color:red;}
+			p{line-height:35px;text-indent: 2em;}
+		</style>
+		<script src="" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<div id="content">
+		<h1>动态原型方法</h1>
+		<p>
+			现在就更像创建一般对象了。所有的非函数属性都在构造函数中创建，意味着又能够用构造函数的参数赋予属性默认值了。因为只创建 showColor() 函数的一个实例，所以没有内存浪费。此外，给 oCar1 的 drivers 数组添加 "Bill" 值，不会影响到 oCar2 的数组，所以输出这些数组的值时，oCar1.drivers 显示的是 "Mike,John,Bill"，而 oCar2.drivers 显示的是 "Mike,John"。因为使用了原型方式，所以仍然能利用 instanceof 运算符来判断对象的类型。
+			这种方式是 ECMAScript 采用的主要方式，它具有其他方式的特性，却没有他们的副作用。不过，有些开发者仍觉得这种方法不够完美。
+		</p>
+	</div>
+	<table border="" cellspacing="" cellpadding="" width="200">
+		<tr><th>Header</th></tr>
+		<tr><td align="left">Data</td></tr>
+	</table>
+	</body>
+	<script>
+		 
+		  
+		/*
+		//混合的构造函数/原型方法 
+		//联合使用构造函数和原型方式，就可像用其他程序设计语言一样创建对象。这种概念非常简单，即用构造函数定义对象的所有非函数属性，用原型方式定义对象的函数属性（方法）。结果是，所有函数都只创建一次，而每个对象都具有自己的对象属性实例。
+		 
+		 
+		 function Car(sColor,iDoors,iMpg){    //构造
+			this.color = sColor;
+			this.doors = iDoors;
+			this.mpg = iMpg;
+			this.drivers = new Array("Mike","John");
+		 }		
+		 Car.prototype.showColor = function(){   //原型
+			alert(this.color);
+		 }
+		 
+		 var oCar1 = new Car("red",5,20);
+		 var oCar2 = new Car("blue",4,23);
+		 
+		 oCar1.drivers.push("bill");
+		 
+		 alert(oCar1.drivers);  //输出Mike,John,Bill
+		 alert(oCar2.drivers);  //输出Mike,John
+		 
+		 
+		 
+		 //Java动态原型方法
+		 class Car{
+			public String color = "blue";
+			public int doors = 4;
+			public int mpg = 25;
+			
+			public Car(String color,int doors,int mpg){
+			 this.color = color;
+			 this.doors = doors;
+			 this.mpg = mpg;
+			}
+			public void showColor(){
+				System.out.printIn(color);
+			}
+		 }
+		 */
+		 
+		 
+		 //Js动态原型方法
+		 function Car(sColor,iDoors,iMpg){
+			this.color = sColor;
+			this.doors = iDoors;
+			this.mpg = iMpg;
+			this.drivers = new Array("Mike","John");
+			
+			if(typeof Car._initialized == "undefined"){
+				Car.prototype.showColor = function(){
+					alert)(this.color);
+				};
+				Car._initialized = true;
+			}
+		 }
+		 
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

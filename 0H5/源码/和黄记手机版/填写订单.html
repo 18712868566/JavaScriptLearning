@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>填写订单</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script>
+$(function(){
+		    	var date = new Date();
+		    	
+		    	//系统日期参数
+		    	var year = date.getFullYear();
+		    	var month = date.getMonth()+1;
+		    	var day = date.getDate();
+		    	var hour = date.getHours();
+		    	/*
+		    	//测试日期参数
+		    	var year = 2000;
+		    	var month = 2;
+		    	var day = 25;
+		    	var hour =14;*/
+		    	//alert(year+"=="+month+"=="+day);
+		    	var dates = ts(year,month,day);
+		    	if(hour>12){
+		    		dates.shift();
+				}
+	   			for(var i=0;i<dates.length;i++){
+	   				console.info(dates[i])
+	   			$(".shijian")[0][i]=new Option(dates[i],"")
+	   			}
+	   			
+	   		})
+	   		function ts(year,month,day){
+	   			var endMonth = getEndMonth(year,month);
+	   			//console.info("最后一天为"+endMonth)
+	   			var dates=[];
+	   			for(var i=0;i<7;i++){
+	   				if(day>endMonth){
+	   					month+=1;
+	   					day=1;
+	   					if(month>12){
+	   						year+=1;
+	   						month=1;
+	   					}
+	   					endMonth=getEndMonth(year,month);
+	   				}
+
+	   				dates[i*2]=year+"年"+month+"月"+day+"日  09:00-15:00"
+	   				dates[i*2+1]=year+"年"+month+"月"+day+"日  15:00-19:00"
+	   		/*		dates[i*2+2]=year+"年"+month+"月"+day+"日  19:00-22:00"*/
+	   				day++;
+	   			}
+	   			return dates;
+	   		}
+	   		//获取当月的天数
+	   		function getEndMonth(year,month){
+	   			var endMonth ;
+	   			switch (month) {
+					case 1:
+				    case 3:
+				    case 5:
+				    case 7:
+				    case 8:
+				    case 10:
+				    case 12:
+						endMonth = 31;
+						break;
+					case 4:
+				    case 6:
+				    case 9:
+				    case 11:
+						endMonth = 30;
+						break;
+				    case 2:
+				    	if (isLeapYear(year)) {
+				    	 	//闰年
+				            endMonth = 29;
+				        } else if (!isLeapYear(year)) {
+				            //不是闰年
+				            endMonth = 28;
+				        }
+						break;
+				}
+				return endMonth;
+	   		}
+	   		//判断时候为闰年
+	   		function isLeapYear(year){
+		    	//var year=window.myForm.theYear.value;
+			    if(!isNaN(parseInt(year))){
+				    if((year%4==0 && year%100!=0)||(year%100==0 && year%400==0)){
+				    	//window.alert(year+"是闰年！");
+				    	return true;
+				    }else{
+				        // window.alert(year+"不是闰年！");
+				        return false;
+				    }
+			    }else{
+			    	window.alert("请输入正确年份！");
+			    }
+	        }
+			
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="left">
+			 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+		</div>
+		<p class="header_title">填写订单</p>
+		<div class="right" >
+		</div>
+	</div>
+	<ul class="rectangle mt05" >
+		<li>
+			<div style="padding: 15px;" class="wbox-flex">
+				<label >
+					<div class="RTop" style="width: 60%;">
+						<span class="fl">于军</span>
+						<span class="fr">15100735501</span>
+					</div>
+					<div class="vector-smart-object">
+					</div>
+					<p class="RBottom mt02">北京北京市西城区全境北京市西城区北三环中路甲29号华龙大厦B座605</p>
+				</label>
+			</div>
+		</li>
+	</ul>
+	<div class="shopping_cart mt05">
+		<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+		<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+		<span class="cart_number">*1</span>
+		<span class="cart_cost">¥9.90</span>
+		<div style="float: right; margin-top: 1rem;" class="tr arrow"></div>		
+	</div>
+	
+	<div class="sn-block">
+        <ul class="sn-list-input">
+            	<li class="list_liebiao pl05">
+                    <span>配送方式</span>
+                    <div class="wbox-flex tr sn-txt-muted arrow">
+                    	申通快递
+                    </div>
+            	</li>
+            	<li class="list_liebiao pl05">
+            		 <span>配送时间</span>
+                    <div class="wbox-flex tr sn-txt-muted arrow">
+                    	<select class="shijian" style="border: none;color: #909090; ">
+                    		<option selected="selected">预计星期日送达</option>
+                    	</select>
+                    </div>
+            	</li>
+            	<li class="list_liebiao pl05">
+                   <span>发票信息</span>
+                    <div  class="wbox-flex tr sn-txt-muted arrow">
+								北京纵横创通科技有限责任公司
+                    </div>
+            	</li>
+        	<li style="border: none;" class="list_liebiao pl05">
+               <input style="color: #909090;width:90%;border: none;font-size: 0.6rem;overflow:hidden;text-overflow: ellipsis;"  placeholder="给卖家留言" />
+        	</li>
+        </ul>
+	</div>	
+	<div class="bottom">
+		<p class="bottom_p">合计：<b style=" color: #FA5700;">¥</b><span>157.00</span></p>
+		<div class="bottom_right">
+			<p style="">提交订单</p>
+		</div>
+	</div>
+</body>
+</html>

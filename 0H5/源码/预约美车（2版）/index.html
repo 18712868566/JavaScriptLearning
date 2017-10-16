@@ -1,0 +1,592 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width,inital-scale=1.0,maximum-scale=0.422,initial-scale=1.0,user-scalable=no;">
+<!--
+<meta name="apple-mobile-web-app-capable" content="yes">Web应用会以全屏模式运行
+<meta name="apple-mobile-web-app-status-bar-style" content="blank-translucent">Web状态栏样式
+<meta name="format-detection" content="telephone=no"><!--自动识别任何可能是电话号码
+<link rel="apple-touch-icon-precomposed" href=".png">添加到主屏幕的icon-->
+<title>上门美车</title>
+</head>
+<link href="css/public.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="css/animate.css" media="screen" type="text/css" />
+<script src="js/jquery.js"></script>
+<script src="js/index.js"></script>
+<script>
+	var data={shopcar:[]};//购物车数据
+	$(function(){
+		$(".jia").on("click",function(){ 
+			var amount=$(this).find(".amount");
+			if(parseInt($(amount).text())<9){
+				updateshopcar($(this).parent().find(".comboid").val(),$(this).parent().find(".name").text(),1,$(this).parent().find(".price").text());
+				$(amount).css("display","block");
+				$(this).find(".jia_active").attr("src","images/jia_active.png").css({"width":"30px","height":"30px","margin-top":"62px","margin-left":"15px"});
+				console.info(parseInt($(amount).text()))
+				//display: none;
+				$(amount).text(parseInt($(amount).text())+1);
+			}
+			setTotal();	
+		})
+		$(".jian").on("click",function(){
+			updateshopcar($(this).parent().find(".comboid").val(),$(this).parent().find(".name").text(),-1,$(this).parent().find(".price").text());
+			var amount=$(this).parent().find(".amount");
+			if(parseInt($(amount).text())>0){
+				$(amount).text(parseInt($(amount).text())-1);			
+				if(parseInt($(amount).text())==0){
+					$(this).parent().find(".jia_active").attr("src","images/jia.png").css({"width":"54px","height":"54px","margin":"44px auto"});
+					$(amount).css("display","none");
+				}
+				setTotal();
+			}else{
+			}
+		})
+		setTotal();
+	})
+	//更新购物车
+	function updateshopcar(id,name,number,price){
+		var shopCarPosition =-1;//商品所在购物车位置
+		for(var o in data.shopcar){//循环判断购物车中是否有本商品
+			if(data.shopcar[o].id==id){
+				shopCarPosition =o;
+			}
+		}
+		if(shopCarPosition==-1){//购物车中没有这个商品
+			if(number==1){//加商品
+			var model={id:'',name:'',number:'',price:''};//商品模型
+				model.id=id;
+				model.price=price;
+				model.name=name;
+				model.number=1;
+				data.shopcar.push(model);
+			}
+		}else{//购物车中有这个商品
+			data.shopcar[shopCarPosition].number=data.shopcar[shopCarPosition].number+number;
+			if(parseInt(data.shopcar[shopCarPosition].number)<=0){
+				//data.shopcar[o].number=singleShopCount+number;
+				//如果商品个数等于0 就删除这个商品
+				console.info(shopCarPosition)
+				data.shopcar.splice(shopCarPosition,1);
+			}
+		}
+		console.info(data.shopcar);
+	}
+	
+	//更新购物车总计
+	function setTotal(){ 
+		var total=0;//总价
+		var amount=0//数量
+		for(var o in data.shopcar){//循环判断购物车中是否有本商品
+			var obj = data.shopcar[o];
+			total+=obj.price*obj.number;
+			amount+=obj.number;
+		}
+		console.info(total)
+		console.info($("#quan"))
+		$("#total").html(total); 
+		$("#amount").html(amount); 
+		if(total==0){
+			$("#quan").css("display","none");
+		}else{
+			$("#quan").css("display","block");			
+		}
+	} 
+function index(){
+	$(".index").css("display","block");
+	$(".project,.project1,.shangmen,.shangmen1").css("display","none");
+	};
+function open(){
+	$(".project").css("display","block");
+	$(".index,.project1,.shangmen,.shangmen1").css("display","none");
+	};
+function open1(){
+	$(".project1").css("display","block");
+	$(".index,.project,.shangmen,.shangmen1").css("display","none");
+	};
+function shangmen(){
+	$(".shangmen").css("display","block");
+	$(".index,.project,.project1,.shangmen1").css("display","none");
+	};
+function shangmen1(){
+	$(".shangmen1").css("display","block");
+	$(".index,.project,.project1,.shangmen").css("display","none");
+	};
+function jieshao(){
+	$(".jieshao").css("display","block");
+	$(".left,.right,.bottom").css("display","none");
+	$(".index,.project,.project1,.shangmen,.shangmen1").css("display","none");
+	};
+
+function guanbi(){
+	$(".jieshao").css("display","none");
+	$(".left,.right,.index,.bottom").css("display","block");
+	};
+
+function gouwuche(){
+	if(data.shopcar.length>0){
+		
+		$(".gouwuche").css("display","block");
+		$(".shangpin").css("display","block");
+		$("#bianju").addClass("jinru");
+		$(".shangpin").addClass("slideInUp");
+		$(".body").css("background-color","#000");
+		setTimeout(function(){$(".shangpin").removeClass("slideInUp");},500);
+		$("#shopcar").empty();
+		for(var o in data.shopcar){//循环判断购物车中是否有本商品
+			var obj = data.shopcar[o];
+			console.info(obj)
+			console.info(obj.price)
+			var div = $("<div></div>").css("clear","both");
+			var p1 = $("<p></p>").css({"margin-left":"1%"}).addClass("name").text(obj.name);
+			var p2 = $("<p></p>").css("margin-left","25%").addClass("price").text(obj.price);
+			var d1 = $("<div></div>").addClass("gouwuche_jian");
+			var d1p1 = $("<p></p>").text("-");
+			var p3 = $("<p></p>").css({"float":"right","margin-right":"45px"}).addClass("number").text(obj.number);
+			var d2 = $("<div></div>").addClass("gouwuche_jia");
+			var d2p1 = $("<p></p>").text("+");
+			var inpid=$("<input />").attr("type","hidden").addClass("comboid").val(obj.id);
+			var hr=$("<hr></hr>").css({"clear":"both","width":"95%", "margin-left":"2.5%"});
+			var d=div.append(p1).append(p2).append(d1.append(d1p1)).append(p3).append(d2.append(d2p1)).append(inpid);
+			$("#shopcar").append(d).append(hr);
+		}
+		$(".gouwuche_jia").on("click",function(){
+			var comboid = $(this).parent().find(".comboid").val();
+			var amount=$("#"+comboid).find(".amount");
+			if(parseInt($(amount).text())<9){
+				updateshopcar($(this).parent().find(".comboid").val(),$(this).parent().find(".name").text(),1,$(this).parent().find(".price").text());
+				$(this).parent().find(".number").text(parseInt($(this).parent().find(".number").text())+1);
+				
+				console.info(amount);
+				$(amount).text(parseInt($(amount).text())+1);	
+				if(parseInt($(this).parent().find(".number").text())==0){
+					$(this).parent().remove();
+				}
+				setTotal()
+			}
+		});
+		$(".gouwuche_jian").on("click",function(){
+			updateshopcar($(this).parent().find(".comboid").val(),$(this).parent().find(".name").text(),-1,$(this).parent().find(".price").text());
+			$(this).parent().find(".number").text(parseInt($(this).parent().find(".number").text())-1);	
+			var comboid = $(this).parent().find(".comboid").val();
+			var amount=$("#"+comboid).find(".amount");
+			console.info(amount);
+			$(amount).text(parseInt($(amount).text())-1);	
+			if(parseInt($(this).parent().find(".number").text())==0){
+				$(this).parent().remove();
+			}
+			setTotal()
+		});
+	}
+	};
+function gouwuche_close(){
+	$("#bianju").removeClass("jinru");
+	$("#bianju").addClass("tuichu");
+	$(".shangpin").removeClass("slideInUp");
+	$(".shangpin").addClass("rollOut");
+	$(".gouwuche").css("display","none");
+	$(".body").css("background-color","#FFF");
+	
+setTimeout(function(){	$(".shangpin").css("display","none");	$("#bianju").removeClass("tuichu");		$(".shangpin").removeClass("rollOut");},500);
+	};
+setTimeout(function(){$(".left").removeClass("bounceInLeft");$(".right").removeClass("bounceInRight");},5000);
+	
+</script>
+<body class="body">
+<div style="overflow:hidden; background-color:#FFF;" id="bianju" class="animated">
+	<div class="head">
+    	<img style="float:left; margin:25px 30%;"  src="images/dingwei.png">
+        <p style="font-size:44px;  position:absolute;top:-15px;left:36.5%;">宝能中心B座</p>
+        <a href="login.html">
+            <img style="float:right; margin:20px 40px 0px 0px;width:70px; height:70px;" src="images/touxiang.png">
+        </a>
+    </div>
+    <div class="content">
+        <div class="blue"></div>
+        <div class="orange"></div>
+        <div class="jieshao" style="height:1500px; width:100%; display:none; clear:both;">
+            <div style="height:100px; width:100%; background-color:#8B9BCE;">
+                <img style=" float:left;width:150px; margin:15px 30px;" src="images/logo.png">
+                <img onClick="guanbi()" style=" float:right;width:40px; margin:25px 30px 0px 0px;" src="images/close.png">
+            </div>
+            <img style="width:100%;" src="images/diyiji.png">
+        </div>
+        <div class="left animated bounceInLeft">
+             <ul id="accordion" class="accordion">
+                <li onClick="index()">
+                    <div  style="background-color:#c5c4c4; color:#444240;padding: 14px 12px 14px 42px;" class="link">
+                    	<img style="width:118;height:58px;" src="images/logo.png ">
+                    </div>
+                </li>
+                <li>
+                    <div style="background-color:#5d7fb0;" class="link"><i class="fa fa-chevron-down"></i>到店服务</div>
+                    <ul class="submenu">
+                        <li ><a href="javascript:open();">本地网点</a></li>
+                        <li style="border:none;"><a href="javascript:open1();">4s网点</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div style="background-color:#5d7fb0;" class="link"><i class="fa fa-chevron-down"></i>上门服务</div>
+                    <ul class="submenu">
+                        <li><a href="javascript:shangmen();">地上车位</a></li>
+                        <li style="border:none;"><a href="javascript:shangmen1();">任意车位</a></li>
+                    </ul>
+                </li>
+			</ul>
+        </div>
+        <div class="right animated bounceInRight">
+                <div style="display:block;" class="index">
+                    <img onClick="jieshao()" style="margin-top:6px;" src="images/e美车/index_1.png">
+                    <img src="images/e美车/index_2.png">
+                    <img style="margin-bottom:55px;" src="images/e美车/index_3.png">
+                </div>
+                <div style="display:none;" class="project">
+                    <div class="ke" id="no456">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            	<p class="name">水晶车衣</p>
+                            	<p>新车漆面打蜡/一次</p>
+                            	<input type="hidden" class="comboid" value="no456"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none;">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>
+                  	<div class="ke" id="no123">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">189.00</p>
+                            	<p class="name">冰雪奇缘</p>
+                            	<p>在用车漆面修复打蜡/一次</p>
+                            	<input type="hidden"  class="comboid" value="no123"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>
+                    <img src="images/漆面打蜡/199.png">
+					<div class="ke" id="nobjzl299">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">299.00</p>
+                            	<p class="name">白金之旅</p>
+                            	<p>新车漆面镀膜/一次</p>
+                            	<input type="hidden"  class="comboid" value="nobjzl299"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>       
+					<div class="ke" id="nobjzl399">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">399.00</p>
+                            	<p class="name">白金之旅</p>
+                            	<p>漆面封釉/一次</p>
+                            	<input type="hidden"  class="comboid" value="nobjzl399"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>                    
+                    <img src="images/漆面护理/598.png">
+                    <div class="ke" id="nolsxq79">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">79.00</p>
+                            	<p class="name">绿色星球-X星</p>
+                            	<p>内室杀菌消毒除异味/一次</p>
+                            	<input type="hidden"  class="comboid" value="nolsxq79"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+                    <img src="images/空气净化/199.png">
+                    <img src="images/空气净化/269.png">
+                    <img src="images/内饰清洁/269.png">
+                    <div class="ke" id="nohczl289">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">289.00</p>
+                            	<p class="name">幻彩之旅</p>
+                            	<p>真空内饰清洁/一次</p>
+                            	<input type="hidden"  class="comboid" value="nohczl289"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+                    <img src="images/套餐项目/488.png">
+                    <img src="images/套餐项目/4881.png">
+                          <div class="ke" id="nodsk688">
+                            <div style=" background-color: #EC6600;" class="taocan">
+                            	<div style="margin-right:10px;background-color: #4c4948;" class="icon"></div>
+                            	<div style="background-color: #4c4948;" class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;" >大时刻</p>
+                            	<p style="font-size:30px;"  >漆面镀膜+内饰清洁</p>
+                                <p style="font-size:40px;"  class="name" >688.00</p>
+                            	<input type="hidden"  class="comboid" value="nodsk688"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+
+                    <img src="images/套餐项目/6881.png">
+                    <div class="ke" id="nosgsd767">
+                        <div style="background-color: #00a0e9;" class="taocan">
+                        	<div style="margin-right:10px;background-color: #4c4948;" class="icon"></div>
+                        	<div style="background-color: #4c4948;" class="icon"></div>
+                        	<p class="name"  style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">时光隧道</p>
+                        	<p style="font-size:30px;" >漆面镀膜+内饰清洁+杀菌除味</p>
+                        	<p style="font-size:40px;" class="price">767.00</p>
+                        	<input type="hidden"  class="comboid" value="sgsd767"/>
+                        </div>
+                        <div class="jia">
+                        	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                        </div>
+                        <div class="jian">
+                        	<img src="images/jian.png">
+                        </div>
+                   	</div> 
+            
+                    <img style="margin-bottom:55px;" src="images/套餐项目/966.png">
+                </div>
+                <div style="display:none;" class="project1">
+                    <div class="ke" id="nosgsd767">
+                        <div style="background-color: #00a0e9;" class="taocan">
+                        	<div style="margin-right:10px;background-color: #4c4948;" class="icon"></div>
+                        	<div style="background-color: #4c4948;" class="icon"></div>
+                        	<p class="name"  style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">时光隧道</p>
+                        	<p style="font-size:30px;" >漆面镀膜+内饰清洁+杀菌除味</p>
+                        	<p style="font-size:40px;" class="price">767.00</p>
+                        	<input type="hidden"  class="comboid" value="sgsd767"/>
+                        </div>
+                        <div class="jia">
+                        	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                        </div>
+                        <div class="jian">
+                        	<img src="images/jian.png">
+                        </div>
+                   	</div> 
+                    <img src="images/套餐项目/966.png">
+                </div>
+                <div style="display:none;" class="shangmen">
+                    <div class="ke" id="no456">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                            	<p class="name">水晶车衣</p>
+                            	<p>新车漆面打蜡/一次</p>
+                            	<input type="hidden" class="comboid" value="no456"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none;">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>
+                  	<div class="ke" id="no123">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">189.00</p>
+                            	<p class="name">冰雪奇缘</p>
+                            	<p>在用车漆面修复打蜡/一次</p>
+                            	<input type="hidden"  class="comboid" value="no123"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>
+                    <img src="images/漆面打蜡/199.png">
+					<div class="ke" id="nobjzl299">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">299.00</p>
+                            	<p class="name">白金之旅</p>
+                            	<p>新车漆面镀膜/一次</p>
+                            	<input type="hidden"  class="comboid" value="nobjzl299"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>       
+					<div class="ke" id="nobjzl399">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">399.00</p>
+                            	<p class="name">白金之旅</p>
+                            	<p>漆面封釉/一次</p>
+                            	<input type="hidden"  class="comboid" value="nobjzl399"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div>                    
+                    <img src="images/漆面护理/598.png">
+                    <div class="ke" id="nolsxq79">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">79.00</p>
+                            	<p class="name">绿色星球-X星</p>
+                            	<p>内室杀菌消毒除异味/一次</p>
+                            	<input type="hidden"  class="comboid" value="nolsxq79"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+                    <img src="images/空气净化/199.png">
+                    <img src="images/空气净化/269.png">
+                    <img src="images/内饰清洁/269.png">
+                    <div class="ke" id="nohczl289">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">289.00</p>
+                            	<p class="name">幻彩之旅</p>
+                            	<p>真空内饰清洁/一次</p>
+                            	<input type="hidden"  class="comboid" value="nohczl289"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+                    <img src="images/套餐项目/488.png">
+                    <img src="images/套餐项目/4881.png">
+                          <div class="ke" id="nodsk688">
+                            <div style=" background-color: #EC6600;" class="taocan">
+                            	<div style="margin-right:10px;background-color: #4c4948;" class="icon"></div>
+                            	<div style="background-color: #4c4948;" class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;" >大时刻</p>
+                            	<p style="font-size:30px;"  >漆面镀膜+内饰清洁</p>
+                                <p style="font-size:40px;"  class="name" >688.00</p>
+                            	<input type="hidden"  class="comboid" value="nodsk688"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+
+                    <img src="images/套餐项目/6881.png">
+                    <div class="ke" id="nosgsd767">
+                        <div style="background-color: #00a0e9;" class="taocan">
+                        	<div style="margin-right:10px;background-color: #4c4948;" class="icon"></div>
+                        	<div style="background-color: #4c4948;" class="icon"></div>
+                        	<p class="name"  style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">时光隧道</p>
+                        	<p style="font-size:30px;" >漆面镀膜+内饰清洁+杀菌除味</p>
+                        	<p style="font-size:40px;" class="price">767.00</p>
+                        	<input type="hidden"  class="comboid" value="sgsd767"/>
+                        </div>
+                        <div class="jia">
+                        	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                        </div>
+                        <div class="jian">
+                        	<img src="images/jian.png">
+                        </div>
+                   	</div> 
+            
+                    <img style="margin-bottom:55px;" src="images/套餐项目/966.png">
+                </div>
+                <div style="display:none;" class="shangmen1">
+                    <div class="ke" id="nolsxq79">
+                            <div class="taocan">
+                            	<div style="margin-right:10px;" class="icon"></div>
+                            	<div class="icon"></div>
+                            	<p class="price" style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">79.00</p>
+                            	<p class="name">绿色星球-X星</p>
+                            	<p>内室杀菌消毒除异味/一次</p>
+                            	<input type="hidden"  class="comboid" value="nolsxq79"/>
+                            </div>
+                            <div class="jia">
+                            	<img class="jia_active" src="images/jia.png"><span class="amount" style="font-size:80px; color:#4E5055; margin:30px 40px 0px 0px; float:right;display: none; ">0</span>
+                            </div>
+                            <div class="jian">
+                            	<img src="images/jian.png">
+                            </div>
+                  	</div> 
+                    <img src="images/空气净化/199.png">
+                    <img src="images/空气净化/269.png">
+                </div>                
+    </div>
+</div> 
+</div>   
+    <div>
+        <div onClick="gouwuche_close()"class="gouwuche" >
+        </div>
+            <div id="" class="shangpin animated">
+            	<div style="width:100%; height:120px; background-color:#D0E7FA;">
+                    <p style=" font-size:38px; font-weight:600;">商品名称</p>
+                    <p style="margin-left:27%;font-size:38px;font-weight:600;">价格</p>
+                    <p style="float:right;margin-right:13%;font-size:38px;font-weight:600;">数量</p>
+                </div>
+                <div id="shopcar" style="width:100%;height:auto;clear:both;float: left;margin: 0px;">
+                	
+                </div>
+            </div>
+        <div style="display:block;" class="bottom">
+            <img onClick="gouwuche()" style="float:left; margin:25px 10%;" src="images/gouwuche.png">
+            <div id="quan" style=" width:40px; height:40px; border-radius:100px; background-color:#F00;float: left; margin:10px -120px;;">
+            	<p id="amount" style="color:#FFF; font-size:26px; text-align:center; margin-top:5px;">0</p>
+            </div>
+            <p style="color:#4B4848;float:left; line-height:35px;font-size:44px; margin-left:-70px; ">购物车内共<span id="total">0</span>元</p>
+            <a href="Payment.html">
+            	<img style="float:right; margin:0px 40px 0px 0px; width:189px; height:120px;" src="images/xuanhao.png">
+            </a>
+        </div>
+</body>
+</html>

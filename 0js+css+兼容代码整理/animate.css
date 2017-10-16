@@ -1,0 +1,120 @@
+
+/*
+ *  gobal全局样式
+ *  创意源于生活，代码如诗从你我开始
+ *  OOCSS虽好，需培养，需规范，需慢慢品尝
+ ********************************************************************************************
+ * 
+ */
+.s1,.s3,.s5{animation:antop 3s linear infinite;/*! -webkit-animation:antop 3s linear infinite; *//*! -moz-animation:antop 3s linear infinite; */}
+.s2,.s4,.s6{animation:antop2 3s linear infinite;-webkit-animation:antop2 3s linear infinite;-moz-animation:antop2 3s linear infinite;}
+/*上下动起来：：状态一*/
+@keyframes antop{
+0%{margin-top:0;}
+20%{margin-top:10px;}
+40%{margin-top:-5px;}
+60%{margin-top:10px;}
+80%{margin-top:-5px;}
+100%{margin-top:0;}
+}
+@-webkit-keyframes antop{
+0%{margin-top:0;}
+20%{margin-top:10px;}
+40%{margin-top:-5px;}
+60%{margin-top:10px;}
+80%{margin-top:-5px;}
+100%{margin-top:0;}
+}
+@-moz-keyframes antop{
+0%{margin-top:0;}
+20%{margin-top:10px;}
+40%{margin-top:-5px;}
+60%{margin-top:10px;}
+80%{margin-top:-5px;}
+100%{margin-top:0;}
+}
+/*上下动起来：：状态一*/
+@keyframes antop2{
+0%{margin-top:0;}
+20%{margin-top:-5px;}
+40%{margin-top:10px;}
+60%{margin-top:-5px;}
+80%{margin-top:10px;}
+100%{margin-top:0;}
+}
+@-webkit-keyframes antop2{
+0%{margin-top:0;}
+20%{margin-top:-5px;}
+40%{margin-top:10px;}
+60%{margin-top:-5px;}
+80%{margin-top:10px;}
+100%{margin-top:0;}
+}
+@-moz-keyframes antop2{
+0%{margin-top:0;}
+20%{margin-top:-5px;}
+40%{margin-top:10px;}
+60%{margin-top:-5px;}
+80%{margin-top:10px;}
+100%{margin-top:0;}
+}
+
+/*20160218结束*/
+
+/*
+ 
+ * 
+ * 
+ *  *  创意源于生活，代码如诗从你我开始
+ *  OOCSS虽好，需培养，需规范，需慢慢品尝
+ ********************************************************************************************
+ * 猴年坦克新春喜乐会-坦克世界-WOT-空中网    --------抖动
+ * */
+.hB:hover{ 
+animation:shake 0.5s ease; 
+-webkit-animation:shake 0.5s ease; 
+-moz-animation:shake 0.5s ease; 
+-ms-animation:shake 0.5s ease; 
+-o-animation:shake 0.5s ease;
+}
+
+@keyframes shake{
+	from{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+	20%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	40%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	60%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	80%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	to{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+}
+@-ms-keyframes shake{
+	from{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+	20%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	40%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	60%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	80%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	to{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+}
+@-moz-keyframes shake{
+	from{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+	20%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	40%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	60%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	80%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	to{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+}
+@-o-keyframes shake{
+	from{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+	20%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	40%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	60%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	80%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	to{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+}
+@-webkit-keyframes shake{
+	from{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+	20%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	40%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	60%{transform:rotate(3deg);-ms-transform:rotate(3deg);-moz-transform:rotate(3deg);-webkit-transform:rotate(3deg);-o-transform:rotate(3deg)}
+	80%{transform:rotate(-3deg);-ms-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-webkit-transform:rotate(-3deg);-o-transform:rotate(-3deg)}
+	to{transform:rotate(0deg);-ms-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);-o-transform:rotate(0deg)}
+}

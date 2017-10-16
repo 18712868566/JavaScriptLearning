@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrapper{width: 960px;margin: 0 auto;}
+			body{font-size: 13px;}
+			#divTip{color: #fff;margin: 5px;padding: 10px;border: 1px solid #666666;background-color: #666666;width: 300px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h2>在jquery中，1.trim()函数常用语字符穿操作，也是jquery核心库中唯一一个针对字符串操作的的工具函数</h2>
+			<h3>语法格式如下:$.trim(str)</h3>
+			<h1>用过$.trim（）函数，除掉一个两边均有空格符的字符串，并将其执行前后的字符串长度显示在页面中</h1>
+			<div id="divTip"></div>
+		</div>
+	</body>
+	<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			var strTmp = "内容";
+			var strOld = "           jQuery,write less do more          ";
+			var strNew = $.trim(strOld);
+			
+			strTmp += strOld;
+			strTmp += "<br /><br />除掉空格符前的长度:"
+			strTmp += strOld.length;
+			strTmp += "<br /><br />除掉空格符后的长度:"
+			strTmp += strNew.length;
+			
+			$("#divTip").append(strTmp);
+		});
+	</script>
+</html>

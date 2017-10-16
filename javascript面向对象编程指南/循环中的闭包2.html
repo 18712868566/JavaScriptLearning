@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function f(){
+			var a= [];
+			var i;
+			for (i=0;i<3;i++) {
+				a[i] = (function (x){
+					return function (){
+						return x;
+					}
+				})(i)
+			}
+			return a;
+		}
+		
+		//var a = f();
+		function setup(x){
+			var i = 0;
+			return function (){
+				return x[i++];
+			};
+		}
+		var next = setup(['a','b','c']);
+		next();
+		
+		function setup(x){
+			var i = 0;
+			return function (){
+				return x[i++];	
+			}
+		}
+		//现在我们只需一组数据来调用一下setup(),就会创建出我们需要的next()函数，
+		var next = setup(['a','b','c']);
+	</script>
+</html>

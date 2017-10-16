@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>遍历数组</title>
+		<style type="text/css">
+			body{font-size: 13px;}
+			.wrapper{width: 1200px;margin: 0 auto;}
+			#ulTip{
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				width: 260px;
+				border: 1px dashed #ccc;
+				border-bottom: none;
+			}
+			#ulTip li{border-bottom: 1px  dashed #ccc; padding: 8px;}
+			.title{background: #EEEEEE;font-weight: bold;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h2>$.each()工具函数</h2>
+			<h3>语法:$.each(obj,fn(para1,para2))</h3>
+			<ul>
+				<li>obj:表示要遍历的数组或对象</li>
+				<li>fn:为每个遍历元素执行的回调函数</li>
+				<li>para1:表示数组的序号或对象的属性</li>
+				<li>para2:表示数组的元素和对象的属性</li>
+			</ul>
+			<ul id="ulTip"></ul>
+		</div>
+	</body>
+		<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var arrStu = {"张三:":"60","李四:":"70","王二:":"80"}
+				var strContent = "<li class='title'>姓名:分数</li>";
+				$.each(arrStu, function(Name,Value) {
+					strContent += "<li>" + Name + Value + "</li>";
+				});
+				$("#ulTip").append(strContent);				
+			})
+		</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #div1{width: 100px;height: 100px;background: red;position: absolute;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+
+<script type="text/javascript">
+    window.onload = function(){
+
+        var oDiv = document.getElementById('div1');
+
+        oDiv.onmousedown = function(ev){
+
+            var oEvent = ev || window.event;
+            // 鼠标所在div的坐标
+            var disX = oEvent.clientX - oDiv.offsetLeft;
+            var disY = oEvent.clientY - oDiv.offsetTop;
+
+            console.log(disX +'|'+ disY)
+
+            document.documentElement.onmousemove = function(ev){
+
+                var oEvent = ev || window.event;
+
+                var l = oEvent.clientX - disX;
+                var t = oEvent.clientY - disY;
+                console.log(l +'|'+ t)
+
+                oDiv.style.left = l +'px';
+                oDiv.style.top = t +'px';
+
+                // console.log( oDiv.style.left +'|'+oDiv.style.top)
+            }
+
+            document.documentElement.onmouseup = function(){
+                document.documentElement.onmousemove = null;
+                document.documentElement.onmouseup = null;
+
+            }
+            // oDiv.
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>由于在javascript中,对象都是通过传引用的方式来传递的,因此我们所创建的内阁新对象试题中并没有一份属于自己原型的副本</h1>
+		<h2>值就是所,我们可以随时修改原型,并且与之相关的对象也都会继承这一改变(甚至可能会影响在修改之前就创建了的对象)</h2>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		
+		//构造器函数
+		function Gadget(name,color){
+			this.name = name;
+			this.color = color;
+			this.whatAreYou = function(){
+				return 'I an a'+this.color+''+this.name;
+			}
+		}
+		
+		
+		//通过构造器函数的prototype属性来增加该构造器所能提供的功能
+		Gadget.prototype = {
+			
+			price : 100,
+			rating : 3,
+			getInfo : function(){
+				return 'Rating: ' + this.rating + ', price: ' + this.price;
+			}
+		}
+		
+		var newtoy = new Gadget('webcom','black');
+		
+		Gadget.prototype.get = function (what){
+			return this[what];
+		};
+		
+		console.log(newtoy.get('price'));
+		console.log(newtoy.get('color'));
+	</script>
+	
+</html>

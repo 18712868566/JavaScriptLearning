@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width,inital-scale=1.0,maximum-scale=0.422,initial-scale=1.0,user-scalable=no;">
+<meta name="format-detection" content="telephone=no" />
+<title>商品管理</title>
+</head>
+<link type="text/css" rel="stylesheet" href="css/public.css">
+<link href="css/center.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/shangpin_style.css"type="text/css" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<style type="text/css">
+a{ color:#bfbfbf;}
+/*菜单class*/
+.lib_Menubox ul{
+	margin: 0px;
+	padding: 10px 0px;
+	list-style: none;
+	margin-left: 0px;
+	width: 100%;
+	height: 120px;
+	background-color:#FFF;
+	border-bottom:2px solid #231815;
+	position:fixed;
+	top:0px;
+	left:0px;
+	
+	}
+.lib_Menubox li{ margin-top:30px;float:left;display:block;cursor:pointer;width:49.85%;color:#a3a3a3;text-align:center;border-left:2px solid #231815; }
+.lib_Menubox li.hover{border-bottom:0px solid #1fcccc;width:49.85%;color:#231815;font-weight:700;}
+</style>
+<script>
+
+function setTab(name,cursel,n){
+ for(i=1;i<=n;i++){
+  var menu=document.getElementById(name+i);
+  var con=document.getElementById("con_"+name+"_"+i);
+  menu.className=i==cursel?"hover":"";
+  con.style.display=i==cursel?"block":"none";
+ }
+} 
+function quxiao(){
+	$(".queren").css("display","block");
+	$(".quxiao").css("display","none");
+	$(".dingdanxiangqing").css("display","block");
+	}
+function tuidan(){
+	$(".queren").css("display","none");
+	$(".quxiao").css("display","block");
+		}
+function td(){
+	$(".ke").css("display","none");
+	$(".quxiao").css("display","none");
+		}
+		
+</script> 
+
+<script type="text/javascript">
+load();
+removes();
+
+var list = new Array(); 
+var x = 1;	
+	/**
+		加载数据
+	*/
+	function load(){
+		$.ajax({
+				url: 'buyOrder/buyOrderAction_getMyBuyOrder.action',
+				dataType: "json",
+				success: function(result) {
+					combos = eval(result);
+					
+					for(var i in combos){
+						var status = combos[i].status;
+						if(status==0){//未付款订单
+							groupingByOrder(combos[i]);
+						}else{
+							initYesPayment(combos[i]);
+						}
+					}
+				appendAll();	
+				} 
+			}); 
+	}
+
+/**
+	判断订单
+*/
+function groupingByOrder(val){
+	var orderid = val.orderid;
+	x = 1;
+	groupingToList(orderid);
+	if(x==1){
+		list.push(orderid);
+		$("#noPayment").append('<div id="'+orderid+'">'+orderid+'</div>');
+	}
+	initNoPayment(orderid,val);
+}
+
+/**
+	判断某个订单内容是否已经存在
+*/
+function groupingToList(val){
+	for(var i in list){
+		if(list[i]==val){
+			x = 2;
+		}
+	}
+}
+
+/**
+	根据订单号插入未付款商品
+*/	
+function initNoPayment(val,combo){
+	$("#"+val).append('<p class="SP_content" style="width:40%;">'+combo.name+'</p>'+
+				            '<p class="SP_content" style="color:#ff8901;">¥'+combo.prive+'</p>'+
+				            '<p class="SP_content">'+combo.comboNum+'</p>'+
+				            '<hr style="background-color:#FFF; border:none; height:4px;">');		            
+	
+}
+
+
+/**
+	擦除所有数据
+*/
+function removes(){
+	$("#noPayment").children().remove();
+	$("#local").children().remove();
+	$("#4s").children().remove();
+	$("#ground").children().remove();
+	$("#arbitrarily").children().remove();
+}
+
+
+/**
+	判断商品类型
+*/
+function initYesPayment(val){
+	var type = val.type;
+	if(type==1){
+		appendCombo("local",val);
+		var payable = document.getElementById("localNum").innerHTML;
+		payable=parseInt(payable)+1;
+		$("#localNum").html(payable);
+	}else if(type==2){
+		appendCombo("4s",val);
+		var payable = document.getElementById("4sNum").innerHTML;
+		payable=parseInt(payable)+1;
+		$("#4sNum").html(payable);
+	}else if(type==3){
+		appendCombo("ground",val);
+		var payable = document.getElementById("groundNum").innerHTML;
+		payable=parseInt(payable)+1;
+		$("#groundNum").html(payable);
+	}else{
+		appendCombo("arbitrarily",val);
+		var payable = document.getElementById("arbitrarilyNum").innerHTML;
+		payable=parseInt(payable)+1;
+		$("#arbitrarilyNum").html(payable);
+	};
+}
+
+/**
+	插入数据
+*/
+function appendCombo(val,combo){
+	$("#"+val).append('<p class="SP_content" style="width:40%;">'+combo.name+'</p>'+
+				      '<p class="SP_content" style="color:#ff8901;">¥'+combo.prive+'</p>'+
+				      '<p class="SP_content">'+combo.comboNum+'</p>'+
+				      '<hr style="background-color:#FFF; border:none; height:4px;">');
+}
+
+/**
+	统一插入工具栏
+*/
+function appendAll(){
+	for(var i in list){
+		appendColumn(list[i]);
+	}
+}
+
+/**
+	插入工具栏
+*/
+function appendColumn(val){
+	$("#"+val).append('</div><div style="width:190px;height:70px; background-color:#90B0DB;border-radius:15px; margin:32px 30px 0px 0px; clear:both; float:right;">'+
+                        '<p style="margin:10px; font-size:36px;color:#FFF; text-align:center;"><strong>付款</strong></p></div>'+
+                     '<div onClick="tuidan()" style="width:190px;height:70px; background-color:#90B0DB;border-radius:15px; margin:32px 30px 0px 0px;float:right;">'+
+                        '<p style="margin:10px; font-size:36px;color:#FFF; text-align:center;"><strong>取消订单</strong></p></div></div>');
+}
+
+/*
+function appendBut(){
+	$("#local").append('<a href="4sdizhi.html"><div class="button"><p>马上预约</p></div></a>');
+	$("#4s").append('<a href="4sdizhi.html"><div class="button"><p>马上预约</p></div></a>');
+	$("#ground").append('<a href="4sdizhi.html"><div class="button"><p>马上预约</p></div></a>');
+	$("#arbitrarily").append('<a href="4sdizhi.html"><div class="button"><p>马上预约</p></div></a>');
+}
+*/
+
+	
+</script>
+
+<body style="background-color:#ebebf0;">
+    <div class="lib_Menubox">
+        <ul style="font-size:42px;">
+           <li style="border-left:none;" id="one1" onclick="setTab('one',1,4)" class="hover">未付款</li>
+           <li id="one2" onclick="setTab('one',2,4)" >已付款</li>
+        </ul>
+    </div>
+    <div id="con_one_1" >
+        <div style="border-top:1px solid #231815;border-bottom:1px solid #231815; height:620px; margin-top:160px; " class="ke">
+           <!--  <a href="lineitem.html">
+               <div style="clear:both; width:100%;" class="taocan">
+                    <div style="margin-right:10px;" class="icon"></div>
+                    <div class="icon"></div>
+                    <p style="font-size:70px; font-weight:900;margin-top:70px;margin-bottom:15px;">139.00</p>
+                    <p>水晶车衣</p>
+                    <p style=" clear:both;float:left;">新车漆面打蜡/一次</p>
+                    <p style="float:right; margin:0px 10px 0px 0px;">订单号：51231233341</p>
+                </div>   
+              </a>
+              <img style=" float:right; margin:40px;" src="images/you.png">
+             <p style="color:#F00;margin-right:1px; font-size:38px; float:right"><strong>点击查看订单详情！</strong></p>
+             
+-->          <!-- 未付款商品列表 -->
+	<div style="margin-top:0px; background-color:#EBEBF0; height:auto; overflow:auto;" class="SP">
+            <div style="background-color:#D0E7FA;">
+         		<p style="width:40%;" class="SP_tou">商品名称</p>
+                <p class="SP_tou">价格</p>
+                <p class="SP_tou">数量</p>
+            </div>
+            <div id="noPayment">
+            	
+            </div>
+        
+	</div>
+	
+	<!-- 已付款商品列表 -->
+   <div id="con_one_2" style="display:none"> 
+        <div class="container">
+            <ul>
+                <li class="dropdown">
+                <a href="#" data-toggle="dropdown">本地网点 <div class="shuzi"><p id="localNum">0</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu" >
+                   <div style="width:100%; height:120px; background-color:#D0E7FA;">
+		         		<p style="width:40%;" class="SP_tou">商品名称</p>
+		                <p class="SP_tou">价格</p>
+		                <p class="SP_tou">数量</p>
+		            </div>
+		            <div id="local">
+		            	
+		            </div>
+                    <div> <a href="4sdizhi.html">
+                        <div class="button">
+                            <p>马上预约</p>
+                        </div>
+                    </a></div>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" data-toggle="dropdown">4s网点 <div class="shuzi"><p id="4sNum">0</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu" >
+                   <div style="width:100%; height:120px; background-color:#D0E7FA;">
+		         		<p style="width:40%;" class="SP_tou">商品名称</p>
+		                <p class="SP_tou">价格</p>
+		                <p class="SP_tou">数量</p>
+		            </div>
+		            <div id="4s">
+		            	
+		            </div>
+                    <div> <a href="4sdizhi.html">
+                        <div class="button">
+                            <p>马上预约</p>
+                        </div>
+                    </a></div>
+                </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">地上车位 <div class="shuzi"><p id="groundNum">0</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                   <div style="width:100%; height:120px; background-color:#D0E7FA;">
+		         		<p style="width:40%;" class="SP_tou">商品名称</p>
+		                <p class="SP_tou">价格</p>
+		                <p class="SP_tou">数量</p>
+		            </div>
+		            <div id="ground">
+		            	
+		            </div>
+                    <div> <a href="4sdizhi.html">
+                        <div class="button">
+                            <p>马上预约</p>
+                        </div>
+                    </a></div>
+                </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown">任意车位 <div class="shuzi"><p id="arbitrarilyNum">0</p></div> <i class="icon-arrow"></i></a>
+            	<ul class="dropdown-menu">
+                    <div style="width:100%; height:120px; background-color:#D0E7FA;">
+		         		<p style="width:40%;" class="SP_tou">商品名称</p>
+		                <p class="SP_tou">价格</p>
+		                <p class="SP_tou">数量</p>
+		            </div>
+		            <div id="arbitrarily">
+		            	
+		            </div>
+                    <div> <a href="4sdizhi.html">
+                        <div class="button">
+                            <p>马上预约</p>
+                        </div>
+                    </a></div>
+                </ul>
+                </li>
+            </ul>
+        </div>
+   </div>
+    <div class="quxiao" style=" position:absolute; top:0px; background-color:#CCC; width:100%; height:100%;display:none;">
+        <div  style=" margin:45% auto; background-color:#FFF; border-radius:15px; width:700px; height:300px;">
+            <p style="font-size:36px;  margin:0px auto;width:100%; line-height:160px;text-align:center;"><strong>确认取消订单？</strong></p>
+            <p style=" font-size:36px; margin:-50px auto; width:100%;text-align:center;">取消之后将无法恢复</p>
+            <hr style="margin:80px 0px; width:100%;">
+            <hr style="transform:rotate(90deg);-ms-transform:rotate(90deg); 	/* IE 9 */-moz-transform:rotate(90deg); 	/* Firefox */-webkit-transform:rotate(90deg); /* Safari 和 Chrome */-o-transform:rotate(90deg);width:117px; margin:-24px auto ;">
+            <p onClick="quxiao()" style="font-size:36px; margin:0px 0px; float:left; width:350px; height:40px;line-height:40px; text-align:center; color:#258BFD; ">取消</p>
+            <p onClick="td()" value=""  id="orderid"style="font-size:36px; margin:0px 0px 0px 0px; float:right; width:350px; height:40px;line-height:40px; text-align:center; color:#258BFD; ">	
+                <strong>确定</strong>
+            </p>
+        </div>
+    </div>
+
+<script src="js/shangpin.js"></script>
+</body>
+</html>

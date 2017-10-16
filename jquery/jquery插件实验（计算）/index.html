@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算两数之和与两数之差</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#wrapper{width: 1200px;margin: 0 auto;}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>计算两数之和与两数之差</h1>
+			<div class="divContent">两数相加:
+			<input type="text" id="Text1" class="txt" />+
+			<input type="text" id="Text2" class="txt" />=
+			<input type="text" id="Text3" class="txt" />
+			<input type="button" id="Button1" class="btn" value="等于" />
+			<hr />
+			两数相减：
+			<input type="text" id="Text4" class="txt" />-&nbsp;
+			<input type="text" id="Text5" class="txt" />=
+			<input type="text" id="Text6" class="txt" />
+			<input type="button" id="Button2" class="btn" value="等于" />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.twoaddresult.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#Button1").click(function(){
+				$("#Text3").val(
+					$.addNum($("#Text1").val(),
+							$("#Text2").val())
+					);
+			}); //调用自定义的插件计算两数之和
+			
+			$("#Button2").click(function(){
+				$("#Text6").val(
+					$.subNum($("#Text4").val(),
+							$("#Text5").val())
+						);
+			});
+		});
+	</script>
+</html>

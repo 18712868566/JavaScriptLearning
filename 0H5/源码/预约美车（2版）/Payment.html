@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"  content="width=device-width,inital-scale=1.0,maximum-scale=0.422,initial-scale=1.0,user-scalable=no;">
+<meta name="format-detection" content="telephone=no" />
+<title>确认付款</title>
+</head>
+<link href="css/center.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+$(function(){
+		    	var date = new Date();
+		    	
+		    	//系统日期参数
+		    	var year = date.getFullYear();
+		    	var month = date.getMonth()+1;
+		    	var day = date.getDate();
+		    	var hour = date.getHours();
+		    	/*
+		    	//测试日期参数
+		    	var year = 2000;
+		    	var month = 2;
+		    	var day = 25;
+		    	var hour =14;*/
+		    	//alert(year+"=="+month+"=="+day);
+		    	var dates = ts(year,month,day);
+		    	if(hour>12){
+		    		dates.shift();
+				}
+	   			for(var i=0;i<dates.length;i++){
+	   				console.info(dates[i])
+	   			$(".shijian")[0][i+1]=new Option(dates[i],dates[i])
+				
+	   			}
+	   			
+	   		})
+	   		function ts(year,month,day){
+	   			var endMonth = getEndMonth(year,month);
+	   			//console.info("最后一天为"+endMonth)
+	   			var dates=[];
+	   			for(var i=0;i<15;i++){
+	   				if(day>endMonth){
+	   					month+=1;
+	   					day=1;
+	   					if(month>12){
+	   						year+=1;
+	   						month=1;
+	   					}
+	   					endMonth=getEndMonth(year,month);
+	   				}
+
+	   				dates[i*2]=year+"年"+month+"月"+day+"日上午"
+	   				dates[i*2+1]=year+"年"+month+"月"+day+"日下午"
+	   				day++;
+	   			}
+	   			return dates;
+	   		}
+	   		//获取当月的天数
+	   		function getEndMonth(year,month){
+	   			var endMonth ;
+	   			switch (month) {
+					case 1:
+				    case 3:
+				    case 5:
+				    case 7:
+				    case 8:
+				    case 10:
+				    case 12:
+						endMonth = 31;
+						break;
+					case 4:
+				    case 6:
+				    case 9:
+				    case 11:
+						endMonth = 30;
+						break;
+				    case 2:
+				    	if (isLeapYear(year)) {
+				    	 	//闰年
+				            endMonth = 29;
+				        } else if (!isLeapYear(year)) {
+				            //不是闰年
+				            endMonth = 28;
+				        }
+						break;
+				}
+				return endMonth;
+	   		}
+	   		//判断时候为闰年
+	   		function isLeapYear(year){
+		    	//var year=window.myForm.theYear.value;
+			    if(!isNaN(parseInt(year))){
+				    if((year%4==0 && year%100!=0)||(year%100==0 && year%400==0)){
+				    	//window.alert(year+"是闰年！");
+				    	return true;
+				    }else{
+				        // window.alert(year+"不是闰年！");
+				        return false;
+				    }
+			    }else{
+			    	window.alert("请输入正确年份！");
+			    }
+	        }
+</script>
+
+<script>
+function erweima(){
+	$(".yincang").css("display","none")
+	$(".xianshi").css("display","block")
+	}
+			
+function xianshi(){
+	$(".yincang").css("display","block")
+	$(".xianshi").css("display","none")
+	$(".ss").css("display","none")
+	
+	}
+function ss(){
+	$(".yincang").css("display","none")
+	$(".ss").css("display","block")
+	}
+</script>
+<body style=" background-color:#FFF;">
+<div style="display:block;" class="yincang">
+        <div style="margin-top:30px; background-color:#EBEBF0; height:auto; overflow:auto;" class="SP">
+            <div style="width:100%; height:120px; background-color:#D0E7FA;">
+         		<p style="width:40%;" class="SP_tou">商品名称</p>
+                <p class="SP_tou">价格</p>
+                <p class="SP_tou">数量</p>
+            </div>
+            <p class="SP_content" style="width:40%;">水晶车衣套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+            <hr style="background-color:#FFF; border:none; height:4px;">
+            
+            <p class="SP_content" style="width:40%;">绿色星球套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+            <hr style="background-color:#FFF; border:none; height:4px;">
+            
+            <p class="SP_content" style="width:40%;">水晶车衣套餐</p>
+            <p class="SP_content" style="color:#ff8901;">¥20.00</p>
+            <p class="SP_content">1</p>
+        </div>
+    <div onClick="erweima()" style="margin-top:30px;background-color:#EBEBF0;border-top:2px solid #d0cccb;border-bottom:2px solid #d0cccb;" class="content">
+        <img class="center_icon" src="images/youhuiquan.png">
+        <p>我的优惠券</p>
+        <div  style=" float:left;  margin:35px 70px; width:120px; height:60px; background-color:#ff9000; border-radius:10px; color:#FFF;">
+        	<p style=" width:120px; margin:auto 9px;font-size:28px;">4张可用</p>
+        </div>
+        <img style="float:right; margin: 40px 30px 0px 0px;" src="images/you.png">
+    </div>
+    <div onClick="ss()" style="margin-top:30px;background-color:#EBEBF0;border-top:2px solid #d0cccb;border-bottom:2px solid #d0cccb;" class="content">
+        <img class="center_icon" src="images/weizhi.png">
+        <p>请选择4S店地址</p>
+        <img style="float:right; margin: 40px 30px 0px 0px;" src="images/you.png">
+    </div>
+    <div style="margin-top:30px;background-color:#EBEBF0;border-top:2px solid #d0cccb;border-bottom:2px solid #d0cccb;" class="content">
+        <img class="center_icon" src="images/shijian.png">
+        <select style="margin-top:10px;	color:#464646;"  class="shijian input" NAME="dates" SIZE=1 >
+        	<option  selected  value="">请选择一个时间段</option>
+        </select>
+        <img style="float:right; margin: 40px 30px 0px 0px;" src="images/you.png">
+    </div>
+         <div onClick="xianshi()" style="background-color:#EBEBF0;height:220px; border-top:2px solid #d0cccb;border-bottom:2px solid #d0cccb;margin-top:30px;" class="content">
+        <p>商品总计：¥320.00</p>
+        <p style="clear:both; margin-top:0px;">优惠金额：¥20.00</p>
+        <p style=" float:right;margin:0px 20px 0px 0px;">需支付：<span style="color:#ff8901;">¥300.00</span></p>
+    </div>
+    <a href="xinzenggerenxinxi.html">	
+        <div class="button">
+            <p>确认下单</p>
+        </div>
+    </a>
+     
+</div>
+    <div  style="display:none;" class="xianshi">
+        <div style=" background-image:url(images/youhuiquanbeijing.png); width:98%; height:309px; margin:30px 0px 0px 10px;">
+            <p style="color:#FFF; font-size:40px; position:absolute; top:10px; left:370px;">QM02优惠券</p>
+            <hr style="width:18%; position:absolute; top:120px; right:80px;">
+            <p style="color:#ffdc98; font-size:30px; position:absolute; top:78px; left:300px;">使用期限 2015.1.19-2016.1.29</p>
+            <p style="color:#FFF; font-size:70px; position:absolute; top:80px; left:60px;">￥10.00</p>
+            <p style="color:#FFF; font-size:30px; position:absolute; top:220px; left:80px;">编号：2364537</p>
+            <img style="position:absolute; top:150px; left:738px;" src="images/erweima.png"/>
+            <hr style="width:18%; position:absolute; top:120px; left:80px;">
+        </div>
+        <div onClick="xianshi()" class="button">
+            <p>返回</p>
+        </div>
+    </div>
+    
+
+   <div style="display:none;" class="ss">
+       <div style="height:auto;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+
+       <div style="height:180px;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+       <div style="height:180px;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+       <div style="height:180px;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+       <div style="height:180px;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+       <div style="height:180px;"class="zhucekuang">
+           <p class="guanlixinxiziti" style="margin-left:50px;float:left;">于军</p>    
+           <p class="guanlixinxiziti" style="margin-right:50px;float:right;">151****5501</p>     
+           <p class="guanlixinxiziti" style="margin-left:50px; clear:both; ">河北省沧州市运河区浮阳宜景111栋312312室</p>        
+       </div>
+        <div onClick="xianshi()" class="button">
+            <p>返回</p>
+        </div>
+    </div>
+   
+</body>
+</html>

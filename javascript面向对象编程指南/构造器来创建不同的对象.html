@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Hero (name){
+			this.name = name,
+			this.occupation = 'Ninja',
+			this.whoAreYou = function(){
+				return "我的名字是：" + this.name + "和这个名字是：" + this.occupation;
+			}
+		}
+		var h1 = new Hero('李学峰');
+		
+		console.log(h1.whoAreYou());
+	</script>
+</html>

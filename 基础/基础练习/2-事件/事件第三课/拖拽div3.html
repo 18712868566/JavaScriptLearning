@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style type="text/css">
+            #div{width: 200px;height: 200px;background: red;position: absolute;}
+        </style>
+    </head>
+    <body>
+        <div id="div" ></div>
+    </body>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            var oDiv = document.getElementById('div');
+            var disX = 0;
+            var disY = 0;
+            oDiv.onmousedown = function(ev){
+                var oEvent = ev || window.event;
+                // 当鼠标按下时, 当前的鼠标坐标 在所在div 中的位置
+                disX = oEvent.clientX - oDiv.offsetLeft;
+                disY = oEvent.clientY - oDiv.offsetTop;
+
+                document.onmousemove = function(ev){
+                    var oEvent = ev || window.event;
+
+                    oDiv.style.left = oEvent.clientX - disX+'px';
+                    oDiv.style.top = oEvent.clientY - disY+'px';
+                };
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+
+                return false;
+            };
+
+
+        }
+
+        /*
+            当鼠标快速移动时,鼠标出去了?
+
+                -->把oDiv 换成 document
+
+            在ff 3.6.19 版本中, 当div是空的时候,第二次拖拽 鼠标指针变化
+
+                --> FF 的默认行为 ---> return false;
+        */
+    </script>
+    </html>

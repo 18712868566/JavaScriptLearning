@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        div{width: 10px;height: 10px;background: blue;position: absolute;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script type="text/javascript">
+    // onmousemove : 鼠标移动事件
+    document.onmousemove = function(ev){
+        var oEvent = ev || window.event;
+        var oDiv = document.getElementsByTagName('div');
+        var oScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var oScrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+        var i = 0;
+
+        for(i=oDiv.length-1; i>0; i--){
+            oDiv[i].style.left = oDiv[i-1].style.left;
+            oDiv[i].style.top = oDiv[i-1].style.top;
+        }
+
+        oDiv[0].style.left = oEvent.clientX + oScrollLeft +'px';
+        oDiv[0].style.top = oEvent.clientY + oScrollLeft +'px';
+    }
+
+    // 在鼠标不移动的时候 也能跟随
+</script>
+</html>

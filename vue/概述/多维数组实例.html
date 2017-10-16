@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for='value in items'>
+					{{ parentMessage }}  -  {{ $index }}  -  {{ value.message }}
+
+				</li>
+			</ul>
+		</div>	
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			
+			new Vue({
+				el: '#box',
+				data: {
+					parentMessage :'菜鸟教程官网',
+					items: [
+						{message: 'www.runoob.com'},
+						{message: 'www.wecschoole.cc'}
+					]
+				}
+			})
+			
+		};
+	</script>
+</html>

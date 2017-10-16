@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>我的微商</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	$(".order_on").on("click",
+	function(){
+		$(".order_on").removeClass("order_off");
+		$(this).addClass("order_off");
+		if($(this).hasClass("qita")){
+			$("#qita").show();
+			$("#wangshang").hide();
+		}
+		else{
+			$("#qita").hide();
+			$("#wangshang").show();
+		}
+	}
+	)
+	$(".order_2on").on("click",
+	function(){
+		$(".order_2on").removeClass("order_2off");
+		$(this).addClass("order_2off");
+		if($(this).hasClass("All")){
+			$("#All").show();
+			$("#FuKuan").show();
+			$("#Fahuo").show();
+			$("#Shouhuo").show();
+			$("#Pingjia").show();
+		}
+		if($(this).hasClass("FuKuan")){
+			$("#All").hide();
+			$("#FuKuan").show();
+			$("#Fahuo").hide();
+			$("#Shouhuo").hide();
+			$("#Pingjia").hide();
+		}
+		if($(this).hasClass("Fahuo")){
+			$("#All").hide();
+			$("#FuKuan").hide();
+			$("#Fahuo").show();
+			$("#Shouhuo").hide();
+			$("#Pingjia").hide();
+		}
+		if($(this).hasClass("Shouhuo")){
+			$("#All").hide();
+			$("#FuKuan").hide();
+			$("#Fahuo").hide();
+			$("#Shouhuo").show();
+			$("#Pingjia").hide();
+		}
+		if($(this).hasClass("Pingjia")){
+			$("#All").hide();
+			$("#FuKuan").hide();
+			$("#Fahuo").hide();
+			$("#Shouhuo").hide();
+			$("#Pingjia").show();
+		}
+	})
+})
+</script>
+</head>
+<body>
+		<div class="header">
+			<p class="header_title">我的微商</p>
+		</div>
+		<ul id="order-2nav">
+			<li style="width:20%;border-left:none ;" class="All order_2on order_2off " >全部</li>
+			<li style="width:20%;" class="FuKuan order_2on">待付款</li>
+			<li style="width:20%;" class="Fahuo order_2on">待发货</li>
+			<li style="width:20%;" class="Shouhuo order_2on">待收货</li>
+			<li style="width:20%;" class="Pingjia order_2on">待评价</li>
+		</ul>
+		<div style="display: block;" class="dingdan" id="All">
+			<a href="待付款.html">
+				<ul >	
+					<li style="border: none;" class="list_liebiao mt05 pl05">
+				        <span>好吃点旗舰店</span>
+				        <div class="wbox-flex tr sn-txt-muted">
+				        	<p style="color: #FA5700;">待付款</p>
+				        </div>
+			        </li>
+					<div class="shopping_cart ">
+						<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+						<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+						<span class="cart_number">*1</span>
+						<span class="cart_cost">¥9.90</span>
+					</div>
+					<div style="width: 100%; height: 2rem;border-bottom: 1px solid #d7d7d7; background-color: #FFFFFF;">
+						<div class="fl liebiaoZF_my">
+							<p>实付款：￥157</p>
+						</div>
+						<div class="fr liebiaoZF">
+							<p>去支付</p>
+						</div>
+					</div>
+				</ul >	
+			</a>
+		</div>
+		<div class="dingdan" id="FuKuan">
+			<a href="待发货.html">
+				<ul >	
+					<li style="border: none;" class="list_liebiao mt05 pl05">
+				        <span>好吃点旗舰店</span>
+				        <div class="wbox-flex tr sn-txt-muted">
+				        	<p style="color: #FA5700;">待发货</p>
+				        </div>
+			        </li>
+					<div class="shopping_cart ">
+						<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+						<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+						<span class="cart_number">*1</span>
+						<span class="cart_cost">¥9.90</span>
+					</div>
+					<div style="width: 100%; height: 2rem;border-bottom: 1px solid #d7d7d7; background-color: #FFFFFF;">
+						<div class="fl liebiaoZF_my">
+							<p>实付款：￥157</p>
+						</div>
+						<div class="fr liebiaoZF">
+							<p>去支付</p>
+						</div>
+					</div>
+				</ul >
+			</a>
+		</div>
+		<div class="dingdan" id="Fahuo">
+			<a href="待付款.html">
+				<ul >	
+					<li style="border: none;" class="list_liebiao mt05 pl05">
+				        <span>好吃点旗舰店</span>
+				        <div class="wbox-flex tr sn-txt-muted">
+				        	<p style="color: #FA5700;">待付款</p>
+				        </div>
+			        </li>
+					<div class="shopping_cart ">
+						<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+						<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+						<span class="cart_number">*1</span>
+						<span class="cart_cost">¥9.90</span>
+					</div>
+					<div style="width: 100%; height: 2rem;border-bottom: 1px solid #d7d7d7; background-color: #FFFFFF;">
+						<div class="fl liebiaoZF_my">
+							<p>实付款：￥157</p>
+						</div>
+						<div class="fr liebiaoZF">
+							<p>去支付</p>
+						</div>
+					</div>
+				</ul >
+			</a>
+		</div>
+			<div class="dingdan" id="Shouhuo">
+				<a href="待收货.html">
+					<ul >	
+						<li style="border: none;" class="list_liebiao mt05 pl05">
+					        <span>好吃点旗舰店</span>
+					        <div class="wbox-flex tr sn-txt-muted">
+					        	<p style="color: #FA5700;">买家已发货</p>
+					        </div>
+				        </li>
+						<div class="shopping_cart ">
+							<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+							<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+							<span class="cart_number">*1</span>
+							<span class="cart_cost">¥9.90</span>
+						</div>
+						<div style="width: 100%; height: 2rem;border-bottom: 1px solid #d7d7d7; background-color: #FFFFFF;">
+							<div class="fl liebiaoZF_my">
+								<p>实付款：￥157</p>
+							</div>
+							<div class="fr liebiaoZF">
+								<p>确认收货</p>
+							</div>
+						</div>
+					</ul >
+				</a>
+		</div>
+			<div class="dingdan" id="Pingjia">
+				<a href="待评价.html">
+					<ul >	
+						<li style="border: none;" class="list_liebiao mt05 pl05">
+					        <span>好吃点旗舰店</span>
+					        <div class="wbox-flex tr sn-txt-muted">
+					        	<p style="color: #FA5700;">交易完成</p>
+					        </div>
+				        </li>
+						<div class="shopping_cart ">
+							<img style="border: 1px solid #DDDDDD;width:2.6rem;" src="images/photo.png" />
+							<span class="cart_name" >栗子特惠塑料架子10只 纳米防滑塑料凹槽晒两干湿两用</span>
+							<span class="cart_number">*1</span>
+							<span class="cart_cost">¥9.90</span>
+						</div>
+						<div style="width: 100%; height: 2rem;border-bottom: 1px solid #d7d7d7; background-color: #FFFFFF;">
+							<div class="fl liebiaoZF_my">
+								<p>实付款：￥157</p>
+							</div>
+							<div class="fr liebiaoZF">
+								<p>评价晒单</p>
+							</div>
+						</div>
+					</ul>
+				</a>
+		</div>
+		<div style="width: 100%;height: 5rem;"></div>
+		<div class="bottomMenu">
+			<ul>
+				<a href="首页.html">
+					<li>
+						<img class="bottomMenu_img" alt=""  src="images/shouyehover.png">
+						<div  class="bottomMenu_title">微商</div>
+					</li>
+				</a>
+				<a href="商品分类.html">
+					<li>
+						<img class="bottomMenu_img" alt=""  src="images/fenlei.png">
+						<div class="bottomMenu_title">分类</div>
+					</li>
+				</a>
+				<a href="品牌.html">
+					<li>
+						<img class="bottomMenu_img" alt=""  src="images/pinpai.png">
+						<div  class="bottomMenu_title">品牌</div>
+					</li>
+				</a>
+				<a href="店铺.html">
+					<li>
+						<img class="bottomMenu_img" alt=""  src="images/dianpu.png">
+						<div class="bottomMenu_title">店铺</div>
+					</li>
+				</a>
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/gouwuche.png">
+					<div class="bottomMenu_title">购物车</div>
+				</li>
+				<a href="我的微商.html">
+					<li>
+						<img class="bottomMenu_img" alt=""  src="images/userhover.png">
+						<div style="color:#FA5700 ;" class="bottomMenu_title">我的微商</div>
+					</li>
+				</a>
+			</ul>
+		</div>
+</body>
+</html>

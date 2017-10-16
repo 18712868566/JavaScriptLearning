@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var oDate = new Date();
+
+    oDate.setDate(oDate.getDate()+300);
+    document.cookie = "username=lixuefeng;expires="+oDate;
+    document.cookie = 'passworld = 798754654';
+
+    alert(document.cookie);
+</script>
+</html>

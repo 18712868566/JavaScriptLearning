@@ -1,0 +1,172 @@
+/*
+ * Swiper 2.7.0
+*/
+html,body,div{
+	margin:0px;
+	padding:0px;	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling : touch; 
+	font-size:34px;
+	color:#4B4848;
+	}
+p{
+	text-align:left;
+	line-height:50px;
+	margin-bottom:20px;
+	}
+ .wrap{margin:0px auto 0 auto;}
+.tab{height:90px;border-bottom:2px solid #C9C9CA;}
+.tabs{height:90px; margin-left:40%;}
+.tabs a{display:block; float:left;width:30%;color:#C9C9CA;text-align:center;line-height:90px;font-size:40px;text-decoration:none;}
+.tabs a.active{color:#8B9BCE;border-radius:0px 0px 0px 0px;width:35%; font-weight:350;}
+.swiper-container{height:4700px;border-radius:0 0 5px 5px;width:100%;border-top:0;}
+.swiper-slide{width:100%;color:#797e80;float: left;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;}
+
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+	
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+	
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+	
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+	
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+	/* Specify Swiper's Size: */
+
+	/*width:200px;
+	height: 100px;*/
+}
+.swiper-slide {
+	/* Specify Slides's Size: */
+	
+	/*width: 100%;
+	height: 100%;*/
+}
+.swiper-slide-active {
+	/* Specific active slide styling: */
+	
+}
+.swiper-slide-visible {
+	/* Specific visible slide styling: */	
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+	/* Stylize pagination button: */	
+
+}
+.swiper-active-switch {
+	/* Specific active button style: */	
+	
+}
+.swiper-visible-switch {
+	/* Specific visible button style: */	
+	
+}
+.chanpintiao{
+	width:100%; 
+	height:80px;
+	background-color:#F8C89A;
+	}
+.chanpintiao p{
+	color:#4B4848;
+	font-size:34px;
+	font-weight:500;
+	text-indent:1.5em;
+	line-height:80px;
+	}
+.chanpintiao_zucheng{
+	width:100%;
+	height:80px;
+	margin:20px 0%;
+	background-color:#999;
+	}
+.chanpinzucheng{
+	margin-left:2%;
+	
+	}
+
+.chanpinzucheng p{
+	color:#4B4848;
+	font-size:34px;
+	}
+.cp_left{
+	width:70%;
+	float:left;	
+	text-align:left;
+	line-height:30px;
+	}
+.cp_right{
+	width:30%;
+	float:right;
+	text-align:right;
+	line-height:30px;
+	}	
+	
+	

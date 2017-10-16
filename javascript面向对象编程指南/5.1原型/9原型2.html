@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <h2>神秘的__proto__链接</h2>
+<script>
+
+    //对象
+    var monkey = {
+        hair :true,
+        feeds : 'bananas',
+        breathes : 'air'
+    }
+    //构造器函数
+    function Human () {}
+
+    Human.prototype = monkey;
+
+    var developer = new Human();
+    developer.feeds = 'pizza';
+    developer.hacks = 'Javascript';
+
+    
+   monkey.test = 1;
+
+   developer.test;      //1
+
+</script>
+</html>

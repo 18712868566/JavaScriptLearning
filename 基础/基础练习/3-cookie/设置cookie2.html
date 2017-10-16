@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    /*var oDate = new Date();
+
+    oDate.setDate(oDate.getDate()+300);
+    document.cookie = "username=lixuefeng;expires="+oDate;
+    document.cookie = 'passworld = 798754654';
+
+    alert(document.cookie);*/
+
+
+    function setCookie(name, value, iDay){
+
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate()+iDay);
+
+        document.cookie = name + "=" + value + ";expires=" + oDate;
+    }
+
+    function getCookie(name) {
+        var arr = document.cookie.split('; ');
+        // alert(arr);
+        // arr->['username=abc', 'password=123456', ...]
+        // username=lixuefeng,userCookie=konghzong,passCookie=qwertyuiop
+        for (var i = 0; i < arr.length; i++) {
+            var arr2 = arr[i].split('=');
+            // alert(arr2);
+            // arr2->['username', 'abc']
+            if (arr2[0] == name) {
+                return arr2[1];
+            }
+        }
+
+        return '';
+
+    }
+
+    function removeCookie(name) {
+        setCookie(name, '1', -1);
+    }
+    setCookie('userCookie','konghzong',7);
+    setCookie('passCookie','qwertyuiop');
+
+    alert(document.cookie)
+    alert(getCookie('userCookie'));
+
+    removeCookie('userCookie')
+
+    alert(getCookie('userCookie'));
+
+    // 设置的 cookie
+    // username=lixuefeng; userCookie=konghzong; passCookie=qwertyuiop
+</script>
+</html>

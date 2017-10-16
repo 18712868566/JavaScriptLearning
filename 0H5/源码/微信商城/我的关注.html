@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>我的关注</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/member.rem.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript">
+	function menu(){
+		$('#sub-title').toggle();
+	};
+	 
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="left">
+			 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+		</div>
+		<p class="header_title">我的关注</p>
+	</div>
+	<div  class="sn-block meb-list">
+        <ul class="sn-list-input">
+        	<a href="" class="block wbox">
+            	<li style=" border-bottom: 1px solid #DCDCDC;">
+                    <label class="meb-list-ico" style="background-image:url(images/ico-myCollection.png);">我的收藏</label>
+                    <div style="display: inline-block;color: #909090;float: right;" class="wbox-flex tr sn-txt-muted arrow">
+                    </div>
+            	</li>
+        	</a>
+           <a href="地址管理.html" class="block wbox">	
+            	<li style=" border-bottom: 1px solid #DCDCDC;">
+                    <label class="meb-list-ico" style="background-image:url(images/ico-addr.png);">地址管理</label>
+                    <div style="display: inline-block;color: #909090;float: right;" class="wbox-flex tr sn-txt-muted arrow">
+                    </div>
+            	</li>
+           </a>
+           <a href="账户安全.html" class="block wbox">
+            	<li>
+                    <label class="meb-list-ico" style="background-image:url(images/ico-safe.png);">账户安全</label>
+                    <div style="display: inline-block;color: #909090; float: right;" class="wbox-flex tr sn-txt-muted arrow">
+								绑定手机号
+                    </div>
+            	</li>
+           </a> 
+        </ul>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+    body{height: 400px;background-color: red;}
+
+</head>
+    </style>
+<body>
+<!-- DOM 的事件监听器 -->
+<p id="closer">final</p>
+</body>
+<script>
+    var mypara = document.getElementById('closer');
+    function paraHandler(e){
+        alert('clicked paragraph');
+        e.stopPropagation();        //阻止事件冒泡
+    }
+    mypara.addEventListener('click',paraHandler,false);
+    document.body.addEventListener('click',function(){alert('clicked body')},false);
+    document.addEventListener('click',function(){alert('clicked doc')},false);
+    window.addEventListener('click',function(){alert('clicked window')},false);
+
+</script>
+</html>

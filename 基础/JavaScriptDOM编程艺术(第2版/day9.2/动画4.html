@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Design</title>
+    <style type="text/css">
+        *{margin: 0;padding:0;}
+        #preview{width: 1000px;}
+        #slideshow{width: 200px;height: 120px;position: relative;overflow: hidden;}
+        #preview p{ width: 200px;height: 120px;text-align: center;font-size: 22px;line-height: 50px;font-weight: bold; color: #000;float: left;}
+        #preview p:nth-child(1){background: red;}
+        #preview p:nth-child(2){background: yellow;}
+        #preview p:nth-child(3){background: pink;}
+        #preview p:nth-child(4){background: green;}
+    </style>
+</head>
+<body>
+    <h1>Web Design</h1>
+    <p>These are the things you showld know.</p>
+    <ol id="linklist">
+        <li><a href="struchure.html">Struchure</a></li>
+        <li><a href="presentation.html">Presentation</a></li>
+        <li><a href="behavior.html">Behavior</a></li>
+    </ol>
+
+    <!-- <div id="slideshow" alt="building blocks of web design">
+        <div id="preview" >
+            <p>Choose a topic</p>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>DOM</p>
+        </div>
+    </div> -->
+</body>
+<!-- <script src="move.js"></script> -->
+<script src="move2.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+         prepareSlideshow();
+    }
+    function prepareSlideshow(){
+        // 检查属性是否存在
+        if (!document.getElementsByTagName) return false;
+        if (!document.getElementById) return false;
+
+        // 创建滚动动画部分
+        var slideshow = document.createElement('div');
+        slideshow.setAttribute('id','slideshow');
+        // var slideshow_text = document.createTextNode('end');
+        // slideshow.appendChild(slideshow_text);
+        // console.log(slideshow)
+        var preview = document.createElement('div');
+        preview.setAttribute('id','preview');
+        var arr = ['Choose a topic','HTML','CSS','DOM'];
+
+        for (var i = 0; i < arr.length; i++) {
+            //循环创建 p 标签 并为 p 标签 填值
+            var pEle = document.createElement('p');
+            pEle.innerHTML = arr[i];
+            preview.appendChild(pEle);
+            console.log(pEle)
+        }
+        slideshow.appendChild(preview);
+        document.body.appendChild(slideshow);
+        // 创建并插入完成
+
+        if (!document.getElementById('linklist')) return false;
+        if (!document.getElementById('preview')) return false;
+        var preview = document.getElementById('preview');
+        preview.style.position = 'absolute';
+
+        var list = document.getElementById('linklist');
+        var links = list.getElementsByTagName('a');
+        console.log(links.length)
+
+        links[0].onmouseover = function(){
+            moveElement("preview",-200,0,10);
+        }
+        links[1].onmouseover = function(){
+            moveElement("preview",-400,0,10);
+        }
+        links[2].onmouseover = function(){
+            moveElement("preview",-600,0,10);
+        }
+
+    }
+</script>
+</html>

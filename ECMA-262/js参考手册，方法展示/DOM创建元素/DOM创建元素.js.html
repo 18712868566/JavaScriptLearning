@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head id="head">
+	<meta charset="UTF-8">
+	<title>javascript创建元素</title>
+	<script src="" type="text/javascript"></script>
+		<!--[if lte IE 8]>
+<p class="chromeframe">您使用的IE浏览器版本过低。<a href="http://windows.microsoft.com/" target="_blank">升级您的IE浏览器</a>，或使用<a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Google Chrome</a>、<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox</a>等高级浏览器，将会得到更好的体验！</p>
+<![endif]-->
+	<noscript><p>本页面需要浏览器支持（启用）javascript。</p></noscript>
+</head>
+<body>
+	
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var body = document.getElementsByTagName("body")[0];
+		var h1 = document.createElement("h1");
+		body.appendChild(h1);
+
+		var h1Txt = document.createTextNode("this is h1");
+		h1.appendChild(h1Txt);
+	}
+</script>
+</html>

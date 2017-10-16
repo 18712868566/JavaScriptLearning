@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+var json = {a:12,b:8,c:20};
+var arr = [4,6,8];
+
+// alert(json.a)
+// alert(json['a'])
+// alert(arr[0])
+
+//数组：for    for...in
+//json：for...in
+var i = 0;
+
+/*for (var i = 0; i < arr.length; i++) {
+    alert(i+' = '+arr[i])
+}*/
+
+for (i in arr){
+    alert(i+' = '+arr[i])
+}
+
+for(i in json){
+    alert(i+' = '+json[i])
+}
+
+//数组：普通for  可控
+//json：for...in
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			{{fullName}}
+		</div>
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#demo',
+			data:{
+				firstName: 'Foo',
+				lastName: 'Bar',
+				fullName: 'Foo Bar'
+			}
+		})
+		
+		vm.$watch('firstName',function(val){
+			this.firstName = val + '' +this.lastName
+		})
+		vm.$watch('lastName',function(val){
+			this.fullName = val.firstName + '' +val
+		})
+		
+		//上面代码是命令式的重复的。跟计算属性对比：这样更好，不是吗？
+		var vm = new Vue({
+			el:'#demo',
+			data:{
+				firstName: function(){
+					return this.name + '' +this.lastName
+				}
+			}
+		})
+	</script>
+</html>

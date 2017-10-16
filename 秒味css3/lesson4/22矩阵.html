@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				-webkit-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+			}
+			.box:hover{
+				-webkit-transform: matrix(0.5,0.38,-0.38,2,0,0);
+				-ms-transform: matrix(0.5,0.38,-0.38,2,0,0);
+				-o-transform: matrix(0.5,0.38,-0.38,2,0,0);
+				transform: matrix(0.5,0.38,-0.38,2,0,0);
+			}
+
+			/*
+			矩阵 和ie下 矩阵  
+				matrix(1,0,0,1,0,0)
+				matrix(a,b,c,d,e,f);
+				progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , M22=1,SizingMethod='auto expand');
+				Matrix( M11= a, M12= c, M21= b , M22=d,SizingMethod='auto expand');
+				
+				ie 不支持 位移 matrix 的 5 6 个参数
+			*/
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

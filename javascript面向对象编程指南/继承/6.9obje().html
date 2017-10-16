@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<dl>
+			<dt>object</dt>
+			<dd>基于这种在对象之间直接构建继承关系的理论</dd>
+			<dd>可以用objec()函数来接收父对象,并返回一个以对象为原型的新对象</dd>
+			<dd>这种模式也被成为<b>原型继承</b>,因为在这里,我们将父对象设置成了<b>子对象的原型</b></dd>
+		</dl>
+	</body>
+	<script type="text/javascript">
+		
+		function object(o){
+			function F(){
+				F.prototype = o;
+				return new F();
+			}
+		}
+		
+		//访问uber属性
+		//这个函数与 extendCopy() 基本相同 详见6.7
+		function object(o){
+			var n;
+			function F() {};
+			F.prototype =o;
+			n = new F();
+			n.uber = o;
+			return n;
+		}
+		
+		var shape ={
+			name:'shape',
+			toString: function(){
+				return this.name;
+			}
+		}
+		
+		var twoDee = object(shape);
+		twoDee.name = '2D shape';
+		twoDee.toString = function(){
+			return this.uber.toString()+','+this.name;
+		}
+		
+		var triangle = object(twoDee);
+		triangle.name = 'Triangle';
+		triangle.getArea = function(){
+			return this.side*this.height/2;
+		}
+		
+		
+		triangle.toString();	
+		//"shape,2D shape,Triangle"
+	</script>
+</html>

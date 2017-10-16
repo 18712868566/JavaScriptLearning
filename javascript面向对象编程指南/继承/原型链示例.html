@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function Shape (){
+			this.name = 'shape';
+			this.toString = function (){return this.name;};
+		}
+		
+		
+		function TwoDShape (){
+			this.name = '2D shape';
+		}
+		
+		function Triangle (side,height){
+			this.name = 'Triangle';
+			this.side = side;
+			this.height = height;
+			this.getArea = function (){ return this.side * this.height/2; };
+		}
+		
+		TwoDShape.prototype = new Shape();
+		Triangle.prototype = new TwoDShape();
+		
+		TwoDShape.prototype.constructor = TwoDShape;
+		Triangle.prototype.constructor = Triangle;
+		
+		var my = new Triangle(5,10);
+		console.log(my.getArea());
+		//25
+		console.log(my.toString());
+		//Triangle
+		/*
+		1.首先,他会遍历my对象中的所有属性,但没有找到一个叫做toString()的方法,
+		2.接着再去查看,my.__proto__所指的对象,该对象应该是在继承关系构建过程中由,new TwoDShape()所创建的实体
+		3.显然,javascript 引擎在遍历TwoDShape 实体的构成中依然不会找到 toString() 方法,然后,他又会继续检查该实体的__proto__
+		  属性.这时候,该 __proto__ 属性所指向的实体是由 new Shepe() 所创建的 
+		*/		
+		console.log(my.constructor);
+		//Triangle()
+		// instanceof 指出对象是否是特定类的一个实例。
+		my instanceof Shape;	//true
+		
+		my instanceof TwoDShape;	//true
+		
+		my instanceof Triangle;		//true
+		
+		my instanceof Array;		//false
+		
+		// isPrototypeOf 指出对象是否存在于另一个对象的原型链中。
+		Shape.prototype.isPrototypeOf(my);
+	</script>
+</html>

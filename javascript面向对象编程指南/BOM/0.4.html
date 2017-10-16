@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<!-- DOM 的事件监听器 -->
+<p id="closer">final</p>
+</body>
+<script>
+    var mypara = document.getElementById('closer');
+    function paraHandler(){
+        alert('clicked paragraph');
+    }
+    mypara.addEventListener('click',paraHandler,false);
+    document.body.addEventListener('click',function(){alert('clicked body')},false);
+    document.addEventListener('click',function(){alert('clicked doc')},false);
+    window.addEventListener('click',function(){alert('clicked window')},false);
+
+    mypara.removeEventListener('click',paraHandler,false);  //移除事件监听
+
+    /*
+        移除事件监听
+        由匿名函数所定义的监听器是不能被移除的.
+        因为如果我们要移除某个监听器,就必须获得之前哪一个指定为监听器函数的指针,
+        但任何连个匿名函数在内存中都是彼此独立的,即便他们的函数体完全相同也无济于事
+        如下:
+    */
+
+    document.body.removeEventListener('click',function(){'clicked body'},false);
+</script>
+</html>

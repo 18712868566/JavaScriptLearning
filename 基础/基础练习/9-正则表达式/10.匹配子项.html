@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+
+    var str = '2013-6-7';
+
+    var re = /(\d+)(-)/g;
+
+    str = str.replace(re,function($0,$1,$2){
+        // alert($0);
+        // alert($1);
+        // alert($2);
+
+        // return $1 + '.';
+
+        return $0.substring(0,$0.length-1) + '.';
+    })
+
+    alert(str) // 2013.6.7
+</script>
+</html>

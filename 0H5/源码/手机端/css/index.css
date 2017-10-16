@@ -1,0 +1,9 @@
+.dowebok { position: relative; width: 100%;  margin: 0 auto; overflow: hidden;}
+.dowebok img { display: block;width: 100%; margin-top: 0px; border: 0 none;}
+.dowebok ul, .dowebok ol { list-style-type: none;}
+.flex-viewport { z-index: 1;}
+.flex-control-nav {  position: absolute; bottom: 0px; left: 50%; margin-left: -50px;  z-index: 2;  text-align: center;}
+.flex-control-nav li { display: inline-block; *display: inline; zoom: 1;}
+.flex-control-nav a { float: left;margin-left: 4px; width: 10px; height: 10px; line-height: 100px; overflow: hidden; background: url(../images/dot1.png) 1px 1px no-repeat; cursor: pointer;}
+.flex-control-nav .flex-active { background: url(../images/dot2.png) 1px 1px no-repeat;}
+

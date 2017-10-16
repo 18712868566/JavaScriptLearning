@@ -1,0 +1,145 @@
+ 火狐和IE之间的7个JavaScript差异
+
+尽管 JavaScript 历史上使用冗长而令人生厌的代码块来标的特定浏览器的时期已经结束了，但是偶尔使用一些简单的代码块和对象检测来确保一些代码在用户机器上正常工作依然是必要的。
+
+这篇文章中，我会略述一下 Internet Explorer 和 Firefox 在 JavaScript 语法上不同的 7 个方面。
+
+1. CSS “float” 属性
+
+获取给定对象的特定 CSS 属性的基本语法是 object.style 属性，而且有连字符的属性要用骆驼命名法来代替。例如，获取一个 ID 为 “header” 的 div 的 background-color 属性，我们要用如下语法：
+
+ 
+document.getElementById("header").style.borderBottom= "1px solid #ccc";
+
+但是由于 “float” 是 JavaScript 的保留词，我们就无法使用 object.style.float 来获取 “float” 属性了。一下是我们在两种浏览器中的使用的方法：
+
+IE 语法：
+
+ 
+document.getElementById("header").style.styleFloat = "left";
+
+Firefox 语法：
+
+ 
+document.getElementById("header").style.cssFloat = "left";
+
+2. 元素的计算样式
+
+通过使用上述的 object.style.property， JavaScript 可以很容易的获取和修改对象的设定 CSS 样式。但是这一语法的局限在于，它只能取得内联在 HTML 里的样式，或者直接使用 JavaScript 设定的样式。style 对象不能获取使用外部样式表设定的样式。为了获取对象的”计算样式”，我们使用以下代码：
+
+IE 语法：
+
+ 
+var myObject = document.getElementById("header"); 
+var myStyle = myObject.currentStyle.backgroundColor;
+
+Firefox 语法：
+
+ 
+var myObject = document.getElementById("header");
+var myComputedStyle = document.defaultView.getComputedStyle(myObject, null);
+var myStyle = myComputedStyle.backgroundColor;
+
+3. 获取元素的”class”属性
+
+类似于”float”属性的情况，这两种浏览器使用不同的 JavaScript 方法来获取这个属性。
+
+IE 语法：
+
+ 
+var myObject = document.getElementById("header");
+var myAttribute = myObject.getAttribute("className");
+
+Firefox 语法：
+
+ 
+var myObject = document.getElementById("header");
+var myAttribute = myObject.getAttribute("class");
+
+4. 获取 label 标签的 “for” 属性
+
+和 3 一样，使用 JavaScript获取 label 的 “for” 属性也有不同语法。
+
+IE 语法：
+
+ 
+var myObject = document.getElementById("myLabel");
+var myAttribute = myObject.getAttribute("htmlFor");
+
+Firefox 语法：
+
+ 
+var myObject = document.getElementById("myLabel");
+var myAttribute = myObject.getAttribute("for");
+
+对于 setAtrribute 方法来说也是同样的语法。
+
+5. 获取光标位置
+
+获取元素的光标位置比较少见，如果需要这么做，IE 和 Firefox 的语法也是不同的。这个示例代码是相当基础的，一般用作许多复杂事件处理的一部分，这里仅用来描述差异。需要注意的是，IE 中的结果和 Firefox 中是不同的，因此这个方法有些问题。通常，这个差异可以通过获取 “滚动位置” 来补偿 － 但那是另外一篇文章的课题了。
+
+IE 语法：
+
+ 
+var myCursorPosition = [0, 0];
+myCursorPosition[0] = event.clientX;
+myCursorPosition[1] = event.clientY;
+
+Firefox 语法：
+
+ 
+var myCursorPosition = [0, 0];
+myCursorPosition[0] = event.pageX;
+myCursorPosition[1] = event.pageY;
+
+6. 获取视窗或浏览器窗口的尺寸
+
+有时需要找出浏览器的有效窗口空间的尺寸，一般成为”视窗”。
+
+IE 语法：
+
+ 
+var myBrowserSize = [0, 0];
+myBrowserSize[0] = document.documentElement.clientWidth;
+myBrowserSize[1] = document.documentElement.clientHeight;
+
+Firefox 语法：
+
+ 
+var myBrowserSize = [0, 0];
+myBrowserSize[0] = window.innerWidth;
+myBrowserSize[1] = window.innerHeight;
+
+7. Alpha 透明
+
+嗯，这其实不是 JavaScript 的语法项目 - alpha 透明是通过 CSS 来设置的。但是当对象通过 JavaScript 设置为淡入淡出时，这就需要通过获取 CSS 的 alpha 设定来实现，一般是在循环内部。要通过以下 JavaScript 来改变 CSS 代码：
+
+IE 语法：
+
+ 
+#myElement {
+filter: alpha(opacity=50);
+}
+
+Firefox 语法：
+
+ 
+#myElement {
+opacity: 0.5;
+}
+
+要使用 JavaScript 获取这些值，需要使用 style 对象：
+
+IE 语法：
+
+ 
+var myObject = document.getElementById("myElement");
+myObject.style.filter = "alpha(opacity=80)";
+
+Firefox 语法：
+
+ 
+var myObject = document.getElementById("myElement");
+myObject.style.opacity = "0.5";
+
+当然，已经说到了，一般是在循环中间来改变 opcity/alpha，来创建动画效果，但这这是个简单的例子，只是为了明白地描述方法是如何实现地。

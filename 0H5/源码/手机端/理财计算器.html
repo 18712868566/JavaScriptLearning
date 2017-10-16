@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="hb-loaded"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<title>金汇鼎盛计算器</title>
+<meta name="keywords" content="私募,私募基金,阳光私募基金,私募理财资讯,投资理财,理财产品">
+<meta name="description" content="搜索。通过私募基金高级搜索设置，您可以找到更适合您的阳光私募基金产品。或者致电私募基金理财专线：400-080-5828，咨询私募相关产品。">    
+<link href="css/css.css" rel="stylesheet" type="text/css">
+<link href="css/public.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/planning.css">
+<script src="js/public.js" type="text/javascript"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+window.onload=function(){
+	$("#td1,#td6,#td2,#td3,#td4,#td5").on("click", function(){
+		$("#td6,#td2,#td3,#td4,#td5,#td1").removeClass("current");
+		$(this).addClass("current");
+		if($("#td1").hasClass("current")){
+		$(".main4").css("display","block");
+		$(".main2,.main3,.main1,.main5,.main6").css("display","none");	
+		}
+		
+		if($("#td2").hasClass("current")){
+		$(".main2").css("display","block");
+		$(".main1,.main3,.main4,.main5,.main6").css("display","none");	
+		}
+		
+		if($("#td3").hasClass("current")){
+		$(".main3").css("display","block");
+		$(".main2,.main1,.main4,.main5,.main6").css("display","none");	
+		}
+		
+		if($("#td4").hasClass("current")){
+		$(".main1").css("display","block");
+		$(".main2,.main3,.main4,.main5,.main6").css("display","none");	
+		}
+		
+		if($("#td5").hasClass("current")){
+		$(".main5").css("display","block");
+		$(".main2,.main3,.main4,.main1,.main6").css("display","none");			
+		}
+	
+		if($("#td6").hasClass("current")){
+		$(".main6").css("display","block");
+		$(".main2,.main3,.main4,.main5,.main1").css("display","none");	
+		}
+	});
+	
+	
+	};
+</script>
+</head>
+<body>
+	<header>
+	    <div class="i_header" id="#top">
+	        <a href="index.html" class="logo l">
+	            <img src="images/logo.png" alt="金汇鼎圣">
+	        </a>
+	        <a href="tel:010-63356388">
+		        <div class="sousuo r">
+					<img style="width: 140px;position: absolute;top:0px; right: 0px;" src="images/tel400.png" />
+				</div>
+			</a>
+	    </div>
+    </header>
+<div style="margin-top: 70px;" class="trust_nav cf">
+	<table style="border-collapse:collapse;" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+      	<tr>
+        <td id="td4" class="current">
+<!--           <img src="images/trust01.jpg" width="23">
+-->           <span>定投体验计算器</span>
+        </td>
+        <td class="" id="td2">
+<!--            <img src="images/trust02.jpg" width="23">-->
+            <span>定投金额计算器</span>
+        </td>
+        <td class="" id="td3">
+           <!--<img src="images/trust03.jpg" width="23">-->
+           <span>定投收益计算器</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="" id="td1">
+           <!--<img src="images/trust04.jpg" width="23">-->
+           <span>投资收益计算器</span>
+        </td>
+        <td class="" id="td5">
+            <!--<img src="images/trust05.jpg" width="23">-->
+            <span>申购费用计算器</span>
+        </td>
+        <td class="" id="td6">
+           <!--<img src="images/trust06.jpg" width="23">-->
+           <span>赎回费用计算器</span>
+        </td>
+      </tr>
+    </tbody></table>
+
+</div>
+
+<script src="js/jquery-1.js" type="text/javascript"></script>
+<script src="js/jijin.js" type="text/javascript"></script>
+
+
+<div style="display:block;" class="main1">
+	<div class="titlebar01 m10">
+    	<h2>定投体验计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+    <div class=" w782">
+        <div class="section h146">
+			<table id="jijinBox">
+			<tbody><tr><th colspan="2" class="pl12">根据购买金额和认购费率计算认购基金所需要的手续费及获得的基金份额</th></tr>
+			<tr><td class="pl12" width="270"><strong>基金净值：</strong></td><td width="410">1.000元</td></tr>
+			<tr><td class="pl12"><strong>购买金额：</strong></td><td><input tabindex="1" class="jjj" id="sub_amount" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;元</td></tr>
+			<tr><td class="pl12"><strong>认购费率：</strong></td><td><input class="jjj" id="sub_rate" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;%</td></tr>
+			<tr><td></td><td colspan="2"><input value="" id="btn_calculator" class="jisuan" style="cursor:pointer" tabindex="2" type="button"></td></tr>
+			</tbody></table>
+			<table height="200" width="100%"><tbody><tr><td valign="top">
+                <table id="jieguo">
+                <tbody><tr style="background-color: rgb(235, 237, 244);"><td width="180" align="center">认购费用：</td><td><span id="sub_cost"></span>&nbsp;&nbsp;元</td></tr>
+                <tr style="background-color: rgb(251, 249, 243);"><td width="180" align="center">认购份额：</td><td><span id="sub_quotient"></span>&nbsp;&nbsp;份</td></tr>
+                </tbody></table>
+			</td></tr>
+			<tr>
+				<td valign="top">
+					<div  id="mzsm">免责声明：
+		                <ol>
+		                <li>本计算器为第三方公司提供的模拟计算，本公司不对计算结果准确性、有效性负责，也不对这些结果的使用后果负任何责任。</li>
+		                <li>计算结果并不对投资构成任何参考。</li>
+		                </ol>
+					</div>
+				</td>
+			</tr>
+			</tbody></table>
+        </div>
+    </div>
+</div>
+    </div>
+
+
+<div style="display:none;" class="main2">
+	<div class="titlebar01 m10">
+    	<h2>定投金额计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+    <div class=" w782">
+        <div class="section h146">
+			<table id="jijinBox">
+			<tbody><tr><th colspan="2" class="pl12">根据购买金额和认购费率计算认购基金所需要的手续费及获得的基金份额</th></tr>
+			<tr><td class="pl12" width="270"><strong>基金净值：</strong></td><td width="410">1.000元</td></tr>
+			<tr><td class="pl12"><strong>购买金额：</strong></td><td><input tabindex="1" class="jjj" id="sub_amount" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;元</td></tr>
+			<tr><td class="pl12"><strong>认购费率：</strong></td><td><input class="jjj" id="sub_rate" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;%</td></tr>
+			<tr><td></td><td colspan="2"><input value="" id="btn_calculator" class="jisuan" style="cursor:pointer" tabindex="2" type="button"></td></tr>
+			</tbody></table>
+			<table height="200" width="100%"><tbody><tr><td valign="top">
+                <table id="jieguo">
+                <tbody><tr style="background-color: rgb(235, 237, 244);"><td width="180" align="center">认购费用：</td><td><span id="sub_cost"></span>&nbsp;&nbsp;元</td></tr>
+                <tr style="background-color: rgb(251, 249, 243);"><td width="180" align="center">认购份额：</td><td><span id="sub_quotient"></span>&nbsp;&nbsp;份</td></tr>
+                </tbody></table>
+			</td></tr>
+			<tr>
+				<td valign="top">
+					<div  id="mzsm">免责声明：
+		                <ol>
+		                <li>本计算器为第三方公司提供的模拟计算，本公司不对计算结果准确性、有效性负责，也不对这些结果的使用后果负任何责任。</li>
+		                <li>计算结果并不对投资构成任何参考。</li>
+		                </ol>
+					</div>
+				</td>
+			</tr>
+			</tbody></table>
+        </div>
+    </div>
+</div>
+    </div>
+ <div style="display:none;" class="main3">
+	<div class="titlebar01 m10">
+    	<h2>定投收益计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+    <div class=" w782">
+        <div class="section h146">
+			<table id="jijinBox">
+			<tbody><tr><th colspan="2" class="pl12">根据购买金额和认购费率计算认购基金所需要的手续费及获得的基金份额</th></tr>
+			<tr><td class="pl12" width="270"><strong>基金净值：</strong></td><td width="410">1.000元</td></tr>
+			<tr><td class="pl12"><strong>购买金额：</strong></td><td><input tabindex="1" class="jjj" id="sub_amount" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;元</td></tr>
+			<tr><td class="pl12"><strong>认购费率：</strong></td><td><input class="jjj" id="sub_rate" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;%</td></tr>
+			<tr><td></td><td colspan="2"><input value="" id="btn_calculator" class="jisuan" style="cursor:pointer" tabindex="2" type="button"></td></tr>
+			</tbody></table>
+			<table height="200" width="100%"><tbody><tr><td valign="top">
+                <table id="jieguo">
+                <tbody><tr style="background-color: rgb(235, 237, 244);"><td width="180" align="center">认购费用：</td><td><span id="sub_cost"></span>&nbsp;&nbsp;元</td></tr>
+                <tr style="background-color: rgb(251, 249, 243);"><td width="180" align="center">认购份额：</td><td><span id="sub_quotient"></span>&nbsp;&nbsp;份</td></tr>
+                </tbody></table>
+			</td></tr>
+			<tr>
+				<td valign="top">
+					<div  id="mzsm">免责声明：
+		                <ol>
+		                <li>本计算器为第三方公司提供的模拟计算，本公司不对计算结果准确性、有效性负责，也不对这些结果的使用后果负任何责任。</li>
+		                <li>计算结果并不对投资构成任何参考。</li>
+		                </ol>
+					</div>
+				</td>
+			</tr>
+			</tbody></table>
+        </div>
+    </div>
+</div>
+    </div>
+  <div style="display:none;" class="main4">
+	<div class="titlebar01 m10">
+    	<h2>投资收益计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+<div class=" w782">
+	<div class="section h146">
+		<table id="jijinBox">
+			<tbody>
+				<tr>
+					<th colspan="2" class="pl12">根据历史数据计算在一段时间内单笔投资某只基金所获得的收益</th>
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>购买基金：</strong>
+					</td>
+					<td width="700">
+						<select class="jjj" id="fundid" tabindex="1">
+							<option selected="selected" value="">--请选择--</option>
+							<option value="471007">金汇鼎盛理财7天A</option>
+							<option value="470007">金汇鼎盛上证综合指数</option>
+							<option value="519018">金汇鼎盛均衡增长股票</option>
+							<option value="519068">金汇鼎盛成长焦点股票</option>
+							<option value="519069">金汇鼎盛价值精选股票</option>
+							<option value="470008">金汇鼎盛策略回报股票</option>
+							<option value="470009">金汇鼎盛民营活力股票</option>
+							<option value="470888">金汇鼎盛香港优势精选股票(QDII)</option>
+							<option value="470006">金汇鼎盛医药保健股票</option>
+							<option value="519008">金汇鼎盛优势精选混合</option>
+							<option value="472007">金汇鼎盛理财7天B</option>
+							<option value="519066">金汇鼎盛蓝筹稳健混合</option>
+							<option value="470058">金汇鼎盛可转换债券A</option>
+							<option value="470059">金汇鼎盛可转换债券C</option>
+							<option value="164701">金汇鼎盛黄金及贵金属（QDII-LOF-FOF）</option>
+							<option value="159912">金汇鼎盛深证300ETF</option>
+							<option value="470068">金汇鼎盛深证300ETF联接</option>
+							<option value="519078">金汇鼎盛增强收益债券A</option>
+							<option value="470014">金汇鼎盛理财14天A</option>
+							<option value="470021">金汇鼎盛理财21天发起式A</option>
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl12" id="forRateInfo" width="200"><strong>购买日期：</strong>
+					</td>
+					<td>
+						<input name="sub_date" id="sub_date" maxlength="10" tabindex="2" onfocus="WdatePicker({readOnly:true,onpicked:function(dp){purChange();}})" class="Wdate" readonly="true" type="text">&nbsp;&nbsp;<span id="pur_nav" style="color:red">
+
+										</span>
+					</td>
+
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>购买金额：</strong>
+					</td>
+					<td>
+						<input tabindex="3" class="jjj" id="inv_amount" onkeypress="javascript:return isFloat(event);" type="text"> &nbsp;&nbsp;元
+					</td>
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>收费方式：</strong>
+					</td>
+					<td>
+						<input style="position: relative; top: 0px;" tabindex="4" name="charges" value="0" checked="checked" type="radio"><strong>前端收费</strong>&nbsp;&nbsp;
+						<input style="position: relative; top: 0px;" readonly="readonly" name="charges" value="1" type="radio"><strong>后端收费</strong>&nbsp;&nbsp;
+					</td>
+
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>购买渠道：</strong>
+					</td>
+					<td colspan="2">
+						<input style="position: relative; top: 0px;" tabindex="5" name="channel" onclick="buy(1)" checked="checked" type="radio">
+						<strong>银行券商</strong>&nbsp;&nbsp;
+						<input style="position: relative; top: 0px;" tabindex="6" name="channel" onclick="buy(2)" type="radio">
+						<strong>金汇鼎盛网上直销</strong>&nbsp;&nbsp;
+						<select class="jjj" tabindex="7" id="card" disabled="disabled">
+							<option selected="selected" value="-1">--请选择--</option>
+							<option value="017">天天盈</option>
+							<option value="019">上海银行卡</option>
+							<option value="021">中行卡</option>
+							<option value="003">农行卡</option>
+							<option value="008">中信卡</option>
+							<option value="006">交行卡</option>
+							<option value="007">招行卡</option>
+							<option value="009">浦发卡</option>
+							<option value="011">兴业卡</option>
+							<option value="005">建行卡</option>
+							<option value="002">工行卡</option>
+							<option value="000">鼎盛现金宝</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl12" width="350"><strong>认/申购费率：</strong>
+					</td>
+					<td colspan="2">
+						<input style="width:50px;" tabindex="8" class="jjj" id="pur_rate" value="1.5" onkeypress="javascript:return isFloat(event);" type="text"><span id="rate1" class="rate_radio">%</span><span id="rate2" class="rate_radio" style="display:none">元</span>
+						<input style="position: relative; top: 0px;" name="rate" value="0" tabindex="9" checked="checked" type="radio">
+						<strong>百分比</strong>&nbsp;&nbsp;
+						<input style="position: relative; top: 0px;" name="rate" value="1" tabindex="10" type="radio">
+						<strong>固定值</strong>&nbsp;&nbsp;<a href="javascript:;" class="clickme" id="showRateInfo" style="display:none">查看详细申购费率表</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>分红方式：</strong>
+					</td>
+					<td colspan="2">
+						<input style="position: relative; top: 0px;" name="bonus" tabindex="11" value="8" type="radio">
+						<strong>现金红利</strong>&nbsp;&nbsp;
+						<input style="position: relative; top: 0px;" name="bonus" tabindex="12" value="7" checked="checked" type="radio">
+						<strong>红利再投资</strong>&nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="pl12" width="200"><strong>截止日期：</strong>
+					</td>
+					<td colspan="2">
+						<input name="dateline" tabindex="13" maxlength="10" id="dateline" onfocus="WdatePicker({readOnly:true,onpicked:function(dp){redChange();}})" class="Wdate" readonly="true" type="text"> &nbsp;&nbsp;
+						<span id="red_nav" style="color:red">
+
+										</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl12" width="200">&nbsp;</td>
+					<td colspan="2">
+						<input value="" class="jisuan" id="btn_calculator" style="cursor:pointer" type="button">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a name="#abc"></a>
+		<table height="230" width="100%">
+			<tbody>
+				<tr>
+					<td valign="top">
+						<table id="jieguo">
+							<tbody>
+								<tr style="background-color: rgb(235, 237, 244);">
+									<td width="180" align="center">投入总资金：</td>
+									<td><span id="inv_total"></span>&nbsp;&nbsp;元</td>
+								</tr>
+								<tr style="background-color: rgb(251, 249, 243);">
+									<td width="180" align="center">总申购费用：</td>
+									<td><span id="cost_total"></span>&nbsp;&nbsp;元</td>
+								</tr>
+								<tr style="background-color: rgb(235, 237, 244);">
+									<td width="180" align="center">期末总资产：</td>
+									<td><span id="assets_total"></span>&nbsp;&nbsp;元</td>
+								</tr>
+								<tr style="background-color: rgb(251, 249, 243);">
+									<td width="180" align="center">收益率：</td>
+									<td><span id="profit_rate"></span>&nbsp;&nbsp;%</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="bottom">
+						<div id="mzsm">免责声明：
+							<ol>
+								<li>本工具提供数据均来自于第三方，为基金历史数据,并不代表其将来表现。本公司不对数据的准确性、真实性、完整性、有效性、及时性及安全 性负责，也不对这些数据的使用后果负任何责任。
+								</li>
+								<li>本工具所提供的认购费率、申赎费率均为参考，具体费率以实际代\直销机构为准。</li>
+								<li>本工具为模拟测算，并不对投资构成任何参考。</li>
+							</ol>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+</div>
+    </div>
+  <div style="display:none;" class="main5">
+	<div class="titlebar01 m10">
+    	<h2>申购费用计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+    <div class=" w782">
+        <div class="section h146">
+			<table id="jijinBox">
+			<tbody><tr><th colspan="2" class="pl12">根据购买金额和认购费率计算认购基金所需要的手续费及获得的基金份额</th></tr>
+			<tr><td class="pl12" width="270"><strong>基金净值：</strong></td><td width="410">1.000元</td></tr>
+			<tr><td class="pl12"><strong>购买金额：</strong></td><td><input tabindex="1" class="jjj" id="sub_amount" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;元</td></tr>
+			<tr><td class="pl12"><strong>认购费率：</strong></td><td><input class="jjj" id="sub_rate" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;%</td></tr>
+			<tr><td></td><td colspan="2"><input value="" id="btn_calculator" class="jisuan" style="cursor:pointer" tabindex="2" type="button"></td></tr>
+			</tbody></table>
+			<table height="200" width="100%"><tbody><tr><td valign="top">
+                <table id="jieguo">
+                <tbody><tr style="background-color: rgb(235, 237, 244);"><td width="180" align="center">认购费用：</td><td><span id="sub_cost"></span>&nbsp;&nbsp;元</td></tr>
+                <tr style="background-color: rgb(251, 249, 243);"><td width="180" align="center">认购份额：</td><td><span id="sub_quotient"></span>&nbsp;&nbsp;份</td></tr>
+                </tbody></table>
+			</td></tr>
+			<tr>
+				<td valign="top">
+					<div  id="mzsm">免责声明：
+		                <ol>
+		                <li>本计算器为第三方公司提供的模拟计算，本公司不对计算结果准确性、有效性负责，也不对这些结果的使用后果负任何责任。</li>
+		                <li>计算结果并不对投资构成任何参考。</li>
+		                </ol>
+					</div>
+				</td>
+			</tr>
+			</tbody></table>
+        </div>
+    </div>
+</div>
+    </div>    
+ <div style="display:none;" class="main6">
+	<div class="titlebar01 m10">
+    	<h2>赎回费用计算器</h2>
+	</div>
+    <div class="pro_xt_sx cf">
+        
+    <!--右侧区域-->
+    <div class=" w782">
+        <div class="section h146">
+			<table id="jijinBox">
+			<tbody><tr><th colspan="2" class="pl12">根据购买金额和认购费率计算认购基金所需要的手续费及获得的基金份额</th></tr>
+			<tr><td class="pl12" width="270"><strong>基金净值：</strong></td><td width="410">1.000元</td></tr>
+			<tr><td class="pl12"><strong>购买金额：</strong></td><td><input tabindex="1" class="jjj" id="sub_amount" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;元</td></tr>
+			<tr><td class="pl12"><strong>认购费率：</strong></td><td><input class="jjj" id="sub_rate" onkeypress="javascript:return isFloat(event);" type="text">&nbsp;&nbsp;%</td></tr>
+			<tr><td></td><td colspan="2"><input value="" id="btn_calculator" class="jisuan" style="cursor:pointer" tabindex="2" type="button"></td></tr>
+			</tbody></table>
+			<table height="200" width="100%"><tbody><tr><td valign="top">
+                <table id="jieguo">
+                <tbody><tr style="background-color: rgb(235, 237, 244);"><td width="180" align="center">认购费用：</td><td><span id="sub_cost"></span>&nbsp;&nbsp;元</td></tr>
+                <tr style="background-color: rgb(251, 249, 243);"><td width="180" align="center">认购份额：</td><td><span id="sub_quotient"></span>&nbsp;&nbsp;份</td></tr>
+                </tbody></table>
+			</td></tr>
+			<tr>
+				<td valign="top">
+					<div  id="mzsm">免责声明：
+		                <ol>
+		                <li>本计算器为第三方公司提供的模拟计算，本公司不对计算结果准确性、有效性负责，也不对这些结果的使用后果负任何责任。</li>
+		                <li>计算结果并不对投资构成任何参考。</li>
+		                </ol>
+					</div>
+				</td>
+			</tr>
+			</tbody></table>
+        </div>
+    </div>
+</div>
+    </div> 
+   <div class="bottom">
+	    <div class="btm_nav">
+	        <ul>
+	            <li class="btn">
+	            	<a href="index.html" class="nav01">
+	                	<img src="images/bnav_01_a.jpg" width="25">
+	            	</a>
+	            </li>
+	            <li class="btn">
+	            	<a href="" class="nav02">
+	                	<img src="images/bnav_02_a.jpg" width="50">
+	            	</a>
+	            </li>
+	            <li class="btn">
+	            	<a href="tel:010-63356388" class="nav03">
+	                	<img src="images/bnav_03_a.jpg" width="50">
+	            	</a>
+	            </li>
+	            <li class="btn">
+	            	<a href=" " class="nav05">
+	                	<img src="images/bnav_05_a.jpg" width="50">
+	            	</a>
+	            </li>
+	        </ul>
+	    </div>
+	</div>
+</body>
+</html>

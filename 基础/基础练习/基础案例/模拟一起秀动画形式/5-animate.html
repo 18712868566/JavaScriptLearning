@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="animate.css">
+    <style type="text/css" media="screen">
+        *{margin: 0;padding: 0;}
+        html,body{height: 100%;}
+        .ul1{width: 100%;height: 100%;display: block;background: #fff;}
+        .ul1 li{width: 10%;background: #333;height: 100%;float: left;list-style: none;border: 0;opacity: 1;
+            transition: 1s;
+        }
+
+        .pos{position: absolute;}
+        .btn{width: 50px;height: 50px;background: blue;bottom: 20px;right: 20px;border-radius: 50%;text-align: center;line-height: 50px;color: #fff;font-size: 18px;font-weight: bold;}
+    </style>
+</head>
+<body>
+    <ul class="ul1 animate myAnimate">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div class="pos btn">切换</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    $(function(){
+        var bOff = true;
+
+        jQuery('.btn').on('click',function(){
+
+            if (bOff) {
+
+                var aLi = jQuery('.ul1 li');
+                // aLi.css({'display':'block'})
+                $(aLi).each(function(index, el) {
+                    // console.log(index)
+                    // console.log(el)
+                    jQuery(el).css({'transition':'0.5s '+index*100+'ms','transform':'rotateY(-90deg)','opacity':'0'})
+                });
+            }
+            else{
+                var aLi = jQuery('.ul1 li');
+
+                $(aLi).each(function(index, el) {
+                    jQuery(el).css({'transition':'0.5s '+index*100+'ms','transform':'rotateY(0deg)','opacity':'1'});
+                    jQuery(el).on('transitionend',function(){
+                        $(this).css({'transition':'1s','opacity':'0'})
+                    })
+                });
+            }
+
+            bOff = !bOff;
+            //console.log(bOff)
+        })
+
+        jQuery('.btn').trigger('click').trigger('click');
+        // console.log(bOff)
+    })
+</script>
+</html>

@@ -1,0 +1,54 @@
+
+思考用户不支持js的情况和浏览器 js被禁用的情况
+
+
+
+渐进增强
+
+向css 学习 结构和样式分离
+
+案例;
+
+    1. 把文档里的所有链接全放入一个数组里
+    2. 遍历数组
+    3. 如果某个链接的class属性等于popup就表示这个链接在被点击时,应该调用 popUp()函数
+
+
+向后兼容:
+
+    if(document.getElementById){
+        //....
+    }
+
+    if(!document.getElementById) return false        if(!document.getElementById || !document.getElementsByTagName) return false
+
+浏览器嗅探技术
+
+性能考虑
+
+    尽量少访问dom和尽量减少标记
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

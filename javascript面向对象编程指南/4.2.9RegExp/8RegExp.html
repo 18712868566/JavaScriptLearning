@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<h1>RegExp</h1>
+    <p> 回调式替换 </p>
+</body>
+<script>
+
+	var glob;
+	var re = /(.*)@(.*)\.(.*)/;
+	
+	var callback = function(){
+		
+		glob = arguments;
+		return arguments[1] + ' at ' + arguments[2] + ' doc ' + arguments[3];
+			
+	};
+
+	var username = 'lixuefeng@konghzong.com'.replace(re,callback);
+	console.log(username)
+	//lixuefeng at konghzong doc com
+    console.log(glob)
+    //["lixuefeng@konghzong.com", "lixuefeng", "konghzong", "com", 0, "lixuefeng@konghzong.com"]
+</script>
+</html>
+  

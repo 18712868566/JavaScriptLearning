@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="number1"> <br />
+    <input type="text" class="number2"> <br />
+    <a href="javascript:;" class="btn"> 转换 </a>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    /* 
+        "1888" ==> "$ 1888.00"
+    */
+
+    $(function(){
+        var oBtn = $('.btn');
+        
+        oBtn.click(function(){
+            var v1 = $('.number1');
+            var v2 = $('.number2');
+            // var relute = parseFloat($.trim(v1.val())).toFixed(2);
+            var relute = parseFloat($.trim(v1.val())).toFixed(2).replace(/\B(?=(\d{3})+\b)/,',').replace(/^/,'$$ ');
+
+            v2.val(relute);
+        })
+
+    })
+</script>
+</html>

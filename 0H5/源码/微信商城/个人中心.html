@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>个人中心</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/member.rem.css" />
+<link rel="stylesheet" href="css/search.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="js/alertBox.js" ></script>
+<script type="text/javascript">
+	function menu(){
+		$('#sub-title').toggle();
+	};
+	$(function(){
+ $('#tanchuan').on('click',function(){
+        AlertBox({
+            type:'doubleBtn',
+            title:'',
+            msg:'是否退出当前登录？',
+            cancelText:'取消',
+            confirmText:'确认',
+            cancel: function() {},
+        	confirm: function() {
+        		 window.location.href = "登录.html";
+            }//确认操作回调
+        });
+});
+});
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<p class="header_title">个人中心</p>
+			<div class="right" onclick="menu()">
+				<a class="sn-right" ></a>
+				<ul style="display: none; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);" class="nav-more-list" id="sub-title">
+					<li>
+						<a class="nav-more-icon home-icon" href="javascript:void(0)">首页</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cart-icon" href="javascript:void(0)">购物车</a>
+					</li>
+					<li>
+						<a class="nav-more-icon search-icon" href="搜索.html">搜索</a>
+					</li>
+					<li>
+						<a class="nav-more-icon cate-icon" href="商品分类.html">全部分类</a>
+					</li>
+					<li>
+						<a class="nav-more-icon ebuy-icon" href="个人中心.html">个人中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<!-- 头像区域 -->
+	<div class="meb-banner" style="background:url(images/banner1.jpg) no-repeat center top;background-size:cover;">
+		<div class="meb-person-data">
+			<div class="meb-head">
+				<img src="images/avatar.png" >
+			</div>
+			<div class="meb-name">151******01
+			</div>
+		</div>
+	</div>
+
+	<div style="padding: 0px;" class="sn-block meb-list">
+		<ul class="sn-list-input">
+			<a href="订单.html"  class="block wbox" id="mts-allorder">
+				<li class="border-none">
+					<label class="meb-list-ico" style="background-image:url(images/index.png)">全部订单</label>
+					<div style="display: inline-block;color: #909090; float: right;" class="wbox-flex tr  arrow">查看所有订单</div>
+				</li>
+			</a>
+		</ul>
+        <!-- 订单选项 [[ -->
+        <nav class="nav-state" data-base="" data-resroot="/RES" id="mts-globle-data">
+            <div class="meb-order-status">
+                <a href="javascript:mtstopaid()" class="status-payment" id="mts-topaid">
+                    <div class="meb-status-cont meb-payment"> 
+                    </div>
+                    <span class="status-text">待支付</span>
+                </a>
+                <a href="javascript:mtstoreceipt()" class="status-goods" id="mts-toreceipt">
+                    <div class="meb-status-cont meb-forGoods"> 
+                    </div>
+                    <span class="status-text">待收货</span>
+                </a>
+                <a href="javascript:mtstocomment()" class="status-evaluate" id="mts-tocomment">
+                    <div class="meb-status-cont meb-evaluate"> 
+                    </div>
+                    <span class="status-text">待评价</span>
+                </a>
+                <a href="javascript:mtsreturngoods()" class="status-return" id="mts-returngoods">
+                    <div class="meb-status-cont meb-return"> 
+                    </div>
+                    <span class="status-text">退货中</span>
+                </a>
+            </div>
+        </nav>
+        <!-- 订单选项 ]] -->
+
+		<div class="spacing"></div> 
+        <ul class="sn-list-input">
+        	 		<a href="我的优惠券.html" class="block wbox" id="mts-allorder">
+		          	    <li class="border-none">
+		                    <label class="meb-list-ico" style="background-image:url(images/wdqb.png)">我的优惠券</label>
+		                    <div style="display: inline-block;color: #909090; float: right;"  class="wbox-flex tr sn-txt-muted arrow"></div>
+		            	</li>
+		             </a>
+        </ul> 
+        
+
+        <!-- 活动&&关注 [[ -->
+        <ul class="sn-list-input">
+            <li class="spacing"></li>  
+	     		 <a href="我的关注.html" class="block wbox" id="mts-allorder">
+		             <li style=" border-bottom: 1px solid #DCDCDC;">
+		                    <label  class="meb-list-ico" style="background-image:url(images/wdgz.png)">我的关注</label>
+		                    
+		                    <div style="display: inline-block;color: #909090; float: right;" class="wbox-flex tr sn-txt-muted arrow">收藏、地址管理</div>
+		            </li> 
+		         </a>
+	             <li>
+	                <a href="javascript:tolist('3','我的活动')" class="block wbox" id="mts-allorder">
+	                    <label class="meb-list-ico" style="background-image:url(images/wdhd.png)">我的活动</label>
+	                    <div style="display: inline-block;color: #909090; float: right;" class="wbox-flex tr sn-txt-muted arrow">预约、S码</div>
+	                </a>
+	            </li> 
+        </ul>
+          
+        <!-- 活动&&关注 ]] -->
+
+
+
+	</div>
+	
+	<div class="btn-cont" id="tanchuan">
+		<a href="javascript:tanchuan();" class="sn-btn-outline">退出</a>
+	</div>
+ 
+		
+</body>
+</html>

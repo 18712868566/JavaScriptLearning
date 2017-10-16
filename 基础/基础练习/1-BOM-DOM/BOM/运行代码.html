@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运行代码</title>
+</head>
+<body>
+<textarea name="" id='text' rows="10" cols="40"></textarea>
+<br />
+<input id="btn1" type="button" name="" value="运行代码">
+</body>
+
+<script type="text/javascript">
+    window.onload = function()
+    {
+        var oBtn = document.getElementById('btn1');
+        var oText = document.getElementById('text');
+
+        oBtn.onclick = function()
+        {
+            var newPages = window.open('about:blank');
+
+            // newPages.document.write('asv')
+            newPages.document.write(oText.value)
+        }
+    }
+</script>
+</html>

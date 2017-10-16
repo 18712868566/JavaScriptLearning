@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .btn{display: block;width: 100px;height: 40px;background: red;text-align: center;font-size: 18px;line-height: 40px;color: #fff;margin: 0 auto;border-radius: 5px;}
+        .pic_img{width: 1200px;margin: 0 auto;position: relative;height: 400px;border: 1px solid #000;}
+        .pic_slice{transition: 0.3s;opacity: 1;filter:alpha(opacity=100);}
+        .pic_slice:hover{opacity: 0.6;filter:alpha(opacity=60);}
+    </style>
+</head>
+<body>
+    <a href="javascript:;" class="btn"> 下一张 </a>
+
+    <div class="pic_img"></div>
+</body>
+
+<script>
+
+function getByClass(oParent, sClassName) {
+    var oEle = document.getElementsByTagName('*');
+    var arr = [];
+
+    for(var i = 0;i < oEle.length; i++){
+        if(oEle[i].className == sClassName){
+            arr.push(oEle[i]);
+        }
+    }
+
+    return arr;
+}
+
+window.onload = function(){
+    var oBody = document.body;
+    var oDiv = getByClass(oBody, 'pic_img')[0];
+    var oBtn = getByClass(oBody, 'btn')[0];
+    var aDiv = oDiv.getElementsByTagName('div');
+    // alert(oDiv.innerHTML)
+    var str = '';
+    var len = 300;
+    var iW = 40;
+    var next = 0;
+    var arrBgImg = ['img/1.png','img/2.png','img/3.png','img/4.png']
+
+    for (var i = 0; i < len; i++) {
+        str = '<div class="pic_slice" style="width: 40px;height: 40px;background: url('+ arrBgImg[0] +') no-repeat '+ (-i%30)*iW +'px '+(-Math.floor((i/30))*iW)+'px;position:absolute;top:'+ Math.floor((i/30))*iW +'px;left:'+ (i%30)*iW +'px;"></div>';
+        oDiv.innerHTML += str;
+    }
+}
+
+
+
+
+
+</script>
+
+</html>

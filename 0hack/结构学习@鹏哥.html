@@ -1,0 +1,237 @@
+<!--wlo:Cflower-->
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>《坦克世界》军功中心-WOT-坦克世界-空中网</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="《坦克世界》">
+		<meta name="description" content="《坦克世界》">
+		<link type="image/x-icon" href="http://wot.kongzhong.com/images/favicon.ico" rel="icon">
+		<link type="image/x-icon" href="http://wot.kongzhong.com/images/favicon.ico" rel="shortcut icon">
+		<link type="image/x-icon" href="http://wot.kongzhong.com/images/favicon.ico" rel="bookmark">
+		<link type="text/css" rel="stylesheet" href="css/jquery.jscrollpane.css">
+		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="http://wot.kongzhong.com/NewWOT/resource/js/md5.js"></script>
+	</head>
+
+	<body>
+		<!--[if lte IE 8]>
+<body class="ite">
+<p class="chromeframe">亲，浏览器版本过低，换一个吧！<a href="http://windows.microsoft.com/" target="_blank">升级您的IE浏览器</a>，或使用<a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Google Chrome</a>、<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox</a>等高级浏览器。</p>
+<![endif]-->
+		<div id="wrapper">
+			<div id="wrap">
+				<div id="header">
+					<!--登录后将登录改为登出，并将logBtn的class去掉-->
+					<div class="left">
+						<p id="nickName"></p>
+						<p id="zoneName"></p><a class="logBtn" href="javascript:;" id="lbt">登 录</a> <a class="logOutBtn" href="javascript:logout();" id="lbo" style="display:none">登出</a><a href="http://wot.kongzhong.com/" target="_blank">进入官网</a> <a href="http://passport.kongzhong.com/v/billing/pay/game_bank?validate=true"
+						target="_blank">账号充值</a></div>
+					<div class="right"><a href="http://wot.kongzhong.com/ztm/WarSaga2014/newspot.html" target="_blank">新兵入伍<br>福利先行</a><a href="http://wot.kongzhong.com/ztm/WarSaga2014/oldspot.html" target="_blank">老兵回归<br>好礼相赠</a></div>
+					<input type="hidden" id="loginState" value="0">
+					<input type="hidden" id="webNum" value="1">
+				</div>
+
+				<div id="main">
+					<a id="menuPosition"></a>
+					<div class="menu clearfloat">
+						<a id="menu1" class="active" href="javascript:toWbe(1);" target="_self">活动中心</a>
+						<a id="menu2" href="javascript:toWbe(2);" target="_self">个人中心</a>
+						<a id="menu3" href="javascript:toWbe(3);" target="_self">军功获取</a>
+						<a id="menu4" href="javascript:toWbe(4);" target="_self">兑换奖励</a>
+					</div>
+					<div class="content">
+						<div class="noteGet">
+							<p><span>军功获得规则：</span></p>
+							<p>1.获得方式：日常充值（仅限<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Fpay%2Fgame_bank&amp;validated=true" target="_blank">游戏内直充</a>、<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Ftransfer%2Ftransfer&amp;validated=true"
+								target="_blank">会员中心点券划拨</a>）以及在军功获取中完成绑定和每日任务。
+								<br/>2.充值获得军功比例：每日累计充值10元起，10元=10军功，获取比例仅取10的整数倍。
+								<br/>3.下列所有活动奖励都需要手动领取，点击一键领取奖励按钮查看可以领取的奖励内容，请关注相关活动的领奖时间，以免过期。
+								<br/>例：2016年1月16日当日累计充值18元，则可于次日起7个自然日内手动领取10军功，过期则无法领取。
+
+							</p>
+							<a class="clickBtnAll" href="javascript:showMessionEntry();">一键领取奖励</a>
+							<!---->
+						</div>
+						<div class="listEvent">
+
+							<dl>
+								<dd><b class="b1"></b>情人节214约Paoing抢超值1314相伴永久<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+<p>　　活动时间：2月14日0:00至2月16日24:00</p>
+<p>　　领奖时间：2月17日18:00至2月24日23:00</p>
+<p>　　活动规则：活动期间满足单日累计充值达以下条件即可于2月17日起7个自然日内至军功中心活动专题页面手动领奖；</p>
+<table cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td>单日累计充值满</td>
+            <td>活动奖励（永久车+车位*1）</td>
+        </tr>
+        <tr>
+            <td>3960金币（99元）</td>
+            <td>SU-85I（5级限量）+990000银币</td>
+        </tr>
+        <tr>
+            <td>5256金币（131.4元）</td>
+            <td>SU-122-44（7级）+1314000银币</td>
+        </tr>
+        <tr>
+            <td>8560金币（214元）</td>
+            <td>FV4202(P)（8级）+2140000银币</td>
+        </tr>
+        <tr>
+            <td>11920金币（298元）</td>
+            <td>IS-3A(8级超测）+2980000银币</td>
+        </tr>
+		<tr>
+            <td>15920金币（398元）</td>
+            <td>VK7201(10级）+3980000银币</td>
+        </tr>
+		<tr>
+            <td>52560金币（1314元）</td>
+            <td>WZ111+121B+13140000银币</td>
+        </tr>
+    </tbody>
+</table>
+<p>　　活动说明：</p>
+<p>　　1、<span style="color: rgb(255, 0, 0);">活动奖励将于活动结束起至军功中心活动专题页面手动领奖，领奖时间为7个自然日，过期将无法领奖；</span></p>
+<p>　　2、活动奖励每用户活动期间多日多次充值按3日累计充值最高的1天计算；</p>
+<p>　　3、活动仅可获得达成条件最高一档的活动奖励，不可重复获得；</p>
+<p>　　充值说明：本活动仅限《坦克世界》<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Fpay%2Fgame_bank&amp;validated=true" target="_blank">游戏内直充</a>、<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Ftransfer%2Ftransfer&amp;validated=true" target="_blank">会员中心点券划拨</a>这两种充值渠道参与；请您及时将充值点券划拨为游戏金币，以便于我们统计发奖。</p>
+       </div>
+      </dt>
+							</dl>
+
+							<dl>
+								<dd><b class="b2"></b>情人节金币购1折金币弹最高买1得9<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+<p>　　活动时间：2月14日0:00至2月16日24:00</p>
+<p>　　领奖时间：2月17日18:00至2月24日23:00</p>
+<p>　　活动规则：</p>
+<p>　　活动期间游戏内单日使用金币购买金币弹/金币补给满足以下条件可于7个自然日至活动中心手动领取相应奖励；</p>
+<table cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td>单日购金币弹/补给满足条件</td>
+            <td>活动奖励</td>
+        </tr>
+        <tr>
+            <td>累计消耗金币满2001</td>
+            <td>购买相应数量的4倍返还+炮队镜*1</td>
+        </tr>
+        <tr>
+            <td>累计消耗金币满4001</td>
+            <td>购买相应数量的6倍返还+50万银币</td>
+        </tr>
+        <tr>
+            <td>累计消耗金币满8001</td>
+            <td>购买数量的8倍返还+59金币弹*200</td>
+        </tr>
+    </tbody>
+</table>
+<p>　　活动说明：</p>
+<p>　　1.返还数量按照每一笔购买类型进行，可重复获得，3日共有3次参与机会；</p>
+<p>　　2.<span style="color: rgb(255, 0, 0);">活动奖励将于活动结束起至军功中心活动专题页面手动领奖，领奖时间为7个自然日，过期将无法领奖；</span></p>
+       </div>
+      </dt>
+							</dl>
+
+							<dl>
+								<dd><b class="b3"></b>封侯拜相 坦克春节福利活动抢不停<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+<p>　　活动时间：2月1日0:00至2月14日24:00</p>
+<p>　　兑换时间：2月2日18:00至2月19日23:00</p>
+<p>　　活动规则：</p>
+<p>　　1.签到抢好礼：每日签到自动获得对应奖励和一次答题机会，答题可获得积分；</p>
+<p>　　2.战斗就有奖：活动期间每日18:00-24:00，使用≥5级的坦克在标准模式中战斗，每场战斗可额外获得50%的银币奖励；银币奖励请于次日18:00手动领取；</p>
+<p>　　3.每日挑战：完成标准战斗单场击杀≥2以及获得胜利即可获得积分和答题机会；</p>
+<p>　　4.答题赢大礼：参与答题可获得海量积分用于兑换军需补给和永久坦克；</p>
+<p>　　<a href="http://wot.kongzhong.com/ztm/2016xn/index.html" target="_blank">详情及规则请查看>></a></p>
+       </div>
+      </dt>
+							</dl>
+
+							<dl>
+								<dd><b class="b4"></b>猴年春节大庆 银币全月1:800 银币车打折<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+<p>　　<strong>1、猴年春节大庆 全月银币1:800</strong></p>
+<p>　　活动时间：2月1日0:00至2月29日24:00</p>
+<p>　　活动规则：游戏内金币兑换银币的比例，由1:400上调为1:800；</p>
+<br />
+<p>　　<strong>2、猴年春节大庆 顶级银币坦克全面打折</strong></p>
+<p>　　活动时间：2月7日0:00至2月17日24:00</p>
+<p>　　活动规则：游戏内所有10级银币坦克购买折扣为8.5折；</p>
+<br />
+<p>　　具体详情及规则请查看游戏内“任务与活动”，一切以游戏内数据为准！</p>
+       </div>
+      </dt>
+							</dl>
+
+							<dl>
+								<dd><b class="b5"></b>情人节不孤单 组队战斗收益丰厚<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+<p>　　<strong>1、情人节“脱单” 组队战斗享经验加成</strong></p>
+<p>　　活动时间：2月14日0:00至2月17日24:00</p>
+<p>　　活动规则：在标准模式中，通过组队参与战斗，战斗结束后可获得的经验收益为普通情况下的1.5倍。仅限战斗前组成的队伍。</p>
+<br />
+<p>　　<strong>2、十级车约战情人节 纵享1.5倍经验</strong></p>
+<p>　　活动时间：2月14日0:00至2月17日24:00</p>
+<p>　　活动规则：在标准模式中，使用任意一辆十级坦克达成以下战斗条件，即可获得1.5倍经验收益：</p>
+<p>　　①战斗中对敌方坦克造成的伤害≥3000；</p>
+<p>　　②战斗经验位于本队的前8名。</p>
+<br />
+<p>　　具体详情及规则请查看游戏内“任务与活动”，一切以游戏内数据为准！</p>
+       </div>
+      </dt>
+							</dl>
+
+							<dl>
+								<dd><b class="b6"></b>首充返金100% 另送58号试验型<span>进行中</span></dd>
+								<dt>
+       <div class="scrollD">
+        <p>　　活动时间：长期有效。</p>
+<p>　　活动规则：自注册之日起在《坦克世界》及《战机世界》均从未有过充值记录的玩家，在《坦克世界》或《战机世界》中首次充值，并单笔充值&ge;2000金币，可于 次日额外获得100%的金币返还，返还上限为4000金币；除金币返还之外，玩家还将额外获得58号试验型（7天）。例如，玩家首次单笔充值2000金币，可额外获得2000金币及58号试验型（7天）。</p>
+<p>　　充值说明：本活动仅限《坦克世界》<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Fpay%2Fgame_bank&amp;validated=true" target="_blank">游戏内直充</a>、<a href="http://passport.kongzhong.com/login?backurl=%2Fv%2Fbilling%2Ftransfer%2Ftransfer&amp;validated=true" target="_blank">会员中心点券划拨</a>这两种充值渠道参与；请您及时将充值点券划拨为游戏金币，以便于我们统计发奖。</p>
+<p>　　小贴士：如获奖账号被发现挂机、或工作室代挂机行为，经客服核实确认，将不予发放奖励，同时按规定进行不同时长的封停。有任何疑问欢迎致电客服：010-82296980。</p>
+<p>　　关于虚假中奖信息公告&gt;&gt;http://kf.kongzhong.com/notice-357.html</p>
+       </div>
+      </dt>
+							</dl>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="footer">
+					<div class="copyright clearfloat">
+						<a class="akong" target="_blank" href="http://www.kongzhong.com"><img width="106" height="50" src="images/kongzhong.png"></a>
+						<img width="105" height="50" src="images/wargaming.png">
+						<p>海外运营(Overseas Operation) <a href="http://wot.kongzhong.com/spwh.html" target="_blank">审批文号：新出审字【2011】186号</a> 文网进字【2011】008号 电出字：01-2010-0031号
+							<br/><a href="http://wot.kongzhong.com/jyxkz.html" target="_blank">京ICP证020001/经营许可证编号B2-20090197</a>/京网文（2011）0467-160号/新出网证（京）046号 <a href="http://wot.kongzhong.com/news/news_58251184.html" target="_blank">游戏用户个人信息及隐私保护政策</a>
+							<br/><a href="http://wot.kongzhong.com/isbn.html" target="_blank">互联网游戏出版物ISBN号：ISBN 978-7-89989-132-2</a> 电子信箱:<a href="mailto:igame_kefu@kongzhong.com">igame_kefu@kongzhong.com</a> 客服热线:010-82296980 <a href="http://wot.kongzhong.com/news/news_18680331.html"
+							target="_blank">免责声明</a></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/webmain.js"></script>
+		<script type="text/javascript" src="js/webindex.js"></script>
+		<script type="text/javascript" src="js/style.js"></script>
+		<span style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cdiv id='cnzz_stat_icon_2492438'%3E%3C/div%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D2492438' type='text/javascript'%3E%3C/script%3E"));</script></span>
+		<!--<script type="text/javascript" src="http://track.kongzhong.com/refer.js"></script>
+<div style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2492438'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D2492438' type='text/javascript'%3E%3C/script%3E"));</script></div>-->
+	</body>
+
+</html>

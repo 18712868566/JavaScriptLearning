@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>好吃点旗舰店</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/xiangqing.css" / type="text/css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/after-min.js" ></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="js/alertBox.js" ></script>
+<link rel="stylesheet" type="text/css" href="css/scrollbar.css">
+<script type="application/javascript" src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll,
+	pullDownEl, pullDownOffset,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
+
+/**
+ * 下拉刷新 （自定义实现此方法）
+ * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+ */
+function pullDownAction () {
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		/*var el, li, i;
+		el = document.getElementById('thelist');
+
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = 'Generated row ' + (++generatedCount);
+			el.insertBefore(li, el.childNodes[0]);
+		}*/
+		window.location.reload(); 
+		myScroll.refresh();		//数据加载完成后，调用界面更新方法   Remember to refresh when contents are loaded (ie: on ajax completion)
+	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+}
+
+/**
+ * 滚动翻页 （自定义实现此方法）
+ * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+ */
+function pullUpAction () {
+	setTimeout(function () {	// <-- Simulate network congestion, remove setTimeout from production!
+		/*var el, li, i;
+		el = document.getElementById('thelist');
+	
+		for (i=0; i<1; i++) {
+			Odiv = document.createElement('div');
+			Odiv.innerHTML = "<img  style='width: 100%;' src='images/1.png' />";
+			
+			el.appendChild(Odiv, el.childNodes[0]);
+			setTimeout(function () { document.getElementById('wrapper').scrollTop = '560'; }, 30);
+			alert( document.getElementById('wrapper').scrollTop);
+			
+		}
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = 'Generated row ' + (++generatedCount);
+			el.appendChild(li, el.childNodes[0]);
+		}*/
+		window.location.href='详情2.html';
+		myScroll.refresh();		// 数据加载完成后，调用界面更新方法 Remember to refresh when contents are loaded (ie: on ajax completion)
+	}, 1000);	// <-- Simulate network congestion, remove setTimeout from production!
+}
+
+/**
+ * 初始化iScroll控件
+ */
+function loaded() {
+	pullDownEl = document.getElementById('pullDown');
+	pullDownOffset = pullDownEl.offsetHeight;
+	pullUpEl = document.getElementById('pullUp');	
+	pullUpOffset = pullUpEl.offsetHeight;
+	
+	myScroll = new iScroll('wrapper', {
+		scrollbarClass: 'myScrollbar', /* 重要样式 */
+		useTransition: false, /* 此属性不知用意，本人从true改为false */
+		topOffset: pullDownOffset,
+		onRefresh: function () {
+			if (pullDownEl.className.match('loading')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+			} else if (pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉显示图文详情';
+			}
+		},
+		onScrollMove: function () {
+			if (this.y > 5 && !pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'flip';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+				this.minScrollY = 0;
+			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+				pullDownEl.className = '';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+				this.minScrollY = -pullDownOffset;
+			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function () {
+			if (pullDownEl.className.match('flip')) {
+				pullDownEl.className = 'loading';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';				
+				pullDownAction();	// Execute custom function (ajax call?)
+			} else if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';		
+				pullUpAction();	// Execute custom function (ajax call?)
+			}
+		}
+	});
+	
+	setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+}
+
+//初始化绑定iScroll控件 
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('DOMContentLoaded', loaded, false); 
+
+</script>
+<script>
+	$(function(){
+		var i=1;
+		$(".jia").on("click",function(){
+		
+		if(i<5){
+			$(".number").text(++i);
+		}
+		else{
+			dayu();
+			
+		}
+		})
+		$(".jian").on("click",function(){
+		if(i==1){
+			xiaoyu();
+		}
+		if(i>1){
+			$(".number").text(--i);
+			
+		}
+		
+		})
+		
+	})
+function dayu(){
+    AlertBox({
+        type:'onceConfirm',
+        title:'温馨提示',
+        msg:'本件食品限购5个！',
+        cancel:function(){},//取消操作回调
+        confirm:function(){
+        
+    }
+      })
+    }
+
+function xiaoyu(){
+    AlertBox({
+        type:'onceConfirm',
+        title:'温馨提示',
+        msg:'本件食品最少选1个！',
+        cancel:function(){},//取消操作回调
+        confirm:function(){
+        
+    }
+      })
+    }
+</script>
+</head>
+<body>
+	<div class="header">
+		<div class="left">
+			 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+		</div>
+		<p class="header_title">好吃点旗舰店</p>
+	</div>
+	<div id="wrapper">
+	<div id="scroller">
+			<div id="pullDown">
+				<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+			</div>
+			<div  class="dowebok">
+				<ul class="slides">
+					<li><a href=" javascript:void(0);"><img src="images/pizza.png" alt="pic1"></a></li>
+					<li><a href="javascript:void(0);"><img src="images/pizza.png" alt="pic2"></a></li>
+				</ul>
+			</div>
+			<div style="margin-top: 0px;"  class="sn-block">
+				<div style="color: #909090;" class="xiangqing_liebiao pl05">
+					<div>
+		            	<span style="width: 60%;overflow:hidden;text-overflow: ellipsis;">里能压缩饼干90g独立包装旅游</span>
+		            </div>
+		            <b style="float: left;color: #FA5700;font-size: 1rem;">￥120</b>
+		            <s class="ml1" style="float: left;font-size: 0.7rem;">￥130</s>
+		            	<div class="jia"></div>
+		            	<p style="color: #000000;" class="number">1</p>
+		            	<div class="jian"></div>
+		            	
+		    	</div>
+		        <ul class="sn-list-input">
+		            	<li style="color: #909090;" class="list_liebiao pl05">
+		            		 <span>送至</span>
+		                    <div class="wbox-flex tr sn-txt-muted arrow">
+		                    	北三环中路甲29号华龙大厦
+		                    </div>
+		            	</li>
+		            	<a href="商品评价.html">
+			            	<li style="color: #909090;" class="list_liebiao pl05">
+			                   <span>评价</span>
+			                    <div  class="wbox-flex tr sn-txt-muted arrow">
+											342
+			                    </div>
+			            	</li>
+		            	</a>
+		        	<li style="color: #909090;" class="xiangqing_liebiao pl05 pt05">
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<div style="position: absolute;top: 0.4rem;left: 7rem;" >金***星</div>
+							<div style="position: absolute;top: 0.4rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+							<div style="position: absolute;top: 1.5rem;left: 0.6rem;" >真的好吃不上火！</div>
+			        </li>
+			        <li style="color: #909090; border:none;" class="xiangqing_liebiao pl05 pt05">
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<img style="width: 5%;" src="images/Yshoucang.png" />
+							<div style="position: absolute;top: 0.4rem;left: 7rem;" >金***星</div>
+							<div style="position: absolute;top: 0.4rem;right: 0.6rem;" >2015-09-02 13:23:12</div>
+							<div style="position: absolute;top: 1.5rem;left: 0.6rem;" >真的好吃不上火！</div>
+			        </li>
+			        <div class="PingjiaContest_DP" style="width: 100%;margin-bottom: 1rem;">
+						<ul style="margin-left: 1%;" class="">
+							
+							<li>
+							</li>
+							<li>
+							</li>
+							<li>
+							</li>
+						</ul>
+					</div>
+					<div style="border: 1px solid #dddddd;" class="list_liebiao">
+						<div style="width: 50%;height:2rem;line-height:2rem;text-align:center;float: left;border-right: 1px solid #dddddd;">
+							<p style="color:#FF8359">有图评价（156）</p>
+						</div>
+						<div style="width: 50%;height:2rem;line-height:2rem;text-align:center;float: right;">
+							<p style="color:#FF8359">购买咨询</p>
+						</div>
+		            </div>
+		        </ul>
+			</div>
+			<div class="shopping_cart mt05 mb05">
+				<img style="width:2rem;position: absolute;top: 0.3rem;" src="images/dianpu_logo.png" />
+				
+				<div style="float: right; margin-top: 1rem;" class="tr arrow"></div>
+				<span style="left: 3rem;top: 1rem;" class="cart_name" >好吃点旗舰店</span>
+				<div style="position: absolute;top: 2.7rem; left: 0.6rem;">
+					<img style="width: 10%;" src="images/Yshoucang.png" />
+					<img style="width: 10%;" src="images/Yshoucang.png" />
+					<img style="width: 10%;" src="images/Yshoucang.png" />
+					<img style="width: 10%;" src="images/Yshoucang.png" />
+					<img style="width: 10%;" src="images/Yshoucang.png" />
+				</div>
+			</div>
+			<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+				</div>
+			<div style="background-color: #000000;" id="thelist" >
+			</div>
+				
+		</div>
+		</div>
+	<div style="width: 100%;height: 3rem;"></div>
+	<div class="gouwubottom">
+		<ul class="bottom_left">
+			<li>
+				<img src="images/shoucanghover.png">
+				<span>收藏</span>
+			</li>
+			<li>
+				<img src="images/gouwuche.png">
+				<span style="left: 36%;">购物车</span>
+			</li>
+		</ul>
+		<div class="bottom_right">
+			<p>加入购物车</p>
+		</div>
+	</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.flexslider-2.2.2.min.js"></script>
+<script>
+$(function(){
+	$('.dowebok').flexslider({
+		animation: 'slide',
+		pauseOnHover: true,
+		prevText: '',
+		nextText: ''
+	});
+});
+</script>		
+</body>
+</html>

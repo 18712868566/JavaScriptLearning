@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>12月冰雪圣诞活动奖励</title>
+		<link rel="stylesheet" type="text/css" href="css/style1103.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bak.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="wrap">
+				<div class="log">
+					<!--登录前-->
+					<div class="loginbefore">
+						<a id="logoin" href="javascript:;" onclick="showlogPop('loging')">登 录</a>
+						<a href="http://passport.kongzhong.com/acc" target="_blank">注 册</a>
+					</div>
+					<!--登录弹窗-->
+					<div class="loging" id="loging">
+						<div class="before">
+							<div class="logclose"></div>
+							<dl>
+								<dd><span>账&nbsp; &nbsp;号</span><input type="text" id="login"/></dd>
+								<dd><span>密&nbsp; &nbsp;码</span><input type="password" id="password"//></dd>
+								<dd style="z-index: 11;">
+									<span>大&nbsp; &nbsp;区</span>
+									<select name="logselect">
+										<option value="">--请选择--</option>
+										<option value="">电信南方区</option>
+										<option value="">联通北方区</option>
+									</select>
+								</dd>
+								<dd>
+									<span>验证码</span>
+									<input id="yzm" type="text" style="width: 60px;" />
+									<img src="" id="verify" onclick="changeImg();" style="cursor: pointer;">
+								</dd>
+								<dd class="alog">
+									<a id="logoin_btn" href="javascript:;" onclick="login(1);">登 录</a>
+									<font id="msg" style="display: block;"></font>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!--登录后-->
+					<div class="logged" id="logged" style="display: none;">
+						<p>欢迎您：<span id="nickName"></span></p>
+						<p>大区：<span id="zoneId"></span></p>
+						<p><a href="javascript:;" onclick="logout();">退出</a></p>
+					</div>					
+				</div>
+				<div class="nav">
+					<a target="_blank" href="http://wot.kongzhong.com/wot.html?from=d11t">官网首页</a>
+					<a target="_blank" href="http://passport.kongzhong.com/billing/pay/payment_bank">账号充值</a>
+					<a target="_blank" href="http://wmall.kongzhong.com/">特惠商城</a>
+				</div>
+				
+			</div>
+		</div>
+		<input type="hidden" id="usert" value="3" />
+		<!--header end-->
+		<div id="banner">
+			<div id="wrap">
+				<img class="new" src="images/new/zhanshi.png"/>
+				<img class="old" src="images/new/laobing.png" style="display: none;"/>
+				<img class="old" src="images/new/xinbing.png" style="display: none;"/>
+				<img class="san" src="images/new/san.png"/>
+				<div class="b_time">
+					<p>活动时间2015年11月16日-2015年12月27日</p>
+					<p>领取时间2015年11月17日-2015年12月31日</p>
+				</div>
+				<div class="b_a">
+					<a href="#1" id="on_so">战士报到大礼</a>
+					<a href="#2">加入战场礼包 </a>
+					<a href="#3"> 天天闯关夺大奖  </a>
+				</div>
+				
+			</div>
+		</div>
+		<!--banner end-->
+		<div id="main">
+			<div class="content1">
+				<div id="wrap">
+					<div class="title">
+						<a name="1"></a>
+						<h1><span>1</span><font id="oldnewso">新兵</font>报到大礼</h1>
+						<p>领取条件：满足活动条件的战士回归首次登录本活动页面可领取：<br /><span style="color: #ffffff;">天蝎自行反坦克炮（7天）+重型坦克炮输弹机*1+大修理箱*5+大急救箱*5</span></p>
+						<p><font>奖励仅可领取一次且实时发放至用户所选大区。</font></p>
+					</div>
+					<p class="cp1"><span>J系6级金币中型坦克</span><br />斯柯达T40（3天</p>
+					<a href="javascript:;" class="ca" id="caaa" isover="0" onclick="lqTask1(this);">立即领取</a>
+				</div>
+			</div>
+			<div class="content2">
+				<div id="wrap">
+					<div class="title">
+						<a name="2"></a>
+						<h1><span>2</span>加入战场礼包</h1>
+						<p style="padding-top: 28px;">玩家每日战斗5场，次日即可在页面上领取奖励一份，累计到指定天数即可领取相应奖励。</p>
+					</div>
+					<ul class="clearfloat" id="task2ul">
+						<li id="task2_1">
+							<h3>累计1日</h3>
+							<p>T-34-85 鲁迪（1天）<br />金币弹*50</p>
+							<div class="tank">
+								<img src="images/T3485.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<!--
+							<li class="ksp">
+                        	作者：fdisk_all@qq.com
+                        	时间：2015-11-06
+                        	描述：
+                        -->
+						<li id="task2_2">
+							<h3>累计2日</h3>
+							<p>克伦威尔B型（1天）<br />金币弹*50</p>
+							<div class="tank">
+								<img src="images/b.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<!--
+							<li class="ysp">
+                        	作者：fdisk_all@qq.com
+                        	时间：2015-11-06
+                        	描述：
+                        -->
+						<li id="task2_3">
+							<h3>累计3日</h3>
+							<p>E-25（1天）<br />金币弹*50</p>
+							<div class="tank">
+								<img src="images/e25.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<li id="task2_4">
+							<h3>累计4日</h3>
+							<p>59式（3天）<br />金币弹*50</p>
+							<div class="tank">
+								<img src="images/59.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<li style="margin-left: 110px; _margin-left: 55px;" id="task2_5">
+							<h3>累计5日</h3>
+							<p>WZ111（3天）<br />金币弹*100</p>
+							<div class="tank">
+								<img src="images/wz111.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<li id="task2_6">
+							<h3>累计6日</h3>
+							<p>121B（3天）<br />金币弹*100</p>
+							<div class="tank">
+								<img src="images/121b.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+						<li id="task2_7">
+							<h3>累计7日</h3>
+							<p>907工程A（7天）<br />金币弹*100</p>
+							<div class="tank">
+								<img src="images/907.png"/>
+								<img src="images/jbd.png"/>
+							</div>
+							<span>未领取</span>
+						</li>
+					</ul>
+					<a href="javascript:;" id="task2_lq"class="ca" onclick="lqTask2(this);">立即领取</a>
+				</div>
+			</div>
+			<div class="content3">
+				<div id="wrap">
+					<div class="title" style="margin-bottom: 50px;">
+						<a name="3"></a>
+						<h1><span>3</span>天天闯关夺大奖</h1>
+						<p style="padding-top: 25px;">玩家完成指定任务，次日18：00后在活动页面领取对应奖励，每日只能完成一格。</p>
+					</div>
+					<div class="tian">
+						<ul class="clearfloat">
+							<li class="t_1_1 dl_hover1" id="task3_1">
+								<span></span>
+								<p class="t_p1">关卡1</p>
+								<p class="t_p2">单日使用任意坦克进行3场标准战斗</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(1)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>小修理箱*1+手动灭火器*1+小急救包*1</dd>
+								</dl>
+							</li>
+							<li class="t_2_1 dl_hover1" id="task3_2">
+								<span></span>
+								<p class="t_p1">关卡2</p>
+								<p class="t_p2">获得1场标准战斗胜利</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(2)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>银币5万</dd>
+							
+								</dl>
+							</li>
+							<li class="t_3_1 dl_hover1" id="task3_3">
+								<span></span>
+								<p class="t_p1">关卡3</p>
+								<p class="t_p2">标准战斗单场击杀≥1</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(3)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>KV-220（1天）</dd>
+									
+								</dl>
+							</li>
+
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_4_1 dl_hover4" id="task3_4">
+								<span></span>
+								<p class="t_p1">关卡4</p>
+								<p class="t_p2">标准战斗单场造成≥700伤害</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(4)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>炮队镜*1</dd>
+									
+								</dl>
+							</li>
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_5_1 dl_hover4" id="task3_5">
+								<span></span>
+								<p class="t_p1">关卡5</p>
+								<p class="t_p2">单日累计消耗满100金币</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(5)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>VIP（1天）</dd>
+									
+								</dl>
+							</li>
+							<li class="t_6_1 dl_hover2" id="task3_6">
+								<span></span>
+								<p class="t_p1">关卡6</p>
+								<p class="t_p2">单日使用≥5级坦克进行3场标准战斗</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(6)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>大修理箱*1+自动灭火器*1+大急救箱*1</dd>
+									
+								</dl>
+							</li>
+							<li class="t_7_1 dl_hover2" id="task3_7">
+								<span></span>
+								<p class="t_p1">关卡7</p>
+								<p class="t_p2">单日标准战斗累计获得胜利≥3场</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(7)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>银币10万</dd>
+									
+								</dl>
+							</li>
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_8_1 dl_hover4" id="task3_8">
+								<span></span>
+								<p class="t_p1">关卡8</p>
+								<p class="t_p2">单日使用自行反坦克炮战斗3场</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(8)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>E-25（3天）</dd>
+									
+								</dl>
+							</li>		
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_9_1 dl_hover1" id="task3_9">
+								<span></span>
+								<p class="t_p1">关卡9</p>
+								<p class="t_p2">单日标准战斗累计获胜≥5场</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(9)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>改进型炮控系统*1</dd>
+									
+								</dl>
+							</li>
+							<li class="t_10_1 dl_hover1" id="task3_10">
+								<span></span>
+								<p class="t_p1">关卡10</p>
+								<p class="t_p2">进入游戏内热点稳赚活动抽奖1次</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(10)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>VIP（2天）</dd>
+									
+								</dl>
+							</li>
+							<li class="t_11_1 dl_hover4" id="task3_11">
+								<span></span>
+								<p class="t_p1">关卡11</p>
+								<p class="t_p2">单日使用≥6级坦克进行5场标准战斗</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(11)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>大修理箱*3+自动灭火器*3+大急救箱*3</dd>
+									
+								</dl>
+							</li>	
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_12_1 dl_hover4" id="task3_12">
+								<span></span>
+								<p class="t_p1">关卡12</p>
+								<p class="t_p2">标准战斗单场造成1500伤害</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(12)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>银币20万</dd>
+								</dl>
+							</li>				
+						</ul>
+						<ul class="clearfloat">
+							<li class="t_15_1 dl_hover2" id="task3_15">
+								<span></span>
+								<p class="t_p1">关卡15</p>
+								<p class="t_p2">单日在特惠商城消费任意金额单日在特惠商城消费任意金额</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(15)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>VIP（3天）</dd>
+									
+								</dl>
+							</li>
+							<li class="t_14_1 dl_hover2" id="task3_14">
+								<span></span>
+								<p class="t_p1">关卡14</p>
+								<p class="t_p2">单日使用中型坦克获得3场胜利</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(14)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>59式（3天）</dd>
+									
+								</dl>
+							</li>
+							<li class="t_13_1 dl_hover4" id="task3_13">
+								<span></span>
+								<p class="t_p1">关卡13</p>
+								<p class="t_p2">标准战斗单场击杀≥2</p>
+								<p class="t_p3">
+									<a href="javascript:;" onclick="lqTask3(13)">未领取</a>
+								</p>
+								<dl>
+									<dd class="d1"><b>任务奖励：</b></dd>
+									<dd>SU-76I（永久）</dd>
+									
+								</dl>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		<!--main end-->
+		<div id="footer" style="background: url(images/new/new_footer2.png);">
+			<div class="copyright clearfloat">
+				<a class="akong" target="_blank" href="http://www.kongzhong.com">
+					<img width="106" height="50" src="images/kongzhong.png">
+				</a>
+				<img width="105" height="50" src="images/wargaming.png">
+				<p>海外运营(Overseas Operation) <a href="http://wot.kongzhong.com/spwh.html" target="_blank">审批文号：新出审字【2011】186号</a> 文网进字【2011】008号 电出字：01-2010-0031号</p>
+				<p><a href="http://wot.kongzhong.com/jyxkz.html" target="_blank">京ICP证020001/经营许可证编号B2-20090197</a>/京网文（2011）0467-160号/新出网证（京）字046号 <a href="http://wot.kongzhong.com/news/news_58251184.html" target="_blank">用户个人信息及隐私保护政策</a>
+				</p>
+				<p><a href="http://wot.kongzhong.com/isbn.html" target="_blank">互联网游戏出版物ISBN号：ISBN 978-7-89989-132-2</a> 电子信箱:<a href="mailto:igame_kefu@kongzhong.com">igame_kefu@kongzhong.com</a> 客服热线:010-82296980 <a target="_blank" href="http://wot.kongzhong.com/news/news_18680331.html">免责声明</a>
+				</p>
+			</div>
+		</div>
+		<!--footer end-->
+		<script src="js/popUp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/select.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lwp.js" type="text/javascript" charset="utf-8"></script>
+		<div class="popBg"></div>
+		<div class="pop" style="display:none">
+			<div class="popwrap">
+				<div class="before tishi_click">
+					<div class="close"></div>
+					<div class="becon">
+						<ul>
+							<li>
+								<span>绑定方式</span>
+								<select name="bangd" id="bangd" style="width: 120px;" onchange="showChange();">
+									<option value="1" selected="selected">手机</option>
+									<option value="2">邮箱</option>
+								</select>
+							</li>
+							<li>
+								<span id="show_label">请输入手机</span>
+								<input type="text" id="phoneoremail" style="width: 100px;"  />
+								<a id="ibtn" onclick="send();">发送验证码</a>
+							</li>
+							<li>
+								<span>验证码</span>
+								<input type="text" style="width: 100px;"  id="yzcode"/>
+								<font id="bdmsg" style="display: block;"></font>
+							</li>
+						</ul>
+						<a id="logoin_btn" href="javascript:;" class="bbaclose" onclick="band();">确 定</a>
+					</div>
+				</div>
+				
+				<div class="before tishi_click1">
+					<div class="close"></div>
+					<div class="becon" id="msgBody">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--[if IE 6]>
+		<script type="text/javascript" src="js/DD_belatedPNG.js" ></script>
+		<script type="text/javascript">
+		DD_belatedPNG.fix('div,a,img,span,p,ul,li');
+		</script>
+		<![endif]-->
+	</body>
+</html>

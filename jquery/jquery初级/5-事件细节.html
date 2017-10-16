@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+
+    $(function () {
+        $('#div1').on('click',{name:'hello'},function (ev) {
+            alert( ev.data.name );
+            alert( ev.target);
+            alert( ev.type );
+        })
+
+    })
+
+
+</script>
+</html>
+<!--
+    WebStrom Live Template
+
+    http://www.jianshu.com/p/02a2d2c1b556
+
+    http://ju.outofmemory.cn/entry/70084
+    WebStorm live edit功能与浏览器实现同步实现步骤
+
+    https://chrome.google.com/webstore/detail/jetbrains-ide-support/hmhgeddbohgjknpmjagkdomcpobmllji )
+-->

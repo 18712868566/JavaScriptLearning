@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>单个勾选框,逻辑值</h2>
+		<div id="box">
+			<input type="checkbox" id="checkbox" value="lxf" v-model='checkbox'/>
+			<lable for='checkbox'>{{checkbox}}</lable>
+			
+			<input type="checkbox" id="jack" value="Jack" v-model="checkedNames"/>
+			<lable for=jack>Jack</lable>
+			<input type="checkbox" id="john" value="John" v-model="checkedNames"/>
+			<lable for=john>john</lable>
+			<input type="checkbox" id="mike" value="Mike" v-model="checkedNames"/>
+			<lable for=mike>mike</lable>
+			
+			<br />
+			<span>Checkbox names :{{ checkedNames | json}}</span>
+		</div>
+	</body>
+	<script src="http://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#box',
+			data:{
+				message:'welcome Vue',
+				checkbox: false,
+				checkedNames: []
+			}
+		})
+	</script>
+</html>

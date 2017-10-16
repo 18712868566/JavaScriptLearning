@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行为和结构分离</title>
+</head>
+<body>
+    <a href="http://www.baidu.com" class="popup">link 1</a>
+    <a href="javascript:;" class="">link 2</a>
+    <a href="javascript:;" class="">link 3</a>
+    <a href="javascript:;" class="">link 4</a>
+    <a href="javascript:;" class="">link 5</a>
+    <a href="javascript:;" class="">link 6</a>
+    <a href="javascript:;" class="">link 7</a>
+    <a href="javascript:;" class="">link 8</a>
+    <a href="http://taobao.com" class="">link 9</a>
+    <a href="http://www.kongzhong.com" class="popup">link 10</a>
+</body>
+
+<script type="text/javascript">
+
+    window.onload = function(){
+        // 向后兼容
+        if (!document.getElementById) return false;
+        prepareLinks();
+
+    }
+
+    function popUp(winURL){
+        window.open(winURL,"popup","width=320px,height=480px;");
+        alert('a')
+    }
+
+    function prepareLinks(){
+        var iLink = document.getElementsByTagName('a');
+        console.log(iLink.length);
+        for (var i = 0; i < iLink.length; i++) {
+            if (iLink[i].getAttribute('class') == 'popup') {
+                iLink[i].onclick = function(){
+                    popUp(this.getAttribute('href'));
+                    console.log(this.getAttribute('href'));
+                    return false;
+                }
+            }
+        }
+    }
+</script>
+</html>

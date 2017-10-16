@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function extend(Child,Parent){
+			var F = function(){};
+			F.prototype = Parent.prototype;
+			Child.prototype = new F();
+			Child.prototype.constructor = Child;
+			Child.uber = Parent.prototype;
+		}
+		//继承
+		function extend2(Child,Parent){
+			var p = Parent.prototype;
+			var c = Child.prototype;
+			for (var i in p) {
+				c[i] = p[i];
+			}
+			c.uber = p;
+		}
+		
+		var  A = function(){}, B=function(){};
+		A.prototype.stuff = [1,2,3];
+		A.prototype.name = 'a';
+		
+		extend2(B,A);
+		
+		B.prototype.hasOwnProperty('name');					//true
+		B.prototype.hasOwnProperty('stuff');				//true
+		
+		//hasOwnProperty 方法 指出一个对象是否具有指定名称的属性。 
+		
+		//name 属于基本类型属性,创建的是一个全新的拷贝,而 stuff 属性是一个数组对象,它索执行的是引用拷贝
+		B.prototype.stuff === A.prototype.stuff;			//true
+		
+		
+		B.prototype.name += 'b';							//"ab"
+		A.prototype.name;									//"a"
+		
+		//按引用传递
+		B.prototype.stuff.push(4,5,6);
+		
+		A.prototype.stuff;									//[1, 2, 3, 4, 5, 6]
+		
+		B.prototype.stuff = [1,2,3];						//用另一个对象对B的stuff属性进行完全重写
+
+		B.prototype.stuff;
+		//[1, 2, 3]
+		A.prototype.stuff;
+		//[1, 2, 3, 4, 5, 6]
+	</script>
+</html>

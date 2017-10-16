@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Gadget(name,color){
+			this.name = name;
+			this.color = color;
+			this.someMethod = function (){ return 1;}
+		}
+		
+		Gadget.prototype.price = 100;
+		Gadget.prototype.rating = 3;
+		
+		var newtoy = new Gadget('webcam','black');
+		
+		for (var prop in newtoy){
+			console.log(prop + '=' + newtoy[prop]);
+		}
+		//hasOwnProperty() 判断一个属性是对象自身属性还是原型属性
+		//console.log(newtoy.hasOwnProperty('name'));
+		//console.log(newtoy.hasOwnProperty('price'));
+		
+		
+		for (var prop in newtoy){
+			if (newtoy.hasOwnProperty(prop)) {
+				console.log(prop + '=' + newtoy[prop]);
+			}
+		}
+		
+		//propertyIsEnumerable() ,该方法会针对所有的非内建对象属性返回 true
+		
+		console.log(newtoy.propertyIsEnumerable('name'));
+		
+		//对于内建属性和方法来说,他们大部分是不可枚举的
+		console.log(newtoy.propertyIsEnumerable('constructor'));   //false
+		
+		//另外,任何来自原型链中的属性也是不可枚举的
+		console.log(newtoy.propertyIsEnumerable('price'));		  //false
+		
+		
+		//***注意
+		//如果propertyIsEnumerable() 的调用时来自原型链上的某个对象,那么该对象中的属性是可枚举的
+		
+		console.log(newtoy.constructor.prototype.propertyIsEnumerable('price'));	//true
+		
+	</script>
+</html>

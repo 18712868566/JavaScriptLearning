@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>让元素运动起来</title>
+    <style type="text/css" media="screen">
+        #div1{width: 200px;height: 200px;background: #ccc;position: absolute;left: 0;}
+    </style>
+</head>
+<body>
+
+    <input id="btn1" type="button" name="" value="向右移动">
+    <input id="btn2" type="button" name="" value="停止移动">
+    <div id="div1"></div>
+</body>
+<script type="text/javascript">
+
+
+    window.onload = function(){
+
+        var oBtn1 = document.getElementById('btn1');
+        var oBtn2 = document.getElementById('btn2');
+        var oDiv = document.getElementById('div1');
+        var oTimer = null;
+        var distance = 3;
+
+        /*oBtn1.onclick = function(){
+            setInterval(function(){
+                oDiv.style.left = oDiv.offsetLeft + 5 +'px';
+            },30)
+        }*/
+
+        oTimer = setInterval(function(){
+                if (oDiv.offsetLeft < 500) {
+                    oDiv.style.left = oDiv.offsetLeft + distance +'px';
+                }else{
+                    oDiv.style.left= 0 +'px';
+                }
+        },30)
+
+        oBtn2.onclick = function(){
+            clearInterval(oTimer);
+        }
+
+    }
+</script>
+</html>
+

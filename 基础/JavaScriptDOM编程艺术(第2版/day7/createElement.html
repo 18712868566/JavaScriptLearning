@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>creatElement</title>
+</head>
+<body>
+    <div id="testdiv">
+        <p>this is<em>my</em>content.</p>
+    </div>
+</body>
+
+<script type="text/javascript">
+
+
+    window.onload = function(){
+
+        var para = document.createElement('p');
+        var text = document.createTextNode('hello world!');
+        var testdiv = document.getElementById('testdiv');
+
+        // para ='nodeName: '+ para.nodeName  + ' nodeType: ' + para.nodeType;
+        console.log(para);
+
+        testdiv.appendChild(para);
+        para.appendChild(text);
+
+
+
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<title>购物车</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script>
+	$(function(){
+		var i=1;
+		$(".gouwuchejia").on("click",function(){
+		
+		if(i<5){
+			$("#shuliang").text(++i);
+		}
+		})
+		
+		$(".gouwuchejian").on("click",function(){
+		
+		if(i>1){
+			$("#shuliang").text(--i);
+		}
+		})
+	
+	
+	
+	
+	$("#DPxuan").on("click",function(){
+		if ($("#DPxuan").attr("checked")) {
+		
+			$("input[name='ni']").removeAttr("checked");
+		} else{
+			$("input[name='ni']").attr("checked","true");
+		}
+	})
+	})
+	
+	
+	
+</script>
+</head>
+<body>
+		<div class="header">
+			<div class="left">
+				 <a class="sn-left" href="javascript:void(history.go(-1))" ></a>
+			</div>
+			<p class="header_title">购物车</p>
+		</div>
+		<div id="xuan">	
+			<li style="border: none;" class="list_liebiao mt05 pl1-7">
+		       <input name="ni" id="DPxuan" type="checkbox" class="sn-checkbox" >
+		       <span>好吃点旗舰店</span>
+	        </li>
+			<div class="shopping_cart ">
+				 <input name="ni"  style="top: 1.5rem;" type="checkbox" class="sn-checkbox" >
+				<img style="border: 1px solid #accd4c;width:2.6rem;position: absolute; left: 1.8rem;" src="images/pizza.png" />
+				<span style="left: 5rem;" class="cart_name" >曲奇饼干</span>
+				<div class="gouwuche" >
+					<div class="gouwuchejia">
+					</div>
+					<span id="shuliang">1</span>
+					<div class="gouwuchejian"></div>
+				</div>
+				<div style=" position: absolute;bottom: 0.6rem;right: 0.8rem; ">¥9.90</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	<div style="bottom:2.5rem ;" class="gouwubottom">
+		<ul class="bottom_left">
+			<li>
+				<input style="top: 1.5rem;" type="checkbox" class="sn-checkbox" ><span>全选</span>
+			</li>
+			<li>
+				<span style="left: 36%;">合计：<b style="color: #FA5700;">¥157.00</b></span>
+			</li>
+		</ul>
+		<div class="bottom_right">
+			<p>结算（1）</p>
+		</div>
+	</div>
+	<div class="bottomMenu">
+		<ul>
+			<a href="首页.html">
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/shouyehover.png">
+					
+					<div class="bottomMenu_title">微商</div>
+				</li>
+			</a>
+			<a href="商品分类.html">
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/fenlei.png">
+					<div class="bottomMenu_title">分类</div>
+				</li>
+			</a>
+			<a href="品牌.html">
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/pinpai.png">
+					<div  class="bottomMenu_title">品牌</div>
+				</li>
+			</a>
+			<a href="店铺.html">
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/dianpu.png">
+					<div class="bottomMenu_title">店铺</div>
+				</li>
+			</a>
+			<li>
+				<img class="bottomMenu_img" alt=""  src="images/gouwuche1.png">
+				<div style="color: #FA5700;" class="bottomMenu_title">购物车</div>
+			</li>
+			<a href="我的微商.html">
+				<li>
+					<img class="bottomMenu_img" alt=""  src="images/user.png">
+					<div class="bottomMenu_title">我的微商</div>
+				</li>
+			</a>
+		</ul>
+	</div>
+		
+</body>
+</html>

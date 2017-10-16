@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>对象引用</h1>
+		<p>引用类型<br />
+引用类型通常叫做类（class），也就是说，遇到引用值，所处理的就是对象。</p>
+<P style="color:#000;font-weight:bold;">对象引用<br />
+在前面的章节中，我们介绍了引用类型的概念。在 ECMAScript 中，不能访问对象的物理表示，只能访问对象的引用。每次创建对象，存储在变量中的都是该对象的引用，而不是对象本身。</p>
+	</body>
+	<script>
+		//对象废除
+		
+		var oObject = new Object;
+		// do something with the object here
+		oObject = null;   //把所有对象的引用都设置为null，可以强制性的废除对象
+	</script>
+</html>

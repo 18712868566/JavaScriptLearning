@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createElement2</title>
+</head>
+<body>
+    <div id="testdiv"></div>
+</body>
+
+<script type="text/javascript">
+
+window.onload = function(){
+
+    var para = document.createElement('p');
+    var text1 = document.createTextNode('this is element');
+    para.appendChild(text1);
+
+    var emphasis = document.createElement('em');
+    var text2 = document.createTextNode('this is em TextNode');
+    emphasis.appendChild(text2);
+
+    para.appendChild(emphasis);
+
+    var text3 = document.createTextNode('');
+    para.appendChild(text3);
+
+    document.getElementById('testdiv').appendChild(para);
+}
+
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+    body{height: 400px;background-color: red;}
+
+</head>
+    </style>
+<body>
+<!-- DOM 的事件监听器 -->
+<!-- 阻止默认行文 -->
+<a href="http://www.baidu.com">links1</a>
+<a href="http://www.baidu.com">links2</a>
+<a href="http://www.baidu.com">links3</a>
+<a href="http://www.baidu.com">links4</a>
+<a href="http://www.baidu.com">links5</a>
+<a href="http://www.baidu.com">links6</a>
+<a href="http://www.baidu.com">links7</a>
+<a href="http://www.baidu.com">links8</a>
+<a href="http://www.baidu.com">links9</a>
+<a href="http://www.baidu.com">links10</a>
+</body>
+<script>
+window.onload = function(){
+    var all_links = document.getElementsByTagName('a');
+    for (var i = 0; i < all_links.length; i++) {
+        all_links[i].addEventListener('click',function(e){
+            if (!confirm('Are you sure you want to follow this link?')) {
+                alert('a')
+                e.preventDefault();
+            }
+        },false)
+    }
+}
+
+</script>
+</html>

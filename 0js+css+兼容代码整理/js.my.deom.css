@@ -1,0 +1,225 @@
+﻿/*
+ *  gobal全局样式
+ *  创意源于生活，代码如诗从你我开始
+ *  OOCSS虽好，需培养，需规范，需慢慢品尝
+ ********************************************************************************************
+ */
+
+/*
+ //---在学习css的过程中，整理css  hack文件。以后用时，直接掉用即可。
+ 
+ //---2016/1/22开始整理
+*/
+
+/*
+	2016--02--17
+	1:总结整理是个好习惯
+	2：创意源于生活，代码如诗从你我开始
+	3：*************
+
+*/
+
+/*
+	1:css初始化中需要注意的
+	
+	
+
+*/
+.clearfloat:after{clear: both;content:""; display: block; height: 0; visibility: hidden;}/*万能清楚浮动*/
+
+*html{ background-image:url(about:blank); background-attachment:fixed; /*解决ie6下 层的闪动*/}
+
+::-ms-clear{ display:none;}
+::-ms-reveal{ display:none;}
+/*
+	在IE10以上版本中，页面上的文本框控件在输入文字时候会被自动加上一个X
+	。但是IE这个自作聪明的功能有时候会让我们的页面爆掉，比如当文本框宽度过小
+	，X显示不下时候会顶掉你的文本?
+	要隐藏这个X可以用IE预留的一个vendor属性：::-ms-clear
+	
+	**去掉
+	 Remove IE's “clear field” X button 
+*/
+.field-set input[type=text]::-ms-clear
+{
+    display: none;
+}
+
+
+
+
+
+/* 
+	//这里是分割线---------****************************************   //
+	------- 
+*/
+
+
+/*
+	1:html页面初始化中需要注意的
+	
+	
+
+*/
+
+/*
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">   //IE8/9及以后的版本都会以最高版本IE来渲染页面?
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=7">  
+	#以上代码告诉IE浏览器，无论是否用DTD声明文档标准，IE8/9都会以IE7引擎来渲染页面。  
+	<meta http-equiv="X-UA-Compatible" content="IE=8">  
+	#以上代码告诉IE浏览器，IE8/9都会以IE8引擎来渲染页面。  
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">  
+	#以上代码告诉IE浏览器，IE8/9及以后的版本都会以最高版本IE来渲染页面。  
+	<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">  
+	<meta http-equiv="X-UA-Compatible" content="IE=7,9">  
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	#以上代码IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame.
+*/
+
+/*
+	用于低版本IE提示
+	<!--[if lte IE 8]>
+		<body class="ite">
+		<p class="chromeframe">亲，浏览器版本过低，换一个吧！<a href="http://windows.microsoft.com/" target="_blank">升级您的IE浏览器</a>，或使用<a href="http://www.google.cn/intl/zh-CN/chrome/" target="_blank">Google Chrome</a>、<a href="http://www.firefox.com.cn/download/" target="_blank">Firefox</a>等高级浏览器。</p>
+	<![endif]-->
+*/
+
+
+
+
+/*text-shadow:x位移 y位移 模糊程度 颜色 */
+text-shadow:10px 5px 2px #f60;  
+
+
+
+/*针对各主流浏览器做了适配的写法*/
+-webkit-text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;  
+-moz-text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;  
+text-shadow:#000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;   
+*filter: Glow(Color=#000, Strength=1); 
+
+
+/*页面中新闻或者侧导航鼠标滑过问题，文字缩进过渡效果*/
+/*调用css*/
+text-indent: 10px;
+
+a, a *, ul li, dl dd, ol li 
+{
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+------------------------------------------------------------------登录窗口常用的关闭按钮下的图片,旋转
+.close img{
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.close img:hover{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+   transform: rotate(180deg);
+}
+
+
+------------------------------------------------------------------响应式媒体查询代码
+
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="small.css" /> 
+上面的media语句表示的是：当页页宽度小于或等于600px,调用small.css样式表来渲染你的Web页面。首先来看media的语句中包含的内容：
+1、screen：这个不用说大家都知道，指的是一种媒体类型；
+2、and：被称为关键词，与其相似的还有not,only，稍后会介绍；
+3、（max-width:600px）：这个就是媒体特性，说得通俗一点就是媒体条件。
+为了更能理解Media Query，我们在次回到前面的实例上：转换成css中的写法为： 
+
+@media screen and (max-width: 600px) {
+选择器 {
+属性：属性值；
+}
+} 
+		
+@media screen and (max-width: 960px) { ... } /*兼容平板*/
+@media screen and (max-width: 640px) { ... } /*兼容手机*/
+@media screen and (max-width: 480px) { ... }
+
+/*Common For Max 960*/
+@media only screen and (max-width: 1199px) {
+
+ 
+}
+
+
+
+/*Common For Max 768*/
+@media only screen and (max-width: 959px) {
+
+ 
+}
+
+
+
+/*Common For Max 480*/
+@media only screen and (max-width: 767px) {
+
+ 
+
+}
+
+
+/*Common For Max 320*/
+@media only screen and (max-width: 479px) {
+
+ 
+
+}
+
+
+
+/*960*/
+@media only screen and (min-width: 960px) and (max-width: 1199px) {
+
+	 
+
+}
+
+
+
+/*768*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+ 
+
+}
+
+
+
+/*480*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+ 
+}
+
+
+
+/*320*/
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+
+ 
+
+}
+
+
+
+/*240*/
+@media only screen and (max-width: 319px) {
+
+ 
+
+}

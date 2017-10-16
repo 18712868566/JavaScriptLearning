@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" /><input type="button" value="确定" />
+</body>
+<script>
+    window.onload = function () {
+        var aInput = document.getElementsByTagName('input');
+
+        var re = /^[1-9]\d{4,11}$/;  //4到7位的数字从1-9
+        aInput[1].onclick = function(){
+
+            if ( re.test(aInput[0].value)) {
+                alert('是QQ号');
+            } else {
+                alert('不是QQ号');                
+            }
+        }
+    }
+
+</script>
+
+</html>

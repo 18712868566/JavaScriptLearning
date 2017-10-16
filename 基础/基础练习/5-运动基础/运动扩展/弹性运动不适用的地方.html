@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #div1{width: 100px;height: 50px;background: red;}
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+
+
+<script type="text/javascript">
+    window.onload = function(){
+        var oDiv = document.getElementById('div1');
+
+        oDiv.onmouseover = function(){
+            // alert('a');
+            startMove(this,200);
+        };
+        oDiv.onmouseout = function(){
+            // alert('a');
+            startMove(this,50);
+        };
+    }
+
+    var iSpeed = 0;
+    var iHeight = 50;
+    function startMove(obj, iTarget) {
+        clearInterval(obj.timer);
+
+        obj.timer = setInterval(function(){
+
+            // 加速度
+            iSpeed += (iTarget - iHeight)/5;
+            // 摩擦力
+            iSpeed *= 0.7;
+
+            iHeight += iSpeed;
+
+            if (Math.abs(iSpeed)<1 && Math.abs(iTarget - iHeight)<1) {
+                obj.style.height = iTarget + 'px';
+                clearInterval(obj.timer);
+                console.log('over');
+            }else{
+                // obj.style.height = obj.offsetHeight + iSpeed +'px';
+                obj.style.height = iHeight +'px';
+            }
+
+        },30)
+    }
+
+
+
+
+
+</script>
+</html>

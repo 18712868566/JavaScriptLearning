@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style type="text/css">
+            #div{width: 200px;height: 200px;background: red;position: absolute;}
+        </style>
+    </head>
+    <body>
+        <form id="form" action="https://www.baidu.com" method="get" accept-charset="utf-8">
+            用户名: <input id="text1" type="text" name="user" value="">
+            密码: <input id="text2" type="password" name="pass" value="" placeholder="">
+            <input type="submit" name="sub" value="提交">
+            <a id="btn" href="javascript:;">清除记录</a>
+        </form>
+    </body>
+    <script type="text/javascript">
+
+        function setCookie(name, value, iDay) {
+            var oDate = new Date();
+
+            oDate.setDate(oDate.getDate()+iDay);
+
+            document.cookie = name+'='+value+';expires='+oDate;
+        }
+
+        function getCookie(name) {
+            // arr ==> ['name'='value','passworld'='123456',...]
+            var arr = document.cookie.split('; ');
+            for (var i = 0; i < arr.length; i++) {
+                // arr2 ==> ['name','value']
+                var arr2 = arr[i].split('=');
+
+                if (arr2[0] == name) {
+                    return arr2[1];
+                }
+            }
+            // 没有对应的cookie 时
+            return '';
+        }
+
+        function removeCookie(name) {
+            // 指定前一天就已经过期了, 删除 cookie
+            setCookie(name, '1', -1);
+        }
+
+        window.onload = function(){
+
+            var oForm = document.getElementById('form');
+            var oText1 = document.getElementById('text1');
+            // var oText2 = document.getElementById('text2');
+            var oBtnClear = document.getElemetById('btn');
+
+            oForm.onsubmit = function(){
+                setCookie('user', oUser.value, 30);
+            };
+
+            oUser.value = getCookie('user');
+
+            oBtnClear.onclick = function(){
+                removeCookie('user');
+                oUser.value = '';
+            }
+        }
+    </script>
+    </html>

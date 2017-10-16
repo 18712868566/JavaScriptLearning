@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>锋利的jquery</title>
+		<style type="text/css">
+			#menu{width: 300px;}
+			.has_children{background: #555;color: #fff;cursor: pointer;}
+			.highlight{color: #fff;background: green;}
+			div{padding: 0;margin: 10px 0;}
+			div a{background: #888;display: none;float: left;width: 300px;}		
+		</style>
+	</head>
+	<body>
+		<h1>折叠菜单</h1>
+		<div id="menu">
+			<div class="has_children">
+				<span>第1章-认识jquery</span>
+				<a href="">1.1Javascript1</a>
+				<a href="">2.2Javascript2</a>
+				<a href="">3.3Javascript3</a>
+				<a href="">4.4Javascript4</a>
+				<a href="">5.5Javascript5</a>
+			</div>
+		
+			<div class="has_children">
+				<span>第2章-认识jquery</span>
+				<a href="">1.1Javascript1</a>
+				<a href="">2.2Javascript2</a>
+				<a href="">3.3Javascript3</a>
+				<a href="">4.4Javascript4</a>
+				<a href="">5.5Javascript5</a>
+			</div>
+		
+			<div class="has_children">
+				<span>第3章-认识jquery</span>
+				<a href="">1.1Javascript1</a>
+				<a href="">2.2Javascript2</a>
+				<a href="">3.3Javascript3</a>
+				<a href="">4.4Javascript4</a>
+				<a href="">5.5Javascript5</a>
+			</div>
+		
+			<div class="has_children">
+				<span>第4章-认识jquery</span>
+				<a href="">1.1Javascript1</a>
+				<a href="">2.2Javascript2</a>
+				<a href="">3.3Javascript3</a>
+				<a href="">4.4Javascript4</a>
+				<a href="">5.5Javascript5</a>
+			</div>
+		
+			<div class="has_children">
+				<span>第5章-认识jquery</span>
+				<a href="">1.1Javascript1</a>
+				<a href="">2.2Javascript2</a>
+				<a href="">3.3Javascript3</a>
+				<a href="">4.4Javascript4</a>
+				<a href="">5.5Javascript5</a>
+			</div>
+		</div>
+	</body>
+	<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+	<script src="jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		$(function(){
+			$(".has_children").click(function(){
+				$(this).addClass("highlight")     //为当前元素添加一个higlight类
+				
+					.children("a").slideDown().end()
+					
+				.siblings().removeClass("highlight")
+					.children("a").slideUp();
+			});
+			
+		});
+		/*
+				$(function(){
+			$(this).removeClass("mouseout")
+			.addClass("mouseover")
+			.stop()
+			.fadeTo("fast",0.6)
+			.fadeTo("fast",1)
+			.unbind(function(){
+				
+			});
+			
+		});
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

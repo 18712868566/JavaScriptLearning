@@ -1,0 +1,124 @@
+设计模式
+
+    创建型模式:涉及对象的创建与初始化
+
+    结构型模式:描述了如何组合对象以提供新的功能
+
+    行为型模式:描述了对象之间如何通信
+
+
+
+* 单件模式
+
+* 工厂模式
+
+* 装饰器模式
+
+* 观察者模式
+
+
+单件模式
+    var single = {};
+
+单件模式2
+    var my_log = new Logger();
+    my_log.log('some event');
+
+    var other_log = new Logger();
+    other_log.log('some new event');
+
+    alert(other_log === my_log)     //true          ??这是怎么做到的
+
+
+单件模式2.1   全局变量
+    function Logger(){
+        if(typeof global_log === 'undefined'){
+            global_log = this;
+        }
+        return global_log;
+    }
+
+    var a = new Logger();
+    var b = new Logger();
+    alert( a === b );
+
+单件模式2.2   构造器属性
+
+    function Logger(){
+        if(typeof Logger.single_instance === 'undefined'){
+            Logger.single_instance = this;
+        }
+        return Logger.single_instance;
+    }
+    //page 275
+
+单件模式2.3   使用私有属性
+
+
+
+* 工厂模式
+
+var NYAPP = {};
+MYAPP.dom = {};
+MYAPP.dom.Text = function(){
+    this.insert = function(where){
+        var txt = document.createTextNode(this.url);
+        where.appendChild(txt);
+    };
+};
+
+MYAPP.dom.Link = function(){
+    this.insert = function(where){
+        var link = document.createElement('a');
+        link.href = this.url;
+        link.appendChild(document.createTextNode(this.url));
+        where.appendChild(link);
+    };
+};
+
+MYAPP.dom.Image = function(){
+    this.insert = function(where){
+        var im = document.createElement('img');
+        im.src = this.url;
+        where.appendChild(im);
+    };
+};
+
+// 使用
+
+var o = new MYAPP.dom.Image();
+o.url = 'http://www.baidu.com/images/pic.png';
+o.insert(document.body)
+
+var o = new MYAPP.dom.Text();
+o.url = '../20170607/images/pic.png';
+o.insert(document.body);
+
+var o = new MYAPP.dom.Link();
+o.url = '../20170607/images/pic2.png';
+o.insert(document.body);
+
+//响应用户操作
+
+var o;
+if(type === 'Image'){
+    o = new MYAPP.dom.Image();
+}
+if(type === 'Link'){
+    o = new MYAPP.dom.Link();
+}
+if(type === 'Text'){
+    o = new MYAPP.dom.Text();
+}
+
+o.url = 'http://....';
+o.inster();
+
+
+//给MYAPP.dom 工具添加一个工厂方法
+
+MYAPP.dom.factory = function(type){
+    return new MYAPP.dom[type];
+}
+
+//这样我们就能吧上面的三个if替换掉了

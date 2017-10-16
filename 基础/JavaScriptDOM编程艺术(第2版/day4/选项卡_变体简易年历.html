@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style type="text/css">
+        body,ul li,ul ol,ul { margin:0;padding: 0;background: #FFF; }
+        ul li,ul ol{list-style: none;}
+        .rl{width: 360px;margin: 40px auto 0;overflow: hidden;position: relative;border:1px solid #ccc;}
+        .rl ul{}
+        .rl ul li{width: 110px;height: 110px;text-align: center;line-height: 100px;background: #333;color: #fff;font-size: 40px;float: left;margin: 5px;font-weight: bold;position: relative;cursor: pointer;}
+        .rl ul li.curr{background: pink;color: #333;}
+        .rl ul li span{display: block;width: 100%;position: absolute;bottom: 20px;font-size: 22px;line-height: 0;}
+
+
+        .date{padding: 0 10px;}
+        .date h2{color: #222;font-size: 22px;}
+        .date p{color: #333;font-size: 18px;}
+    </style>
+</head>
+<body>
+
+<div class="rl" id='rl'>
+    <ul>
+        <li class="curr">1<span>JAN</span></li>
+        <li>2<span>FER</span></li>
+        <li>3<span>MAR</span></li>
+        <li>4<span>APR</span></li>
+        <li>5<span>MAY</span></li>
+        <li>6<span>JUN</span></li>
+        <li>7<span>JUL</span></li>
+        <li>8<span>AUG</span></li>
+        <li>9<span>SEP</span></li>
+        <li>10<span>OCT</span></li>
+        <li>11<span>NOV</span></li>
+        <li>12<span>DEC</span></li>
+    </ul>
+    <div class="date" id="date"></div>
+</div>
+
+</body>
+ <script type="text/javascript">
+
+    window.onload = function(){
+
+        var iList = document.getElementById('rl').getElementsByTagName('li');
+        var oDate = document.getElementById('date')
+        var arr = [
+        '<h2>一月活动</h2><p>001旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>二月活动</h2><p>002旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>三月活动</h2><p>003旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>四月活动</h2><p>004旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>五月活动</h2><p>005旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>六月活动</h2><p>005旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>七月活动</h2><p>007旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>八月活动</h2><p>008旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>九月活动</h2><p>009旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>十月活动</h2><p>0010旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>十一月活动</h2><p>0011旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>',
+        '<h2>十二月活动</h2><p>0012旨在更完善的为各位前端爱好者提供阅读和自我提升服务。 开发平台</p>'
+        ]
+
+        oDate.innerHTML = arr[0];
+        //console.log(arr[2])
+        for (var i = 0; i < iList.length; i++) {
+
+            iList[i].index = i;
+            iList[i].onmouseover = function(){
+                //重置
+                for (var i = 0; i < iList.length; i++) {
+                    iList[i].className = '';
+                    oDate.innerHTML = '';
+                }
+
+                this.className = 'curr';
+                oDate.innerHTML = arr[this.index];
+                // console.log(arr[this.index])
+            }
+
+        }
+
+    };
+
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{font-size: 13px;}
+			.wrapper{width: 960px;margin: 0 auto;}
+			#divTip{color: #fff;margin: 5px;padding: 10px;border: 1px solid #666666;background-color: #666666;width: 300px;}
+			.tips{margin-top: 30px;border: 1px solid red;-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h2>使用函数$.extend()扩展工具函数</h2>
+			<div id="divTip"></div>
+			
+			<div class="tips">
+				<h3>
+					工具函数$.extend()除可以扩展jquery自身函数外，还有一个很强悍的功能，
+					就是可以用以扩展已有的Object对象，其调用的语法格式为:
+					
+					<b>$.extend{target,object1,...[objectN]}</b>
+					<p>其中参数targeh表示合并后的对象，object为被合并对象，即可以将一个或多个对象合并成一个对象，最后返回该对象，</p>
+					<span>例如:</span>
+					<p>var objName = {name :"张三",sex :"男"};</p>
+					<p>var objInfo = {name:"李四",age:30}</p>
+					<p>var objLast = $.extend(objName.objInfo)</p>
+					
+					<h2>上面的代码的返回结果是：<em>objLast ={name:"李四",sex :"男",age:30};</em></h2>
+					<p>从返回结果不难看出，在$.extend()函数中，如果是合并对象，且存在相同参数的名称那么，<em style="font-size: 18px;color: green;font-weight: bold;">后面对象中的参数值将覆盖前面对象中的参数值</em></p>
+				</h3>
+			</div>
+		</div>
+	</body>
+	<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*
+		 功能: 返回两个数中的最大值
+		 参数: 数字p1,p2
+		 返回 : 最大值的一个数
+		 示例 : $.MaxNum(1,2);
+		 */
+		; (function($){
+			$.extend({
+				"MaxNum":function(p1,p2){
+				return (p1 > p2) ? p1 : p2;
+			}
+		});
+	})(jQuery);
+		
+		/*
+		 功能: 返回两个数中的最小值
+		 参数: 数字p1,p2
+		 返回 : 最大值的一个数
+		 示例 : $.MinNum(1,2);
+		*/
+		; (function($){
+			$.extend({"MinNum":function(p1,p2){
+				return (p1 > p2) ? p2 : p1;
+			}
+			});
+		})(jQuery);		
+		 
+		$(function(){
+			var strTmp = "5与6中的最大的数是:";
+			
+			strTmp += $.MaxNum(5,6);
+			strTmp += "<br /><br />7与8中的最小的数是:"
+			strTmp += $.MinNum(7,8);
+			
+			$("#divTip").append(strTmp);
+		});
+	</script>
+</html>

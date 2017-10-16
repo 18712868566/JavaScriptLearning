@@ -1,0 +1,24 @@
+### 表单
+
+** 输入控件类型
+
+* email ,用于输入单子邮件地址
+* url , 用于输入URL
+* date , 用于输入日期和时间
+* number , 用于输入数值
+* range , 用于生成滑动条
+* search , 用于搜索框
+* tel , 用于输入电话号码
+* color , 用于选择颜色
+
+** 新的属性
+
+* autocomplete , 用于为文本(text) 输入框添加一组建议的输入项
+* autofocus , 用于让表单自动获得焦点
+* form , 用于对<form> 标签外部的表单元素分组
+* min / max / step , 用于在范围(range)和数值(number)输入框中
+* pattern , 用于定义一个正则表达式,一般验证输入的值
+* placeholder ,  用于在文本输入框中显示临时性的提示信息
+* required , 表示必填
+
+

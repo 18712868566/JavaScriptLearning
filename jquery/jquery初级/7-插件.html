@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+    // $.trim()
+    // $.leftTrim()
+    $.extend({
+        leftTrim : function (str) {
+            return str.replace(/^\s+/,'');
+        },
+        rightTrim : function () {
+
+        }
+    })
+
+    var s1 = '    hello     ';
+
+    //alert('('+s1+')')
+    //alert('('+$.leftTrim(s1)+')')
+    // 25692.13
+    // 36124.95
+
+    $.fn.extend({
+        drag : function () {
+            //this : $('#div')
+            var disX = 0;
+            var disY = 0
+            var _this = this;
+
+            this.mousedown(function (ev) {
+                disX = ev.pageX - $(this).offset().left;
+                disY = ev.pageY - $(this).offset().top;
+
+                $(document).mousemove(function (ev) {
+                    _this.css( 'left', (ev.pageX - disX) );
+                    _this.css( 'top', (ev.pageY - disY) );
+                })
+
+                $(document).mouseup(function () {
+                    $(this).off();
+                })
+
+                return false;
+            })
+        }
+    })
+
+    // 给jq 扩展一个 drag() 方法 , 拖拽
+    $('#div1').drag();
+</script>
+</html>

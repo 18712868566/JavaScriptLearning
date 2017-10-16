@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		.box{width: 100px;height: 100px;background: green;
+			-webkit-transition: all 2s;
+			-o-transition: all 2s;
+			transition: all 2s;
+			cursor: pointer;
+			float: left;
+			-webkit-transform: skewX(-45deg);
+			-ms-transform: skewX(-45deg);
+			-o-transform: skewX(-45deg);
+			transform: skewX(-45deg);
+		}
+		
+		.box span{
+			-webkit-transform: skewX(45deg);
+			-ms-transform: skewX(45deg);
+			-o-transform: skewX(45deg);
+			transform: skewX(45deg);
+			display: block;
+			font:16px/100px '微软雅黑';
+			text-align: center;
+			color: #fff;
+		}
+
+		/*  简写方式  */
+		</style>
+	</head>
+	<body >
+		<div class="box">
+			<span>transform1</span>
+		</div>
+		<div class="box">
+			<span>transform2</span>
+		</div>
+	</body>
+</html>

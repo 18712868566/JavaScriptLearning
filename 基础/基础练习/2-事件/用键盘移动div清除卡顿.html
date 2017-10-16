@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #div1{width: 100px;height: 100px;background: blue;position: absolute;left: 100px;top: 100px;}
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+<script type="text/javascript">
+   window.onload = function(){
+
+    var oDiv = document.getElementById('div1');
+    var iTarget = 20;
+    var timer = null;
+
+    // 初始化四个方向
+    var oLeft= oTop = oRight = oBottom = false;
+
+    // 按下时改变状态
+    document.onkeydown = function(ev){
+        var oEvent = ev || window.event;
+        // alert(oEvent.keyCode);
+        // 左: 37
+        // 上: 38
+        // 右: 39
+        // 下: 40
+        var keyCode = oEvent.keyCode;
+
+        switch(keyCode){
+            case 37:
+                oLeft = true;
+                break;
+            case 38:
+                oTop = true;
+                break;
+            case 39:
+                oRight = true;
+                break;
+            case 40:
+                oBottom = true;
+                break;
+
+        }
+    }
+
+    // 设置一个定时，时间为30左右，不要太高也不要太低
+    // 先开一个定时器，让div一直处于（往4个方向）准备移动的状态
+    timer = setInterval(function(){
+        var iSpeed = iTarget/8;
+        // 当其中一个条件为true时，则执行当前函数（移动对应方向）
+        if (oLeft) {
+            oDiv.style.left = oDiv.offsetLeft - iSpeed +'px';
+        }else if(oRight){
+            oDiv.style.left = oDiv.offsetLeft + iSpeed +'px';
+        }else if(oTop){
+            oDiv.style.top = oDiv.offsetTop - iSpeed +'px';
+        }else if(oBottom){
+            oDiv.style.top = oDiv.offsetTop + iSpeed +'px';
+        }
+    },30)
+
+    //执行完后，所有对应变量恢复为false，保持静止不动
+    document.onkeyup = function(ev){
+        var oEvent = ev || window.event;
+        var keyCode = oEvent.keyCode;
+        switch(keyCode){
+            case 37:
+                oLeft = false;
+                break;
+            case 38:
+                oTop = false;
+                break;
+            case 39:
+                oRight = false;
+                break;
+            case 40:
+                oBottom = false;
+                break;
+        }
+    }
+   };
+</script>
+</html>

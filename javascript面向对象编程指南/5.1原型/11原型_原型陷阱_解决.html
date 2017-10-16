@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>一些原型陷阱</p>
+</body>
+<script>
+   function Dog () {
+       // body...
+       this.tail = true;
+   }
+
+   var benji = new Dog();
+   var rusty = new Dog();
+
+   Dog.prototype.say = function (){
+    return 'Woof!';
+   }
+
+  //我们可以通过下面两行代码解决 上一节 所有异常
+  Dog.prototype = {paws:4,hair;true};
+  Dog.prototype.constructor = Dog;
+
+  //待完成
+  //最佳实践,当我们重写某对象的prototype时,重置相应的constructor 是个好习惯
+  
+</script>
+</html>

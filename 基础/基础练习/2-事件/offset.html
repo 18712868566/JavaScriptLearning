@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{margin: 0;padding: 0;}
+    #div{width: 100px;height: 100px;background: red;padding: 10px;border: 10px solid orange;margin: 20px;position: absolute;left: 100px;}
+    </style>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+<script type="text/javascript">
+    window.onload = function(){
+        var oDiv = document.getElementById('div');
+        // alert(oDiv.offsetWidth);
+        // alert(oDiv.offsetHeight);
+        // alert(oDiv.offsetTop);
+        // alert(oDiv.offsetLeft);
+        alert(oDiv.offsetBottom);
+    }
+
+    // offset 就是元素实际的位置 和 实际的大小
+</script>
+
+</html>
