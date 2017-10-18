@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* body{text-align: center;} */
+        /* p{display: inline-block;margin: 0 5px;position: relative;} */
+        p a{display: block;width: 100px;height: 100px;background: red;}
+    </style>
+</head>
+<body>
+    <p><a class="tooltip" href="javascript:;" title="这是我的超链接提示1">提示1</a></p>
+    <p><a class="tooltip" href="javascript:;" title="这是我的超链接提示2">提示2</a></p>
+    <p><a href="javascript:;" title="这是我的超链接提示3">提示3</a></p>
+    <p><a href="javascript:;" title="这是我的超链接提示4">提示4</a></p>
+
+    <input type="text" placeholder="aaa">
+</body>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+    $('.tooltip').mouseover(function(e){
+        console.log(e.pageX)
+        console.log(e.pageY)
+        this.disX = 10;
+        this.disY = 10;
+        this.myTitle = this.title;
+        this.title = '';
+        var tooltip = '<div id="tooltip">'+ this.myTitle +'</div>';
+        $('body').append(tooltip);
+        $('#tooltip').css({
+            'position':'absolute',
+            'top': e.pageY+this.disY,
+            'left': e.pageX+this.disX,
+            'background':'green'
+        }).show('fast');
+    }).mouseout(function(){
+        this.title = this.myTitle;
+        $('#tooltip').remove();
+    }).mousemove(function(e){
+        $('#tooltip').css({
+            'top': e.pageY+this.disY,
+            'left': e.pageX+this.disX
+        });
+    });
+
+    $('input').trigger('focus');
+})
+</script>
+</html>

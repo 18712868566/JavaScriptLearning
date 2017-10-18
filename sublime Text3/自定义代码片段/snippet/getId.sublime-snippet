@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+var ${1:name} = document.getElementById("${2:name}");
+${3}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>getId</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.js</scope>
+</snippet>

@@ -1,0 +1,25 @@
+<snippet>
+    <content><![CDATA[
+/*
+    所有自定义代码段的后缀名必须是以下后缀名
+
+    .sublime-snippet
+
+    Hello, ${1:this} is a ${2:snippet}.
+
+    坦克世界
+    页脚处调用：<!--#include virtual="/ssi/footer-utf.html" --><!--引入CMS页脚-->
+
+    装甲战争
+    页脚处调用：<!--#include virtual="/ssi/footer201705.html" --><!--引入CMS页脚-->
+
+    战舰世界
+    页脚处调用：<!--#include virtual="/style_1606/footer.html" --><!--引入CMS页脚-->
+*/
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>kz</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.js</scope>
+</snippet>

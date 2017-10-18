@@ -1,0 +1,48 @@
+<!--
+<snippet>
+    <content><![CDATA[ 你需要插入的代码片段${1:name} ]]></content>
+    可选：快捷键，利用Tab自动补全代码的功能
+    <tabTrigger>xyzzy</tabTrigger>
+    可选：使用范围，不填写代表对所有文件有效。附：source.css和test.html分别对应不同文件。
+    <scope>source.python</scope>
+    可选：在snippet菜单中的显示说明（支持中文）。如果不定义，菜单则显示当前文件的文件名。
+    <description>My Fancy Snippet</description>
+</snippet>
+创建完毕以后，保存在\Packages\User目录下（例 X:\Sublime Text 2.0\Data\Packages\User），文件命名为cft-code，后缀名.sublime-snippet。
+
+// 实例:
+<snippet>
+    <content><![CDATA[
+Hello, ${1:this} is a ${2:snippet}.
+]]></content>
+    Optional: Set a tabTrigger to define how to trigger the snippet
+    <tabTrigger>hello</tabTrigger>
+    Optional: Set a scope to limit where the snippet will trigger
+    <scope>source.python</scope>
+</snippet>
+-->
+
+
+<!--
+
+文件的后缀必须为 .sublime-snippet，只有这个后缀sublime text 才能识别代码块，才会有作用，把文件保存到目录： C:\Users\q\AppData\Roaming\Sublime Text 2\Packages\User\snippets
+
+snippets是自己新建的文件夹，将所有的代码块文件放到这里，便于管理。
+
+使用代码块有两种方法，第一种是快捷的，写下触发tab键的代码块的名称，如下，然后点击tab键，奇迹就出现啦
+
+ -->
+
+<snippet>
+<content><![CDATA[
+    /**
+     *@des:功能详细描述
+     *@author:qinbb
+     *@date:日期
+    */
+]]></content>
+<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+<tabTrigger>JSdes</tabTrigger>
+<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<scope>source.js</scope>
+</snippet>
