@@ -3,15 +3,37 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>01-jquery案例-</title>
+        <title>01-jquery案例-事件模拟</title>
         <link rel="stylesheet" href="">
     </head>
     <body>
-
+        <div id="test"></div>
+        <input type="button" name="" value="btn" id="btn">
+        <br />
+        <br />
+        <input id="name" type="text" name="" placeholder="user name">
     </body>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
+
+            // 触发自定义事件
+            $('#btn').bind('myclick',function(){
+                $('#test').append('<p>我是自定义事件.</p>')
+            });
+
+            $('#btn').trigger('myclick');
+
+            // 执行默认事件 --- 文本框获得焦点
+            $('#name').trigger('focus');
+
+            //绑定多个事件
+
+            // 添加命名空间便于管理
+
+            // 相同事件名称不同命名空间执行方法
+
+
 
         })
     </script>
