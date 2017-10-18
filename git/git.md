@@ -133,3 +133,9 @@
 
 命令：$ git push origin 【空格】【冒号】【你的分支名字】
 	$ git push origin :feature
+
+
+# 多端同步
+
+1. git clone -b hexo git@github.com:yourname/yourname.github.io.git  //将Github中hexo分支clone到本地
+2. git pull origin hexo  //先pull完成本地与远端的融合
