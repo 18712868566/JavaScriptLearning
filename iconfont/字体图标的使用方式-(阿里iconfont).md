@@ -46,8 +46,5 @@ font-class是unicode使用方式的一种变种，主要是解决unicode书写�
 * 浏览器渲染svg的性能一般，还不如png。
 
 
-## sublime git 方式提交
-
-> [sublime Text3的插件sublimeGit](https://segmentfault.com/a/1190000007200311)
 
 
