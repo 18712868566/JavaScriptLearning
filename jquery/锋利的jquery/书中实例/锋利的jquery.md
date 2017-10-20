@@ -50,7 +50,7 @@
 
 >   **之前不常用,但是有用的选择器**
 
-    * 基本过滤选择器 
+    * 基本过滤选择器
         :gt(index) : 选取索引大于index的元素     index从0开始
         :lt(index) : 选取索引小于index的元素     index从0开始
 
@@ -76,7 +76,7 @@
     函数中的参数 e 就是事件对象, 存储这事件触发的一些细节
     ```
     ('div').click(function(event){
-        // event.stopPropagation()          // 阻止事件冒泡  
+        // event.stopPropagation()          // 阻止事件冒泡
         // event.preventDefault()           // 阻止默认事件
         // event.type()                     // 获取事件类型
         // event.target()                   // 获取到触发事件的元素
@@ -110,5 +110,5 @@
     ```
     // 页面加载后 input 自动获得焦点
     $('input').trigger('focus');
-    ```    
+    ```
 

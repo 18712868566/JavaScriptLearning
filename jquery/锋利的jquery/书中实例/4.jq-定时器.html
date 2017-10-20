@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>04-jquery案例-定时器</title>
+    <link rel="stylesheet" href="">
+</head>
+<div id="ind"></div>
+<body>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+var t, n, count = 0;
+$(function() {　　
+    t = setInterval("showAuto()", 1000);
+})
+
+function showAuto() {　　
+    $('#ind').html(count++);
+}
+</script>
+
+</html>
